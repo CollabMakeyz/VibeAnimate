@@ -37,13 +37,13 @@ known limitations, and a demo project before it is checked.
 
 - [x] Feature matrix and research evidence/confidence classification (95 items).
 - [ ] Panel, tool (including contextual behavior), and menu inventories.
-- [ ] Verified/provisional/unknown Windows/macOS shortcut matrix.
+- [x] Verified/provisional/unknown Windows/macOS shortcut matrix.
 - [x] Merge/Object Drawing specifications and vector model ADR.
-- [ ] Timeline, tween comparison, symbols, IK and 3D behavior specifications.
+- [x] Timeline, tween comparison, symbols, IK and 3D behavior specifications.
 - [x] XFL/SWF compatibility decision.
 - [x] Pointer Events capability matrix and native fallback decision.
-- [ ] Renderer comparison and licensing inventory.
-- [ ] Risk register, test plan and benchmark plan.
+- [x] Renderer comparison and licensing inventory.
+- [x] Risk register, test plan and benchmark plan.
 
 ## Phase One exit gates
 
@@ -57,18 +57,25 @@ known limitations, and a demo project before it is checked.
 
 PARTIAL — Phase Zero. Read all 3,857 lines of the supplied plan and established that
 the initial repository contained only README.md. Created the required first-delivery
-research documents, four ADRs, a 95-item feature matrix, 15-source bibliography,
+research documents, four ADRs, a 95-item feature matrix, 16-source bibliography,
 19-risk register, panel/tool/menu/shortcut inventories, testing and benchmark plans.
 
-Dependency-free research harness and disposable numerical experiments: 33 tests
+Dependency-free research harness and disposable numerical experiments: 46 tests
 passed on Windows/Node 24.19.0. `npm run check` validates research references,
 matrix synchronization, absence of unaudited package dependencies, and tests.
 `npm run gate:phase-zero` correctly fails while the research gate is incomplete.
 Benchmark evidence: `docs/checkpoints/phase-zero-numerics.json` (20,000 cases per
-batch, ten measured batches; not a graphics/frame-rate benchmark).
+batch, ten measured batches; not a graphics/frame-rate benchmark). Thirty browser AA
+scenarios also measured successfully, including shared edges and a decomposed hole:
+`docs/checkpoints/phase-zero-rendering-boundaries.json`. Independent fringe produced
+visible internal seams; MSAA and supersampling preserved the shared boundary.
+Original cubic-to-quadratic conversion passed 200 seeded-curve bound checks.
 
-Next: complete historical per-tool/Motion Editor/3D details, full menu and shortcut
-coverage, solver/fitting literature review and renderer AA/tessellation experiments.
+Research gate review now leaves one open item: reconcile the supplemental dated
+menu inventory against the primary manual, preserving source conflicts explicitly.
+Motion Editor/shape hints/span boundaries, primitive/text/3D tools and solver/fitting
+literature are specified; provisional shortcuts remain clearly identified.
+Next: finish that inventory reconciliation and run the Phase Zero exit check.
 Then close Phase Zero based on evidence and enter Phase One. No production feature
 has been accepted. Rust/Cargo and physical tablet validation are still unavailable.
 

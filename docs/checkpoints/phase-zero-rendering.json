@@ -1,0 +1,534 @@
+{
+  "kind": "convex-aa-research",
+  "createdAt": "2026-10-11T01:35:58.347Z",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+  "actualDevicePixelRatio": 1,
+  "logicalSize": [
+    192,
+    128
+  ],
+  "polygon": [
+    [
+      17.35,
+      23.65
+    ],
+    [
+      151.8,
+      12.25
+    ],
+    [
+      177.4,
+      99.7
+    ],
+    [
+      48.6,
+      111.35
+    ]
+  ],
+  "reference": "16x16 numerical subpixel grid per output pixel",
+  "timing": "12 samples after 3 warmups; CPU submit + synchronous readback + flip/box resolve; not presentation/GPU-only latency",
+  "limitations": [
+    "One convex opaque shape",
+    "No holes, shared edges, filters, complex paint, native WebViews or device input",
+    "Software/remote GPU possible; generic renderer string does not certify hardware"
+  ],
+  "results": [
+    {
+      "mode": "aliased",
+      "dpr": 1,
+      "status": "MEASURED",
+      "contextAttributes": {
+        "alpha": true,
+        "antialias": false,
+        "depth": false,
+        "desynchronized": false,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "default",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false,
+        "xrCompatible": false
+      },
+      "samples": 0,
+      "renderer": "WebKit WebGL",
+      "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "triangles": 2,
+      "meshBytes": 72,
+      "backingWidth": 192,
+      "backingHeight": 128,
+      "minimumColorStorageBytes": 98304,
+      "memoryNote": "Lower bound for color storage only; excludes driver, resolve, readback and compositor allocations",
+      "quality": {
+        "meanAbsolute": 0.004509131113688151,
+        "rootMeanSquared": 0.03851161173712669,
+        "maximum": 0.5,
+        "edgeMeanAbsolute": 0.22848743556701032,
+        "edgePixels": 485,
+        "areaBiasPixels": -1.66015625
+      },
+      "milliseconds": {
+        "min": 1.699999999254942,
+        "p50": 3,
+        "p95": 12.400000002235174,
+        "samples": [
+          1.699999999254942,
+          2.100000001490116,
+          2.199999999254942,
+          2.2000000029802322,
+          2.899999998509884,
+          3,
+          3.099999997764826,
+          3.300000000745058,
+          3.600000001490116,
+          6.099999997764826,
+          7.399999998509884,
+          12.400000002235174
+        ]
+      }
+    },
+    {
+      "mode": "native-msaa",
+      "dpr": 1,
+      "status": "MEASURED",
+      "contextAttributes": {
+        "alpha": true,
+        "antialias": true,
+        "depth": false,
+        "desynchronized": false,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "default",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false,
+        "xrCompatible": false
+      },
+      "samples": 4,
+      "renderer": "WebKit WebGL",
+      "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "triangles": 2,
+      "meshBytes": 72,
+      "backingWidth": 192,
+      "backingHeight": 128,
+      "minimumColorStorageBytes": 393216,
+      "memoryNote": "Lower bound for color storage only; excludes driver, resolve, readback and compositor allocations",
+      "quality": {
+        "meanAbsolute": 0.0014373548669752714,
+        "rootMeanSquared": 0.012710742968239378,
+        "maximum": 0.2597732843137255,
+        "edgeMeanAbsolute": 0.07283388290883355,
+        "edgePixels": 485,
+        "areaBiasPixels": -0.3307444852941188
+      },
+      "milliseconds": {
+        "min": 2.300000000745058,
+        "p50": 4,
+        "p95": 9.400000002235174,
+        "samples": [
+          2.300000000745058,
+          2.399999998509884,
+          2.5,
+          2.699999999254942,
+          3.400000002235174,
+          4,
+          4.599999997764826,
+          8,
+          8.300000000745058,
+          8.899999998509884,
+          9,
+          9.400000002235174
+        ]
+      }
+    },
+    {
+      "mode": "fringe",
+      "dpr": 1,
+      "status": "MEASURED",
+      "contextAttributes": {
+        "alpha": true,
+        "antialias": false,
+        "depth": false,
+        "desynchronized": false,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "default",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false,
+        "xrCompatible": false
+      },
+      "samples": 0,
+      "renderer": "WebKit WebGL",
+      "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "triangles": 10,
+      "meshBytes": 360,
+      "backingWidth": 192,
+      "backingHeight": 128,
+      "minimumColorStorageBytes": 98304,
+      "memoryNote": "Lower bound for color storage only; excludes driver, resolve, readback and compositor allocations",
+      "quality": {
+        "meanAbsolute": 0.0001501376332800374,
+        "rootMeanSquared": 0.002224745612067697,
+        "maximum": 0.20451899509803922,
+        "edgeMeanAbsolute": 0.007607798918536493,
+        "edgePixels": 485,
+        "areaBiasPixels": 0.49278492647058836
+      },
+      "milliseconds": {
+        "min": 2,
+        "p50": 2.400000002235174,
+        "p95": 8.199999999254942,
+        "samples": [
+          2,
+          2,
+          2.099999997764826,
+          2.199999999254942,
+          2.2999999970197678,
+          2.400000002235174,
+          2.5,
+          2.899999998509884,
+          2.900000002235174,
+          4.199999999254942,
+          8.100000001490116,
+          8.199999999254942
+        ]
+      }
+    },
+    {
+      "mode": "supersample-2x",
+      "dpr": 1,
+      "status": "MEASURED",
+      "contextAttributes": {
+        "alpha": true,
+        "antialias": false,
+        "depth": false,
+        "desynchronized": false,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "default",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false,
+        "xrCompatible": false
+      },
+      "samples": 0,
+      "renderer": "WebKit WebGL",
+      "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "triangles": 2,
+      "meshBytes": 72,
+      "backingWidth": 384,
+      "backingHeight": 256,
+      "minimumColorStorageBytes": 393216,
+      "memoryNote": "Lower bound for color storage only; excludes driver, resolve, readback and compositor allocations",
+      "quality": {
+        "meanAbsolute": 0.0017049346873962794,
+        "rootMeanSquared": 0.015117946040386417,
+        "maximum": 0.2265625,
+        "edgeMeanAbsolute": 0.08639273170608446,
+        "edgePixels": 485,
+        "areaBiasPixels": 0.684941789215685
+      },
+      "milliseconds": {
+        "min": 4.799999997019768,
+        "p50": 8.399999998509884,
+        "p95": 12.100000001490116,
+        "samples": [
+          4.799999997019768,
+          5.700000002980232,
+          5.800000000745058,
+          5.900000002235174,
+          6,
+          8.399999998509884,
+          8.800000000745058,
+          9.099999997764826,
+          9.200000002980232,
+          9.699999999254942,
+          10.699999999254942,
+          12.100000001490116
+        ]
+      }
+    },
+    {
+      "mode": "canvas-2d",
+      "dpr": 1,
+      "status": "MEASURED",
+      "context": "Canvas2D",
+      "triangles": null,
+      "backingWidth": 192,
+      "backingHeight": 128,
+      "quality": {
+        "meanAbsolute": 0.000620896208520029,
+        "rootMeanSquared": 0.005788015290036859,
+        "maximum": 0.10410539215686276,
+        "edgeMeanAbsolute": 0.03027608178688141,
+        "edgePixels": 504,
+        "areaBiasPixels": -10.989568014705892
+      },
+      "milliseconds": {
+        "min": 0.09999999776482582,
+        "p50": 0.10000000149011612,
+        "p95": 0.30000000074505806,
+        "samples": [
+          0.09999999776482582,
+          0.09999999776482582,
+          0.09999999776482582,
+          0.09999999776482582,
+          0.10000000149011612,
+          0.10000000149011612,
+          0.10000000149011612,
+          0.10000000149011612,
+          0.19999999925494194,
+          0.19999999925494194,
+          0.20000000298023224,
+          0.30000000074505806
+        ]
+      }
+    },
+    {
+      "mode": "aliased",
+      "dpr": 2,
+      "status": "MEASURED",
+      "contextAttributes": {
+        "alpha": true,
+        "antialias": false,
+        "depth": false,
+        "desynchronized": false,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "default",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false,
+        "xrCompatible": false
+      },
+      "samples": 0,
+      "renderer": "WebKit WebGL",
+      "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "triangles": 2,
+      "meshBytes": 72,
+      "backingWidth": 384,
+      "backingHeight": 256,
+      "minimumColorStorageBytes": 393216,
+      "memoryNote": "Lower bound for color storage only; excludes driver, resolve, readback and compositor allocations",
+      "quality": {
+        "meanAbsolute": 0.0022590160369873047,
+        "rootMeanSquared": 0.027281059197832455,
+        "maximum": 0.5,
+        "edgeMeanAbsolute": 0.22893846649484537,
+        "edgePixels": 970,
+        "areaBiasPixels": 1.3671875
+      },
+      "milliseconds": {
+        "min": 6.899999998509884,
+        "p50": 8.900000002235174,
+        "p95": 16.199999999254942,
+        "samples": [
+          6.899999998509884,
+          7.199999999254942,
+          7.699999999254942,
+          8.199999999254942,
+          8.899999998509884,
+          8.900000002235174,
+          9.199999999254942,
+          9.800000000745058,
+          10.300000000745058,
+          10.5,
+          14.5,
+          16.199999999254942
+        ]
+      }
+    },
+    {
+      "mode": "native-msaa",
+      "dpr": 2,
+      "status": "MEASURED",
+      "contextAttributes": {
+        "alpha": true,
+        "antialias": true,
+        "depth": false,
+        "desynchronized": false,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "default",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false,
+        "xrCompatible": false
+      },
+      "samples": 4,
+      "renderer": "WebKit WebGL",
+      "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "triangles": 2,
+      "meshBytes": 72,
+      "backingWidth": 384,
+      "backingHeight": 256,
+      "minimumColorStorageBytes": 1572864,
+      "memoryNote": "Lower bound for color storage only; excludes driver, resolve, readback and compositor allocations",
+      "quality": {
+        "meanAbsolute": 0.0007214477638793144,
+        "rootMeanSquared": 0.009011389290137607,
+        "maximum": 0.2558517156862745,
+        "edgeMeanAbsolute": 0.07311464018597125,
+        "edgePixels": 970,
+        "areaBiasPixels": 0.28483455882352704
+      },
+      "milliseconds": {
+        "min": 5.200000002980232,
+        "p50": 8.400000002235174,
+        "p95": 15.100000001490116,
+        "samples": [
+          5.200000002980232,
+          6.599999997764826,
+          7.699999999254942,
+          8.100000001490116,
+          8.300000000745058,
+          8.400000002235174,
+          8.900000002235174,
+          9.099999997764826,
+          9.299999997019768,
+          10.900000002235174,
+          14.199999999254942,
+          15.100000001490116
+        ]
+      }
+    },
+    {
+      "mode": "fringe",
+      "dpr": 2,
+      "status": "MEASURED",
+      "contextAttributes": {
+        "alpha": true,
+        "antialias": false,
+        "depth": false,
+        "desynchronized": false,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "default",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false,
+        "xrCompatible": false
+      },
+      "samples": 0,
+      "renderer": "WebKit WebGL",
+      "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "triangles": 10,
+      "meshBytes": 360,
+      "backingWidth": 384,
+      "backingHeight": 256,
+      "minimumColorStorageBytes": 393216,
+      "memoryNote": "Lower bound for color storage only; excludes driver, resolve, readback and compositor allocations",
+      "quality": {
+        "meanAbsolute": 0.00006828931422015419,
+        "rootMeanSquared": 0.0011527181859508763,
+        "maximum": 0.16597732843137253,
+        "edgeMeanAbsolute": 0.0069207347887608635,
+        "edgePixels": 970,
+        "areaBiasPixels": 0.4416973039215682
+      },
+      "milliseconds": {
+        "min": 3.899999998509884,
+        "p50": 9.399999998509884,
+        "p95": 13,
+        "samples": [
+          3.899999998509884,
+          5.300000000745058,
+          6.699999999254942,
+          7.100000001490116,
+          7.900000002235174,
+          9.399999998509884,
+          9.400000002235174,
+          10.599999997764826,
+          10.899999998509884,
+          11.099999997764826,
+          12.199999999254942,
+          13
+        ]
+      }
+    },
+    {
+      "mode": "supersample-2x",
+      "dpr": 2,
+      "status": "MEASURED",
+      "contextAttributes": {
+        "alpha": true,
+        "antialias": false,
+        "depth": false,
+        "desynchronized": false,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "default",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false,
+        "xrCompatible": false
+      },
+      "samples": 0,
+      "renderer": "WebKit WebGL",
+      "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "triangles": 2,
+      "meshBytes": 72,
+      "backingWidth": 768,
+      "backingHeight": 512,
+      "minimumColorStorageBytes": 1572864,
+      "memoryNote": "Lower bound for color storage only; excludes driver, resolve, readback and compositor allocations",
+      "quality": {
+        "meanAbsolute": 0.0008506282482271879,
+        "rootMeanSquared": 0.010654384887259975,
+        "maximum": 0.2265625,
+        "edgeMeanAbsolute": 0.08620634980796442,
+        "edgePixels": 970,
+        "areaBiasPixels": 0.8220894607843112
+      },
+      "milliseconds": {
+        "min": 14.099999997764826,
+        "p50": 19.099999997764826,
+        "p95": 25.799999997019768,
+        "samples": [
+          14.099999997764826,
+          16.100000001490116,
+          16.5,
+          17.800000000745058,
+          19,
+          19.099999997764826,
+          19.5,
+          19.800000000745058,
+          21.699999999254942,
+          23.400000002235174,
+          25,
+          25.799999997019768
+        ]
+      }
+    },
+    {
+      "mode": "canvas-2d",
+      "dpr": 2,
+      "status": "MEASURED",
+      "context": "Canvas2D",
+      "triangles": null,
+      "backingWidth": 384,
+      "backingHeight": 256,
+      "quality": {
+        "meanAbsolute": 0.0003308417750339881,
+        "rootMeanSquared": 0.0043183350584105095,
+        "maximum": 0.12109375,
+        "edgeMeanAbsolute": 0.03220105926033779,
+        "edgePixels": 1010,
+        "areaBiasPixels": 22.210324754901954
+      },
+      "milliseconds": {
+        "min": 0.30000000074505806,
+        "p50": 0.3999999985098839,
+        "p95": 0.5,
+        "samples": [
+          0.30000000074505806,
+          0.30000000074505806,
+          0.30000000074505806,
+          0.30000000074505806,
+          0.3999999985098839,
+          0.3999999985098839,
+          0.3999999985098839,
+          0.3999999985098839,
+          0.4000000022351742,
+          0.5,
+          0.5,
+          0.5
+        ]
+      }
+    }
+  ],
+  "status": "MEASURED"
+}

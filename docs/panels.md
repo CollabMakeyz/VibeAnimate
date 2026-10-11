@@ -16,9 +16,9 @@ are recorded here for research; the application's artwork must be original.
 | Timeline | Layer list, frame area, playhead, fps/time, onion controls | 27–29 | M5 | Virtualization and dock/float |
 | Color | Solid/gradient/bitmap, alpha and color models | 132–135 | M3 | Editing updates model via command |
 | Swatches | Document palette, duplicate/delete/load/save | 133,138 | M3 | Palette persistence and active paint |
-| Align | Horizontal/vertical alignment and distribution | Artwork section; exact controls pending | M3 | Stage vs selection reference and undo |
+| Align | Left/center/right and top/center/bottom alignment; distribution/size matching; To Stage switch | 126; dated menu inventory supplement | M3 | Stage vs selection reference and undo |
 | Transform | Numeric transforms and pivots | 118–122,233 | M3/M8 | Matrix correctness and IK attachment |
-| Info | Coordinate/dimension readout | Exact control inventory pending | M2/M11 | Coordinate convention and readout rate |
+| Info | Editable X/Y plus registration/transformation-point mode and dimensions | 119,129 | M2/M11 | Coordinate convention and readout rate |
 | History | Undo/redo and historical repeatable steps | 34–38 | M1/M11 | Bounded journal; repeat capability distinct |
 | Actions | Script editor tied to current context | 31–32,338 | M9 | Original isolated API; not JSFL/AS parity |
 | Motion Editor | Property curves/keys/ease, linked spatial keys, nonspatial tangent handles, ratio links, eased overlay | 208–214 | M7 | Graph manipulation and keyboard editing; spatial curves edited on Stage |
@@ -56,3 +56,11 @@ on; the one/two-column Tools switch is explicitly excluded for Flash. The plan's
 1/2-column option is therefore a modern extension. Flash saves a workspace through
 the Application bar switcher; Window > Workspace examples for Photoshop are not
 verified Flash menu entries. Info registration/pivot readout is specified on PDF 119.
+
+Control semantics now reviewed: Info defaults to top-left selection coordinates
+relative to Stage; its registration/transformation toggle exposes the pivot.
+Transform offers numeric scale/rotation/skew, copy/apply and removal of transforms
+(PDF 119–122); base geometry and transform must remain separable. Align's To Stage
+changes the reference bounds, not the coordinate system. Motion Editor control
+details and historical restrictions are in `timeline-model.md`. Unverified visual
+spacing/icon details are deliberately original UI, not compatibility evidence.

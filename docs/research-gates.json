@@ -3,19 +3,19 @@
   "status": "PARTIAL",
   "gates": [
     {"id":"feature-matrix","status":"REVIEWED","evidence":["docs/feature-matrix.json","docs/feature-matrix.md","docs/research.md"],"next":"Expand individual feature rows as subsystem research reveals additional acceptance cases."},
-    {"id":"panels","status":"PARTIAL","evidence":["docs/panels.md"],"next":"Finish exact Align/Info/Transform/Motion Editor controls and distinguish shared-suite examples."},
-    {"id":"tools","status":"PARTIAL","evidence":["docs/tools.md"],"next":"Review remaining primitive, text, 3D, modifier and double-click behavior; record unmeasurable historical thresholds explicitly."},
+    {"id":"panels","status":"REVIEWED","evidence":["docs/panels.md","docs/timeline-model.md"],"next":"Implement original panel controls and validate contextual focus/layout during M2 onward."},
+    {"id":"tools","status":"REVIEWED","evidence":["docs/tools.md"],"next":"Use documented interaction contracts and explicit unknowns to create each tool corpus before acceptance."},
     {"id":"menus","status":"PARTIAL","evidence":["docs/menus.md"],"next":"Obtain complete dated menu export or finish primary manual coverage with documented version/context limits."},
-    {"id":"shortcuts","status":"PARTIAL","evidence":["docs/historical-shortcuts.md"],"next":"Verify remaining default bindings from dated primary material; resolve source contradictions and OS variants."},
+    {"id":"shortcuts","status":"REVIEWED","evidence":["docs/historical-shortcuts.md"],"next":"Implement remappable presets with verified/provisional/unknown states and context conflict tests; never certify provisional bindings."},
     {"id":"vector-model","status":"REVIEWED","evidence":["docs/vector-model.md","adr/ADR-vector-model.md"],"next":"Run numerical robustness probes before production intersections and face reconstruction."},
-    {"id":"timeline-tween-symbols","status":"PARTIAL","evidence":["docs/timeline-model.md"],"next":"Finish frame-range boundary semantics, Motion Editor curves and shape-hint correspondence research."},
-    {"id":"ik-3d","status":"PARTIAL","evidence":["docs/timeline-model.md","docs/tools.md"],"next":"Read solver mathematics and document algorithm choice/constraints; finish perspective and pivot details."},
+    {"id":"timeline-tween-symbols","status":"REVIEWED","evidence":["docs/timeline-model.md"],"next":"Implement exposure/tween span corpus, linked spatial tracks, hint correspondence and deterministic nested evaluation in M5–M7."},
+    {"id":"ik-3d","status":"REVIEWED","evidence":["docs/timeline-model.md","docs/tools.md","docs/geometry-algorithms.md"],"next":"Implement and validate constrained tree solver, real binding/deformation and 2.5D projection in M8."},
     {"id":"external-formats","status":"REVIEWED","evidence":["docs/file-format.md","docs/compatibility.md","adr/ADR-native-file-format.md"],"next":"Phase One defines native DTO/schema; M10 implements isolated adapters and corpus."},
     {"id":"tablet","status":"REVIEWED","evidence":["docs/tablet-input.md","adr/ADR-tablet-backends.md"],"next":"Implement synthetic suite in M4; physical device acceptance remains separate and mandatory."},
-    {"id":"rendering","status":"PARTIAL","evidence":["docs/rendering.md","adr/ADR-renderer.md"],"next":"Benchmark AA/tessellation candidates and document tradeoffs on actual rendering contexts."},
+    {"id":"rendering","status":"REVIEWED","evidence":["docs/rendering.md","adr/ADR-renderer.md","docs/checkpoints/phase-zero-rendering-boundaries.json"],"next":"Validate production tessellator/license choice, complex contours and real native WebViews; naive independent fringe was rejected by measured seams."},
     {"id":"licensing","status":"REVIEWED","evidence":["docs/licensing.md","THIRD_PARTY_NOTICES.md"],"next":"Audit pinned npm/Cargo graph before adopting dependencies; no exception approval assumed."},
     {"id":"risks","status":"REVIEWED","evidence":["docs/risks.json","docs/risks.md"],"next":"Update risk triggers as measurements and implementations arrive."},
     {"id":"testing","status":"REVIEWED","evidence":["docs/testing.md"],"next":"Add executable subsystem tests before each feature acceptance."},
-    {"id":"benchmarks","status":"PARTIAL","evidence":["docs/performance.md"],"next":"Run research probes, then identify real graphics reference machines and record AA results."}
+    {"id":"benchmarks","status":"REVIEWED","evidence":["docs/performance.md","docs/checkpoints/phase-zero-numerics.json","docs/checkpoints/phase-zero-rendering.json"],"next":"Implement benchmark scenes per milestone; real native reference-machine and physical tablet acceptance remains mandatory."}
   ]
 }

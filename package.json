@@ -14,6 +14,7 @@
     "check:licenses": "node scripts/check-licenses.mjs",
     "check": "npm run check:research && npm run check:matrix && npm run check:licenses && npm test",
     "benchmark:research": "node experiments/numerics/benchmark.mjs",
+    "probe:rendering": "node experiments/rendering/server.mjs",
     "doctor": "node scripts/doctor.mjs"
   }
 }

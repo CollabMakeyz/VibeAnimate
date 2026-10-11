@@ -16,12 +16,17 @@ is needed for this research checkpoint.
 ```sh
 npm run check
 npm run benchmark:research
+npm run probe:rendering
 npm run doctor
 ```
 
 `npm run gate:phase-zero` intentionally exits nonzero until every research exit
 criterion has been reviewed. It reports the remaining work. That gate is separate
 from passing structural validation and numerical research tests.
+
+The rendering probe serves http://127.0.0.1:4173; choose **Run measurements** to
+compare thirty AA cases. It is a disposable experiment, not the editor. Stop its
+server with Ctrl+C. Saved results are in `docs/checkpoints/`.
 
 ## Project records
 

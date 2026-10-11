@@ -12,8 +12,12 @@ Tauri's platform-dependent WebViews. Canvas-only does not meet the required GPU
 architecture; WebGPU-only would make target support an unverified prerequisite.
 
 Tessellation uses an adapter. Lyon is a candidate pending pinned-license inventory
-and benchmark, not an adopted dependency. Compare MSAA/fringe/selective supersampling
-before selecting AA. CPU geometry remains independent of flattening/LOD policy.
+and benchmark, not an adopted dependency. The first AA measurement is recorded in
+`docs/rendering.md`. Adopt negotiated MSAA with bounded selective supersampling as
+the initial general-path strategy; retain fringe as a candidate optimization only
+on validated paint boundaries. The convex probe's superior fringe coverage does
+not resolve shared-edge seams or thin joins. CPU geometry remains independent of
+flattening/LOD policy. Native WebView measurements and complex contours remain open.
 
 Consequences: explicit clipping/compositing/filters and backend parity tests; context
 loss/restoration; new canvas surface for context-type fallback; error diagnostics

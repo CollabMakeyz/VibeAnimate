@@ -1,6 +1,6 @@
 # Tool behavior inventory
 
-Status: **PARTIAL research; no tools implemented**. Sources are PDF page numbers
+Status: **research inventory reviewed; no tools implemented**. Sources are PDF page numbers
 in the [official CS4 manual](https://help.adobe.com/archive/en_US/flash/cs4/flash_cs4_help.pdf).
 Historical exact drag thresholds and some shortcut defaults remain UNKNOWN.
 This is explicit uncertainty, not a claim of byte-for-byte interaction parity.
@@ -32,18 +32,18 @@ shortcuts are suppressed. There are no copied historical bitmaps/cursors.
 | Free Transform | Scale corners/sides, rotate, skew and move pivot | Shift rotates by 45° or proportional scale; Alt/Option opposite origin; Ctrl/Cmd distort eligible shapes | Original handles; matrix/numeric Transform | Double-click pivot recenters; distortion restrictions differ from ordinary transform | One transform | 118–121; A |
 | Gradient/Fill Transform | Move/scale/rotate gradient or bitmap fill without outline change | Shift linear angle 45° | Center/focal/width/size/rotation handles; fill options | Click eligible fill; radial focal handle only when applicable | One fill-matrix edit | 139; A |
 | 3D Translation | Move eligible MovieClip along selected axis | D temporary local/global; world/object coordinates | Original axis gizmo; X/Y/Z, perspective | Shift-double-click moves gizmo to selected instance; double center centers multi-selection | One 3D transform | 144–147; A |
-| 3D Rotation | Rotate MovieClip plane around axes/free handle | D local/global; exact constraints pending | Original rotation gizmo; rotation/pivot fields | MovieClip context; no CSS transform | One 3D transform | 147–151; A, final pages pending |
+| 3D Rotation | Rotate MovieClip plane around axes/free handle | D local/global; W activates tool | Original rotation gizmo; rotation/pivot fields | Shift-double-click instance relocates gizmo; double center resets pivot | One 3D transform | 147–151; A |
 | Lasso | Drag freehand region or click polygon vertices | Alt/Option straight segments; contact sensitivity setting | Original lasso/polygon cursor and mode option | Double click closes polygon; raw partial selection vs whole objects | Selection transient; subsequent mutation one command | 124–125; A |
 | Pen | Click endpoints; drag tangents; extend/join/close | Shift constrains 45°; Alt/Option split tangents; Ctrl/Cmd off-path ends | Initial/continue/add/delete/close/join indicators; preview/point preferences | Double last anchor completes open path; first closes; closing does not automatically fill | Completed path compound command (modern design) | 107–112; A |
 | Add Anchor | Click selected segment to split | Exact modifier default UNKNOWN; no arbitrary snapping off curve | Plus/node indicator; anchor coordinates | Requires selected path, point not already present | One split | 108,111; A |
 | Delete Anchor | Click anchor to remove/reconnect path | Delete key has different historical cut behavior | Minus/node indicator | Corner vs smooth conversion behavior preserved; double behavior not documented | One removal | 111–112; A |
 | Convert Anchor | Convert smooth/corner and manipulate tangents | Shift+C reported by manual for conversion mode | Conversion indicator; tangent fields | Selected path context; do not treat deleting anchor as deleting entire path | One conversion | 108,112; A |
-| Text | Create/edit text box and runs | Keyboard text context; alignment/snapping behavior pending | I-beam; family/size/style/tracking/leading/alignment | Existing text editing and text selection; double word semantics pending | Coalesced text edit | Plan; historical chapter 8 detailed review pending |
+| Text | Click for extending text; drag for fixed-width box; edit runs | Shift-click extends text selection; native clipboard | I-beam; type, family/style/size/tracking/kerning/leading/alignment | Double-click word; double resize handle toggles fixed/extending; Shift-double handle toggles scrollability | Coalesced text edit | 251–257,260; A |
 | Line | Drag one segment | Shift 45°; Merge/Object toggle | Crosshair/line; stroke only | No automatic fill; no special double-click documented | One segment | 103; A |
 | Rectangle | Drag bounds; optional rounded corners | Shift square; snapping uses bounds | Shape cursor; stroke/fill/corners | Raw shared or isolated Object geometry | One shape | 103–106; A |
-| Rectangle Primitive | Draw parameterized rectangle then edit radii | Up/down changes radius during draw; other exact modifiers pending | Primitive cursor; per-corner radii/dimensions | Independent primitive; editable after creation | One shape/parameter gesture | 103–104; A |
+| Rectangle Primitive | Draw parameterized rectangle then edit radii | Up/down changes radius during draw; Shift square | Primitive cursor; linked/independent corner radii, negative inverted corners, Reset | Independent primitive; editable after creation | One shape/parameter gesture | 103–104; A |
 | Oval | Drag ellipse bounds | Shift circle; snapping uses bounds | Oval cursor; stroke/fill | Merge/Object modes | One shape | 103–106; A |
-| Oval Primitive | Draw editable arc/ring/oval | Exact modifier behavior pending | Primitive cursor; start/end angles, inner radius/closure | Independent parameterized shape | One shape/parameter gesture | 103–105; A |
+| Oval Primitive | Draw editable arc/ring/oval | Shift circle | Primitive cursor; start/end angles, inner radius 0–99%, Close Path (default on), Reset | Open path draws stroke without fill | One shape/parameter gesture | 104–105; A |
 | PolyStar | Drag polygon/star | Exact angle modifiers pending | Polygon cursor; 3–32 sides, star depth | Merge/Object compatibility tested separately | One shape | 106; A |
 | Pencil | Freehand line in Straighten/Smooth/Ink | Shift horizontal/vertical; selected recognition tolerances | Pencil cursor; stroke attrs and mode | Straighten recognizes primitives; Smooth fits; Ink avoids intentional smoothing | One stroke | 106,137; A |
 | Classic Brush | Paint vector fill with Normal/Fills/Behind/Selection/Inside | Shift horizontal/vertical; pressure/tilt options | Actual footprint; size/shape/mode, fill attrs | Paint mode defines affected topology; Classic size policy tied to zoom | One stroke | 106–107; A |
@@ -71,3 +71,12 @@ Its Distort paragraph explicitly restricts distortion. Interpret this as a
 distortion restriction and flag the editorial inconsistency rather than disabling
 ordinary transforms. PDF 121's dedicated Scale mode reverses the Shift convention
 relative to Free Transform; do not collapse these contexts into one modifier rule.
+
+Additional verified context: Alt/Option-click with Rectangle/Oval opens numeric
+size controls (PDF 105). Arrow keys move a selection one pixel, Shift-arrow ten;
+the pixel-snapping mode uses document pixel increments (PDF 129). During text
+editing, Ctrl/Cmd+A selects characters rather than Stage elements. Historical
+static/dynamic/input text and horizontal/vertical field behavior (PDF 251–257)
+need explicit export-runtime support; editable text and script input are not the
+same feature. Unspecified double-click/modifier actions remain UNKNOWN rather than
+invented legacy behavior. Their modern defaults must be recorded before acceptance.

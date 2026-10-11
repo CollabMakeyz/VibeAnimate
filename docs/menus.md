@@ -62,3 +62,29 @@ Window Align/Transform/Info/Motion Editor entries, Help variants, Debug toolbar 
 menu distinctions, recent files/dynamic scenes and OS-specific placement. Resolve
 Clear Keyframe's conflicting Edit/Modify references using primary version evidence.
 Until then, the full-menu Phase Zero exit criterion stays unchecked.
+
+## Dated inventory supplement
+
+The publisher's public contents for Chris Grover's November 2008 *Flash CS4: The
+Missing Manual*, appendix B, supplies a contemporaneous inventory:
+[publisher record](https://www.oreilly.com/library/view/flash-cs4-the/9780596156770/pr04.html).
+Confidence B; menu hierarchy still needs comparison against the primary manual.
+No paywalled chapter content was accessed. Additional functional coverage:
+
+| Menu | Gaps identified for reconciliation |
+|---|---|
+| File | Bridge browsing, recent files, close/all, check-in, save-all, revert, Windows send |
+| Edit | Find-next, clear frames, motion copy and special paste |
+| View | Quality levels from outline through full; document/scene navigation |
+| Modify | Bitmap swap, envelope deletion, frame reversal/conversion, alignment, distribution and matching dimensions |
+| Text | Family, size, style, alignment, letter spacing and scrollability |
+| Commands | Motion XML copy, export and import |
+| Control | Rewind/end, single-frame steps, ASO cleanup, scene looping, frame-action toggle and mute |
+| Debug | Continue/stop, step into/over/out and breakpoint clearing |
+| Window | Motion Editor/Presets, compiler errors, debugger panels, connection/workspace controls, panel hiding |
+| Help | macOS search, extensions, support/training, activation/registration, update and About |
+
+This identifies remaining commands rather than silently treating them as absent.
+Historical external-service actions are inventoried, not promises to recreate
+discontinued services. Implement original local equivalents only where the plan
+requires functional scope; report compatibility deviations explicitly.

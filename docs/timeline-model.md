@@ -24,8 +24,15 @@ transaction. Insert Keyframe splits exposure with independent copied content;
 Insert Blank Keyframe splits it with empty content. Clear Keyframe replaces its
 exposure up to the next keyframe with previous content (CS4 PDF 178). Range
 removal/copy/cut/paste/reverse must preserve labels, references and span validity.
-Exact boundary behavior of removal/paste through tween spans remains a corpus
-research item; do not infer it from ordinary array splice semantics.
+For motion spans, dragging over another span consumes the overlapped frames;
+pasting a whole span replaces the entire target span. Selecting frames inside a
+span uses Ctrl-drag on Windows / Command-drag on macOS and paste replaces that
+selection. Shift-dragging an endpoint adds static exposure; ordinary endpoint
+dragging retimes the tween. F5 extends without a property key; F6 adds keys for all
+properties. Splitting is allowed at one selected frame; both parts reference the
+same target, and historically eased motion can change after splitting. These
+distinct cases require corpus fixtures (PDF 204–205). A layer lock historically
+protects Stage editing, not Timeline edits; a stricter lock is a modern option.
 
 Layers: normal, guide, guided, mask, masked, folder and pose. Hidden/locked/folder
 state is distinct from payload. Collapsing a folder does not hide artwork. Guide
@@ -65,6 +72,13 @@ Command-click on macOS changes smooth/corner type (PDF 208–214).
 Shape correspondence normalizes contours/orientation, matches outer/inner loops,
 splits/resamples deterministically and applies explicit user hints. Ambiguous
 matching must produce an actionable diagnostic, not apparently successful fading.
+Classic shape hints have identities a–z, with a maximum of 26 pairs; starting,
+ending and detached hints have distinct states. A hint must attach to actual curve
+geometry. Preserve cyclic order when establishing correspondence, expose invalid
+ordering, and remove a hint when deliberately dragged off Stage. Hints are shown
+only for the active relevant layer/keyframe. The historical manual warns about
+holes; the plan's robust hole correspondence is a required modern improvement
+(PDF 223–225). Text must be converted to outlines before shape interpolation.
 
 ## Symbol semantics
 

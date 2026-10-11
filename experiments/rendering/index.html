@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VibeAnimate — rendering research</title>
+<style>
+  :root { color-scheme: dark; font: 16px/1.55 system-ui; background: #151b23; color: #e6edf4; }
+  body { max-width: 1180px; margin: 40px auto; padding: 0 24px; }
+  h1 { font-size: 28px; margin-bottom: 8px; } p { max-width: 900px; }
+  button { background: #92e6cc; color: #152621; border: 0; border-radius: 6px; padding: 12px 18px; font: inherit; cursor: pointer; }
+  button:disabled { opacity: .5; cursor: wait; }
+  #images { display: grid; grid-template-columns: repeat(auto-fit,minmax(210px,1fr)); gap: 16px; }
+  figure { margin: 0; padding: 12px; background: #222d39; border-radius: 8px; }
+  canvas { display: block; width: 192px; height: 128px; background: white; max-width: 100%; }
+  figcaption { font-size: 13px; margin-bottom: 10px; }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 12px; background: #10151c; padding: 20px; }
+  a { color: #92e6cc; }
+</style>
+<h1>VibeAnimate · edge quality experiment</h1>
+<p>Phase Zero research, not the editor. Four WebGL2 paths and a Canvas2D reference
+are compared against numerical coverage: a convex fill, two pieces sharing an edge,
+and a rectangular hole. These manually decomposed scenes cannot establish arbitrary
+tessellation, mask, filter or native WebView parity.</p>
+<button id="run">Run measurements</button>
+<p id="status" role="status">Ready. Measurements include synchronous readback; they are not display latency.</p>
+<div id="images"></div>
+<h2>Measured evidence</h2>
+<p><a id="download" hidden>Download JSON</a></p>
+<pre id="report">No measurement yet.</pre>
+<script type="module" src="/probe.mjs"></script>
+</html>

@@ -24,7 +24,7 @@ test('production implementation is not inferred from research artifacts', () => 
 test('Phase Zero exit gate fails with actionable open items', async () => {
   const { errors } = await checkResearch(root, true);
   assert.ok(errors.some(e => e.includes('Open gate menus:')));
-  assert.ok(errors.some(e => e.includes('Open gate rendering:')));
+  assert.ok(!errors.some(e => e.includes('Open gate rendering:')));
 });
 
 test('duplicate feature IDs are rejected', () => {
