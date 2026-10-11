@@ -1,5 +1,53 @@
 [
   {
+    "name": "@tauri-apps/api",
+    "version": "2.12.3",
+    "integrity": "sha512-9s0PKw0p4r3kFq92jhpivYSp+cSht15o0gXpZxuQd0+dV9KCexEVkNaLELVoLdJWyoH4KlfQo5h3W2LIM8siJg==",
+    "scope": "runtime",
+    "additionalTerms": [
+      "0BSD",
+      "CC0-1.0"
+    ],
+    "notices": [
+      {
+        "file": "LICENSE-MIT",
+        "saved": "docs/licensing/tauri-api-2.12.3-LICENSE-MIT.txt",
+        "sha256": "9dd42ea92cff2ede5cd477cbfcce051b2d0115c0ac7f368ee88cb545055dff1d"
+      },
+      {
+        "file": "LICENSE-APACHE-2.0",
+        "saved": "docs/licensing/tauri-api-2.12.3-LICENSE-APACHE-2.0.txt",
+        "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+      },
+      {
+        "file": "LICENSE.spdx",
+        "saved": "docs/licensing/tauri-api-2.12.3-LICENSE.spdx.txt",
+        "sha256": "5e834fe9788c524210deda859c46a550ffa5aa0cba9ea0572f0d81120e97c008"
+      },
+      {
+        "file": "external/tslib/tslib.es6.js",
+        "saved": "docs/licensing/tauri-api-2.12.3-external-tslib-tslib.es6.js.txt",
+        "sha256": "f8b254da37e08406ccb6c9d8321ef584d1b22f44f9e12d5436325aeea0e6d60b",
+        "extract": "leading-comment"
+      }
+    ],
+    "license": "Apache-2.0 OR MIT",
+    "selectedLicenses": [
+      "Apache-2.0"
+    ],
+    "resolved": "https://registry.npmjs.org/@tauri-apps/api/-/api-2.12.3.tgz",
+    "source": "https://github.com/tauri-apps/tauri",
+    "purpose": "Typed IPC to the native Tauri backend",
+    "approval": "docs/licensing/tauri-api-review.md",
+    "path": "node_modules/@tauri-apps/api",
+    "relationship": "direct",
+    "reason": "Typed IPC to the native Tauri backend",
+    "replacementDifficulty": "Medium",
+    "reviewed": "2026-10-11",
+    "dependencies": {},
+    "bundledLicenseReview": "MIT/Apache notices, SPDX metadata and bundled tslib leading copyright/0BSD grant reviewed and retained; exact additional terms approved."
+  },
+  {
     "path": "node_modules/ajv",
     "name": "ajv",
     "version": "8.20.0",
@@ -121,6 +169,38 @@
     "additionalTerms": []
   },
   {
+    "name": "preact",
+    "version": "11.0.1",
+    "license": "MIT",
+    "selectedLicenses": [
+      "MIT"
+    ],
+    "resolved": "https://registry.npmjs.org/preact/-/preact-11.0.1.tgz",
+    "integrity": "sha512-TNNwEq++jYNHy747LziCjPRVgEwnLSOIOAw/oYcjI3Tdnubx2EXtt76I0an8PATvUWtx/DX1kFIg1eFN+O/fkw==",
+    "source": "https://github.com/preactjs/preact",
+    "purpose": "Lightweight UI components for application chrome",
+    "notices": [
+      {
+        "file": "LICENSE",
+        "saved": "docs/licensing/preact-11.0.1-LICENSE",
+        "sha256": "1fe6958409c8c257a70c587a18b6f7f412b179b456630790d30b2ec9a8e4b7d4"
+      }
+    ],
+    "excludedOptionalPeers": {
+      "preact-render-to-string": ">=6.7.0"
+    },
+    "additionalTerms": [],
+    "approval": null,
+    "path": "node_modules/preact",
+    "scope": "runtime",
+    "relationship": "direct",
+    "reason": "Lightweight UI components for application chrome",
+    "replacementDifficulty": "Medium",
+    "reviewed": "2026-10-11",
+    "dependencies": {},
+    "bundledLicenseReview": "MIT notice retained; optional server rendering peer deliberately absent, no lifecycle or bundled runtime dependencies."
+  },
+  {
     "path": "node_modules/require-from-string",
     "name": "require-from-string",
     "version": "2.0.2",
@@ -146,6 +226,35 @@
       }
     ],
     "bundledLicenseReview": "Reviewed license/notice files and package metadata; no additional bundled license terms identified.",
+    "approval": null,
+    "additionalTerms": []
+  },
+  {
+    "path": "node_modules/smol-toml",
+    "name": "smol-toml",
+    "version": "1.9.1",
+    "resolved": "https://registry.npmjs.org/smol-toml/-/smol-toml-1.9.1.tgz",
+    "integrity": "sha512-j7WyPdf0CJoutMzMoPLF/bVXHtKZIT9Rb4eGeEbWw8X2t5oirjPgpL+OpaENZrILYaXqYwnVH+qgUwVbl+pUJQ==",
+    "license": "BSD-3-Clause",
+    "selectedLicenses": [
+      "BSD-3-Clause"
+    ],
+    "purpose": "Parse complete Cargo TOML lockfile grammar for license audit",
+    "relationship": "direct",
+    "source": "https://github.com/squirrelchat/smol-toml",
+    "reason": "A full TOML parser avoids an incomplete custom lockfile parser; no runtime dependency",
+    "replacementDifficulty": "Low",
+    "scope": "development",
+    "reviewed": "2026-10-11",
+    "dependencies": {},
+    "notices": [
+      {
+        "file": "LICENSE",
+        "saved": "docs/licensing/smol-toml-1.9.1-LICENSE",
+        "sha256": "fa5659948374d4f555594f47f6da073b40dc503e921aeeece30df4362b3051a5"
+      }
+    ],
+    "bundledLicenseReview": "Reviewed package file inventory, BSD-3-Clause text and package metadata; no bundled additional notices or runtime transitives.",
     "approval": null,
     "additionalTerms": []
   },

@@ -43,3 +43,18 @@ Decisions dated 2026-10-10. None of these entries is evidence of implemented par
 15. **Phase One completion:** interfaces are architecture deliverables, not runtime
     stubs or claims of implemented tools. All model, command, renderer, worker,
     file-container and native-shell behavior still needs milestone implementation.
+
+16. **M1 native implementation (2026-10-11):** Preact 11.0.1 is confined to chrome;
+    TypeScript native ESM plus an import map is sufficient without a bundler. The
+    optional server-rendering peer is excluded. Cargo owns the native workspace;
+    the root npm lock owns frontend packages. No installer is claimed by M1.
+17. **Exact additional approvals:** the user approved the 31 Rust versions in
+    tauri-exceptions-proposal.md and, separately, @tauri-apps/api 2.12.3 with 0BSD
+    helper code and CC0 metadata. These are separate from the TypeScript approval.
+18. **M1 demo and E2E:** the native diagnostics window is the foundation demo;
+    the rectangle DTO remains a contract example. Windows WebView2 gets a real
+    owned-process E2E harness; macOS/Linux E2E is explicitly pending. API flags
+    do not establish physical device support.
+19. **Formatting:** use the already reviewed TypeScript compiler syntax printer
+    for desktop TS formatting, strict compiler/AST checks for frontend lint, and
+    Rustfmt/Clippy for Rust. Do not add a second parser dependency merely for style.

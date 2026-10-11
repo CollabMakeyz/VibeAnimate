@@ -2,19 +2,19 @@
   "name": "vibeanimate",
   "version": "0.0.0",
   "private": true,
-  "description": "VibeAnimate architecture contracts and verification harness",
+  "description": "VibeAnimate native desktop foundation and animation architecture",
   "type": "module",
   "engines": {
     "node": ">=22"
   },
   "scripts": {
-    "test": "node --test tests/research/*.test.mjs tests/prototypes/*.test.mjs tests/architecture/*.test.mjs",
+    "test": "node --test tests/research/*.test.mjs tests/prototypes/*.test.mjs tests/architecture/*.test.mjs tests/desktop/*.test.mjs",
     "check:research": "node scripts/check-research.mjs",
     "gate:phase-zero": "node scripts/check-research.mjs --gate",
     "check:matrix": "node scripts/feature-matrix.mjs --check",
     "generate:matrix": "node scripts/feature-matrix.mjs",
     "check:licenses": "node scripts/audit-dependencies.mjs",
-    "check": "npm run check:research && npm run check:matrix && npm run check:licenses && npm run check:notices && npm run check:contracts && npm test",
+    "check": "npm run check:research && npm run check:matrix && npm run check:licenses && npm run check:notices && npm run check:contracts && npm run lint && npm test",
     "benchmark:research": "node experiments/numerics/benchmark.mjs",
     "probe:rendering": "node experiments/rendering/server.mjs",
     "doctor": "node scripts/doctor.mjs",
@@ -22,10 +22,25 @@
     "generate:contracts": "node scripts/generate-contracts.mjs",
     "check:notices": "node scripts/dependency-notices.mjs --check",
     "generate:notices": "node scripts/dependency-notices.mjs",
-    "demo:contracts": "node scripts/demo-contracts.mjs"
+    "demo:contracts": "node scripts/demo-contracts.mjs",
+    "build:desktop": "node scripts/build-desktop.mjs",
+    "build:native": "npm run build:desktop && node scripts/native.mjs build",
+    "start": "npm run build:desktop && node scripts/native.mjs run",
+    "test:native": "node scripts/native.mjs test",
+    "test:e2e": "node scripts/e2e-desktop.mjs",
+    "lint": "node scripts/check-code.mjs && tsc -p apps/desktop/tsconfig.json --noEmit",
+    "lint:native": "node scripts/native.mjs lint",
+    "format": "node scripts/check-code.mjs --write",
+    "format:check": "node scripts/check-code.mjs && node scripts/native.mjs format",
+    "pretest": "npm run build:desktop"
   },
   "devDependencies": {
     "ajv": "8.20.0",
+    "smol-toml": "1.9.1",
     "typescript": "5.9.3"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "2.12.3",
+    "preact": "11.0.1"
   }
 }

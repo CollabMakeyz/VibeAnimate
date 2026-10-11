@@ -1,4 +1,4 @@
-name: Research and architecture checks
+name: Foundation checks
 on:
   push:
   pull_request:
@@ -6,7 +6,7 @@ permissions:
   contents: read
 jobs:
   research:
-    name: Contracts and research (${{ matrix.os }})
+    name: Foundation (${{ matrix.os }})
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -25,12 +25,33 @@ jobs:
           node --version
           node -e "if (Number(process.versions.node.split('.')[0]) < 22) { console.error('Research checks require Node 22 or newer'); process.exit(1); }"
       - name: Audit locked dependencies and retained notices before installation
-        run: node scripts/audit-dependencies.mjs
+        run: node scripts/audit-dependencies.mjs --npm-only
       - name: Install reviewed development dependencies without lifecycle scripts
         run: npm ci --ignore-scripts
       - name: Match installed notices to reviewed copies
         run: node scripts/audit-dependencies.mjs --installed
       - name: Validate research, contracts and tests
         run: npm run check
+      - name: Install Linux system WebView prerequisites
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libwebkit2gtk-4.1-dev build-essential libxdo-dev libssl-dev libayatana-appindicator3-dev librsvg2-dev patchelf
+      - name: Select reviewed stable Rust toolchain
+        shell: bash
+        run: |
+          rustup toolchain install 1.99.0 --profile minimal --component clippy --component rustfmt
+          rustup default 1.99.0
+      - name: Check Rust formatting and lint
+        run: |
+          npm run format:check
+          npm run lint:native
+      - name: Run Rust tests and build native app
+        run: |
+          npm run test:native
+          npm run build:native
+      - name: Exercise packaged Windows WebView bootstrap
+        if: runner.os == 'Windows'
+        run: npm run test:e2e
       - name: Numerical research probe (not a graphics benchmark)
         run: npm run benchmark:research

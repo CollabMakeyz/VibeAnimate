@@ -17,5 +17,25 @@
       "CC-BY-4.0",
       "LicenseRef-W3C-Community-Final-Specification-Agreement"
     ]
+  },
+  {
+    "name": "@tauri-apps/api",
+    "version": "2.12.3",
+    "integrity": "sha512-9s0PKw0p4r3kFq92jhpivYSp+cSht15o0gXpZxuQd0+dV9KCexEVkNaLELVoLdJWyoH4KlfQo5h3W2LIM8siJg==",
+    "scope": "runtime",
+    "additionalTerms": [
+      "0BSD",
+      "CC0-1.0"
+    ],
+    "decision": "approved",
+    "date": "2026-10-11",
+    "userResponse": "Aprovar essa exceção restrita",
+    "evidence": "docs/licensing/tauri-api-review.md",
+    "noticeHashes": [
+      "9dd42ea92cff2ede5cd477cbfcce051b2d0115c0ac7f368ee88cb545055dff1d",
+      "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "5e834fe9788c524210deda859c46a550ffa5aa0cba9ea0572f0d81120e97c008",
+      "f8b254da37e08406ccb6c9d8321ef584d1b22f44f9e12d5436325aeea0e6d60b"
+    ]
   }
 ]

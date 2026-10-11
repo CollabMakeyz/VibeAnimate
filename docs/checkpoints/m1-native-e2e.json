@@ -1,0 +1,12 @@
+{
+  "platform": "win32",
+  "date": "2026-10-11T23:53:10.198Z",
+  "checks": [
+    "Packaged native startup, IPC handshake, capability rendering, loading cleanup",
+    "Refresh action and persisted native diagnostic log displayed",
+    "Unregistered filesystem IPC, oversize log input and external network denied",
+    "Real render failure caught and panel recovered",
+    "Reload from embedded assets reconnects to native backend"
+  ],
+  "page": "http://tauri.localhost/"
+}

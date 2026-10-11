@@ -67,24 +67,25 @@ specifications; concrete resource budgets; and five ADRs. Details and exact limi
 are in `docs/checkpoints/phase-one-review.md`. The save format is specified, not a
 functioning serializer. Interfaces are not implementations of editor features.
 
-`npm run check` passes 67 tests on Windows/Node 24.19.0, plus strict TypeScript 5.9.3
-contract checks and generated artifact synchronization. `npm run demo:contracts`
-passes. Six exact development packages are license-audited, with retained notices
-and an explicit user-approved exception for TypeScript 5.9.3 bundled terms. CI has
-been updated for these checks on three operating systems; native builds are pending.
+M1 now has a real Tauri 2.12.3 native window, Rust backend, Preact/TypeScript chrome,
+strict compiler checks, TS formatting/AST lint, Rustfmt/Clippy, enumerated local-only
+IPC capabilities, bounded rotating JSONL logs, capability detection and a recoverable
+render error boundary. The native bootstrap test launches the built Windows executable.
 
-M1 prerequisite setup now passes: Rust/Cargo 1.99.0, rustfmt/clippy, MSVC compile/link
-probe and existing WebView2. The 67-test Phase One CI passed on Windows/macOS/Linux.
-See `docs/checkpoints/m1-native-prerequisites.md`. A candidate Tauri 2.12.3 /
-tauri-build 2.7.2 graph (406 external packages) is resolved in scratch for review;
-it is not adopted or compiled. Its additional licenses need review independently
-of the narrow TypeScript approval.
+Local validation: 77 Node tests, four Rust tests, strict types, generated artifacts,
+license/notice checks, native build/run and E2E pass. Full Tauri cross-platform CI
+is now configured; results for this checkpoint are pending. M1 remains unchecked
+until the new CI results are reviewed. Screenshot: docs/checkpoints/screenshots/m1-native-window.png.
 
-Next concrete work: complete Cargo inventory, retained notices and auditor, review
-any exact license exceptions, select/audit frontend/build packages, implement the
-real desktop shell, logging/error boundary/capability detection and lint/format/E2E
-harness, then run/build the app.
-No M1–M11 production feature or physical tablet acceptance is claimed.
+Nine exact npm packages and 406 external Rust packages are adopted. Three separate
+user approvals cover TypeScript bundled terms, 31 exact Cargo versions and the
+Tauri JavaScript API 2.12.3 bundled terms. Full retained notices, Cargo feature and
+checksum evidence, and unmodified MPL corresponding sources accompany the build.
+
+Next: review/fix cross-platform native CI; finalize M1 acceptance; then begin M2
+UI Shell + Stage in order. macOS/Linux native E2E and physical tablet validation
+remain explicit later validation work. No drawing, timeline, save/load or export
+feature is claimed. See docs/checkpoints/m1-native-foundation.md for exact evidence.
 
 ## Evidence rules
 

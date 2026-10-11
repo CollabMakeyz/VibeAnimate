@@ -1,0 +1,9 @@
+* text=auto
+*.mjs text eol=lf
+*.ts text eol=lf
+*.rs text eol=lf
+*.json text eol=lf
+*.toml text eol=lf
+*.md text eol=lf
+# Preserve reviewed upstream license whitespace, including intentionally blank lines.
+docs/licensing/** text eol=lf -whitespace

@@ -1,0 +1,13 @@
+[workspace]
+members = ["apps/desktop/src-tauri"]
+resolver = "3"
+
+[workspace.package]
+edition = "2024"
+license = "MIT"
+rust-version = "1.99"
+
+[profile.release]
+strip = true
+lto = "thin"
+codegen-units = 1

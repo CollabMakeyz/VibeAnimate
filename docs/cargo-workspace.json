@@ -1,0 +1,12 @@
+{
+  "manifests": [
+    {
+      "path": "Cargo.toml",
+      "sha256": "bab2a1ebc9e901c80f7ff150c7b7e9e81accd091d047f2638fc9e553bc8d3640"
+    },
+    {
+      "path": "apps/desktop/src-tauri/Cargo.toml",
+      "sha256": "437338a62a5b181ee47d8baa7ecf0479f71c5d32ddd8d9c1dc6c1677a8a08901"
+    }
+  ]
+}

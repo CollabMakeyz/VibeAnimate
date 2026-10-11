@@ -1,24 +1,29 @@
 # Known limitations
 
-Current status: **research, architecture contracts and structural validation**. The repository began with
-README.md alone. There is no runnable editor, renderer, document engine, native
-shell, import/export system or production feature yet. All M1–M11 features remain
-NOT IMPLEMENTED. Numerical probes are explicitly non-production experiments.
+Current state: **native M1 foundation implemented and locally verified on Windows**.
+Phase Zero research and Phase One architecture are reviewed. The application opens
+an actual Tauri window with native IPC, bounded persistent diagnostic logs, graphics
+and API detection, error handling and render-boundary recovery.
 
-Phase Zero research and Phase One design are reviewed. Historical shortcut unknowns
-and menu placement conflicts remain explicit. Structural schema validation is real,
-but it does not check graph references, geometry, cycles or native package bytes.
-Typed interfaces are not implementations of commands, workers or rendering.
-The browser AA probe covers thirty convex/decomposed cases, not arbitrary topology.
-Fitting/IK mathematical choices still require production implementation and corpus
-validation. Source discrepancies are documented rather than hidden.
+There is no drawing Stage, editable document, command engine, timeline, library,
+import/export, scripting or save/load container implementation yet. M2–M11 remain
+unchecked. The 95-item editor feature matrix remains NOT IMPLEMENTED; the diagnostics
+window is not evidence of animation parity. TypeScript interfaces describe boundaries,
+not implemented model/worker/renderer behavior. Structural schema validation does not
+check dangling references, cycles, geometry or native package bytes.
 
-No production build, E2E editor interaction, graphical benchmark or physical tablet
-test has passed. Rust/Cargo 1.99.0 are now installed in a workspace-local host toolchain
-and an MSVC compile/link probe passed; no Tauri application build has run.
-No Windows/macOS/Linux installer exists. Six pinned development packages are now
-audited, including a user-approved exception for TypeScript 5.9.3 bundled notices.
-No Tauri/Rust/runtime graph has been adopted or license-approved by that exception.
+Local Windows checks passed: 77 Node tests, four Rust tests, strict TypeScript,
+formatting and Clippy, native build/run and the E2E bootstrap including actual IPC,
+log writes, input/permission/CSP rejection, render-error recovery and reload.
+Cross-platform CI for this revision is pending. macOS/Linux native E2E drivers are
+not implemented. No installer, release signing or reference-machine performance
+acceptance exists. No physical tablet has been exercised.
 
-The master plan's completion rules remain in force. Do not mark a milestone complete
-based on documentation, a research probe, planned tests or synthetic hardware events.
+The complete all-target Rust graph is reviewed with exact scoped license approvals.
+Preact and Tauri JavaScript are adopted for runtime; the compiler is development only.
+MPL corresponding sources and notices are included with built assets. Platform SDK
+terms remain host obligations. Dependency and feature changes require review.
+
+The browser AA experiment covers thirty convex/decomposed cases, not arbitrary
+topology. Historical shortcut unknowns and menu-placement conflicts remain explicit.
+No milestone is accepted from a screenshot or synthetic hardware events alone.

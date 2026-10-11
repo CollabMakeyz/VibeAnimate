@@ -59,3 +59,15 @@ observed result, screenshot or capture path when relevant, and pass/fail/unteste
 Run keyboard-only new/open/edit/undo/save/export; switch documents; move/floating
 panels across displays; change UI scale independently from Stage; test recovery
 after injected termination. Never claim these passed without execution evidence.
+
+## Implemented M1 verification (2026-10-11)
+
+77 Node tests cover research, architecture, npm/Cargo audit rejection cases and
+capability detection/fallback. Four Rust tests exercise real JSONL persistence,
+newline escaping, size rejection, rotation and input schema rejection.
+Native Windows E2E starts the built executable with an isolated WebView profile;
+it tests startup and native IPC, UI log actions, forbidden IPC, oversized input,
+external-network CSP rejection, render-error recovery and reload from embedded
+assets. The generated screenshot/report are under test-results/.
+See docs/desktop-development.md for exact commands and scope. This is foundation
+coverage; no editor operation or physical tablet test is included yet.

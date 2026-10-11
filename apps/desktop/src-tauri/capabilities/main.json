@@ -1,0 +1,6 @@
+{
+  "identifier": "main",
+  "description": "Local diagnostics window; no filesystem, shell, network or remote origin grants.",
+  "windows": ["main"],
+  "permissions": ["allow-runtime-info", "allow-log-event", "allow-read-logs"]
+}

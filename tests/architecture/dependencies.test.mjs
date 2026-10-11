@@ -12,7 +12,7 @@ function changed(change) {
 }
 test('reviewed graph and retained notices match the pinned packages', async () => {
   assert.deepEqual(await auditDependencies(), []);
-  assert.equal(inventory.length, 6);
+  assert.equal(inventory.length, 9);
 });
 test('SPDX parser selects allowed OR branches and requires every AND branch', () => {
   assert.deepEqual(selectedLicenses('GPL-3.0-only OR MIT'), ['MIT']);
@@ -30,7 +30,7 @@ test('unknown, stale and duplicate inventory entries are rejected', () => {
 });
 test('version, source, integrity and license drift cannot pass review', () => {
   for (const key of ['version', 'resolved', 'integrity', 'license']) assert.ok(changed(d => d.lock.packages['node_modules/ajv'][key] = 'changed').some(e => e.includes(key)));
-  assert.ok(changed(d => { d.lock.packages['node_modules/ajv'].resolved = d.inventory[0].resolved = 'http://registry.npmjs.org/ajv/-/ajv.tgz'; }).some(e => e.includes('unapproved source')));
+  assert.ok(changed(d => { d.lock.packages['node_modules/ajv'].resolved = d.inventory.find(r => r.name === 'ajv').resolved = 'http://registry.npmjs.org/ajv/-/ajv.tgz'; }).some(e => e.includes('unapproved source')));
 });
 test('missing transitives are caught even when their inventory is also removed', () => {
   const errors = changed(d => { delete d.lock.packages['node_modules/fast-uri']; d.inventory = d.inventory.filter(r => r.name !== 'fast-uri'); });
