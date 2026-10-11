@@ -55,7 +55,7 @@ known limitations, and a demo project before it is checked.
 
 ## Current checkpoint
 
-Phase Zero research and Phase One architecture COMPLETE. M1 Foundation is next.
+Phase Zero research and Phase One architecture COMPLETE. M1 Foundation is in progress.
 The supplied 3,857-line plan was read in full; the initial repo contained only README.
 Research preserves the 95-item feature matrix, 16 sources, 19 risks and thirty AA
 measurements. See `docs/checkpoints/phase-zero-review.md` for that accepted scope.
@@ -73,10 +73,17 @@ passes. Six exact development packages are license-audited, with retained notice
 and an explicit user-approved exception for TypeScript 5.9.3 bundled terms. CI has
 been updated for these checks on three operating systems; native builds are pending.
 
-Next concrete work: M1 prerequisite inspection and native toolchain setup, pinned
-Tauri 2/UI/build dependency selection with complete npm/Cargo license auditing, real
-desktop shell, logging/error boundary/capability detection, lint/format/E2E harness,
-then run/build the app. Rust/Cargo were unavailable at the previous inspection.
+M1 prerequisite setup now passes: Rust/Cargo 1.99.0, rustfmt/clippy, MSVC compile/link
+probe and existing WebView2. The 67-test Phase One CI passed on Windows/macOS/Linux.
+See `docs/checkpoints/m1-native-prerequisites.md`. A candidate Tauri 2.12.3 /
+tauri-build 2.7.2 graph (406 external packages) is resolved in scratch for review;
+it is not adopted or compiled. Its additional licenses need review independently
+of the narrow TypeScript approval.
+
+Next concrete work: complete Cargo inventory, retained notices and auditor, review
+any exact license exceptions, select/audit frontend/build packages, implement the
+real desktop shell, logging/error boundary/capability detection and lint/format/E2E
+harness, then run/build the app.
 No M1–M11 production feature or physical tablet acceptance is claimed.
 
 ## Evidence rules

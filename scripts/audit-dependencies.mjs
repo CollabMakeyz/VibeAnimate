@@ -14,6 +14,14 @@ export function selectedLicenses(expression) {
     const value = tokens[at++];
     if (value === '(') { const result = or(); if (tokens[at++] !== ')') throw new Error('Unclosed SPDX group'); return result; }
     if (!value || ['AND', 'OR', 'WITH', ')'].includes(value)) throw new Error('Invalid SPDX operand');
+    if (tokens[at] === 'WITH') {
+      at++;
+      const exception = tokens[at++];
+      if (!exception || ['AND', 'OR', 'WITH', '(', ')'].includes(exception)) throw new Error('Invalid SPDX exception');
+      // A qualified license is not its unqualified base. No exception is globally
+      // approved, but an independent allowed OR branch can still be selected.
+      return null;
+    }
     return allowed.has(value) ? [value] : null;
   }
   function and() { let result = atom(); while (tokens[at] === 'AND') { at++; const next = atom(); result = result && next ? [...result, ...next] : null; } return result; }

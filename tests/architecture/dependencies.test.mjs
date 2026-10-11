@@ -18,6 +18,9 @@ test('SPDX parser selects allowed OR branches and requires every AND branch', ()
   assert.deepEqual(selectedLicenses('GPL-3.0-only OR MIT'), ['MIT']);
   assert.deepEqual(selectedLicenses('(MIT OR Apache-2.0) AND BSD-3-Clause'), ['BSD-3-Clause', 'MIT']);
   assert.deepEqual(selectedLicenses('MIT AND MIT'), ['MIT']);
+  assert.deepEqual(selectedLicenses('Apache-2.0 WITH LLVM-exception OR MIT'), ['MIT']);
+  assert.throws(() => selectedLicenses('Apache-2.0 WITH LLVM-exception AND MIT'));
+  assert.throws(() => selectedLicenses('Apache-2.0 WITH OR MIT'));
   for (const value of ['', 'not-MIT', 'MIT AND GPL-3.0-only', 'MIT WITH exception', '(MIT', 'MIT OR', 'MIT;Apache-2.0', 'MIT Apache-2.0', 'OR MIT', 'MIT)']) assert.throws(() => selectedLicenses(value), value);
 });
 test('unknown, stale and duplicate inventory entries are rejected', () => {

@@ -14,7 +14,8 @@ Fitting/IK mathematical choices still require production implementation and corp
 validation. Source discrepancies are documented rather than hidden.
 
 No production build, E2E editor interaction, graphical benchmark or physical tablet
-test has passed. Rust/Cargo were not available in the inspected standard locations.
+test has passed. Rust/Cargo 1.99.0 are now installed in a workspace-local host toolchain
+and an MSVC compile/link probe passed; no Tauri application build has run.
 No Windows/macOS/Linux installer exists. Six pinned development packages are now
 audited, including a user-approved exception for TypeScript 5.9.3 bundled notices.
 No Tauri/Rust/runtime graph has been adopted or license-approved by that exception.
