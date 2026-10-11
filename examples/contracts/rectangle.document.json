@@ -1,0 +1,290 @@
+{
+  "formatVersion": 1,
+  "id": "doc-main",
+  "title": "Original rectangle fixture",
+  "stage": {
+    "width": 1920,
+    "height": 1080,
+    "background": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "units": "px",
+    "perspectiveDegrees": 55,
+    "vanishingPoint": [
+      960,
+      540
+    ]
+  },
+  "fps": {
+    "numerator": 24,
+    "denominator": 1
+  },
+  "scenes": [
+    {
+      "id": "scene-main",
+      "name": "Scene 1",
+      "timelineId": "timeline-main"
+    }
+  ],
+  "timelines": [
+    {
+      "id": "timeline-main",
+      "duration": 24,
+      "layerIds": [
+        "layer-main"
+      ]
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer-main",
+      "name": "Artwork",
+      "kind": "normal",
+      "parentFolderId": null,
+      "maskLayerId": null,
+      "guideLayerId": null,
+      "armatureId": null,
+      "visible": true,
+      "locked": false,
+      "outline": false,
+      "color": [
+        0.2,
+        0.6,
+        0.8,
+        1
+      ],
+      "exposures": [
+        {
+          "id": "exposure-main",
+          "start": 0,
+          "end": 24,
+          "contentId": "content-main",
+          "label": null
+        }
+      ],
+      "tweens": [],
+      "sounds": []
+    }
+  ],
+  "contents": [
+    {
+      "id": "content-main",
+      "mergeGraphId": "graph-main",
+      "elementIds": []
+    }
+  ],
+  "elements": [],
+  "graphs": [
+    {
+      "id": "graph-main",
+      "exteriorFaceId": "face-outside",
+      "vertices": [
+        {
+          "id": "vertex-0",
+          "position": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "vertex-1",
+          "position": [
+            100,
+            0
+          ]
+        },
+        {
+          "id": "vertex-2",
+          "position": [
+            100,
+            80
+          ]
+        },
+        {
+          "id": "vertex-3",
+          "position": [
+            0,
+            80
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-main-0",
+          "startVertexId": "vertex-0",
+          "endVertexId": "vertex-1",
+          "segment": {
+            "kind": "line"
+          },
+          "strokeId": null,
+          "forwardHalfEdgeId": "half-forward-0",
+          "reverseHalfEdgeId": "half-reverse-0"
+        },
+        {
+          "id": "edge-main-1",
+          "startVertexId": "vertex-1",
+          "endVertexId": "vertex-2",
+          "segment": {
+            "kind": "line"
+          },
+          "strokeId": null,
+          "forwardHalfEdgeId": "half-forward-1",
+          "reverseHalfEdgeId": "half-reverse-1"
+        },
+        {
+          "id": "edge-main-2",
+          "startVertexId": "vertex-2",
+          "endVertexId": "vertex-3",
+          "segment": {
+            "kind": "line"
+          },
+          "strokeId": null,
+          "forwardHalfEdgeId": "half-forward-2",
+          "reverseHalfEdgeId": "half-reverse-2"
+        },
+        {
+          "id": "edge-main-3",
+          "startVertexId": "vertex-3",
+          "endVertexId": "vertex-0",
+          "segment": {
+            "kind": "line"
+          },
+          "strokeId": null,
+          "forwardHalfEdgeId": "half-forward-3",
+          "reverseHalfEdgeId": "half-reverse-3"
+        }
+      ],
+      "halfEdges": [
+        {
+          "id": "half-forward-0",
+          "edgeId": "edge-main-0",
+          "originVertexId": "vertex-0",
+          "twinId": "half-reverse-0",
+          "nextId": "half-forward-1",
+          "previousId": "half-forward-3",
+          "faceId": "face-inside"
+        },
+        {
+          "id": "half-reverse-0",
+          "edgeId": "edge-main-0",
+          "originVertexId": "vertex-1",
+          "twinId": "half-forward-0",
+          "nextId": "half-reverse-3",
+          "previousId": "half-reverse-1",
+          "faceId": "face-outside"
+        },
+        {
+          "id": "half-forward-1",
+          "edgeId": "edge-main-1",
+          "originVertexId": "vertex-1",
+          "twinId": "half-reverse-1",
+          "nextId": "half-forward-2",
+          "previousId": "half-forward-0",
+          "faceId": "face-inside"
+        },
+        {
+          "id": "half-reverse-1",
+          "edgeId": "edge-main-1",
+          "originVertexId": "vertex-2",
+          "twinId": "half-forward-1",
+          "nextId": "half-reverse-0",
+          "previousId": "half-reverse-2",
+          "faceId": "face-outside"
+        },
+        {
+          "id": "half-forward-2",
+          "edgeId": "edge-main-2",
+          "originVertexId": "vertex-2",
+          "twinId": "half-reverse-2",
+          "nextId": "half-forward-3",
+          "previousId": "half-forward-1",
+          "faceId": "face-inside"
+        },
+        {
+          "id": "half-reverse-2",
+          "edgeId": "edge-main-2",
+          "originVertexId": "vertex-3",
+          "twinId": "half-forward-2",
+          "nextId": "half-reverse-1",
+          "previousId": "half-reverse-3",
+          "faceId": "face-outside"
+        },
+        {
+          "id": "half-forward-3",
+          "edgeId": "edge-main-3",
+          "originVertexId": "vertex-3",
+          "twinId": "half-reverse-3",
+          "nextId": "half-forward-0",
+          "previousId": "half-forward-2",
+          "faceId": "face-inside"
+        },
+        {
+          "id": "half-reverse-3",
+          "edgeId": "edge-main-3",
+          "originVertexId": "vertex-0",
+          "twinId": "half-forward-3",
+          "nextId": "half-reverse-2",
+          "previousId": "half-reverse-0",
+          "faceId": "face-outside"
+        }
+      ],
+      "contours": [
+        {
+          "id": "contour-inside",
+          "halfEdgeId": "half-forward-0",
+          "role": "outer"
+        },
+        {
+          "id": "contour-outside",
+          "halfEdgeId": "half-reverse-0",
+          "role": "exterior"
+        }
+      ],
+      "faces": [
+        {
+          "id": "face-inside",
+          "fillId": "fill-main",
+          "contourIds": [
+            "contour-inside"
+          ]
+        },
+        {
+          "id": "face-outside",
+          "fillId": null,
+          "contourIds": [
+            "contour-outside"
+          ]
+        }
+      ]
+    }
+  ],
+  "fills": [
+    {
+      "id": "fill-main",
+      "kind": "solid",
+      "color": [
+        0.1,
+        0.4,
+        0.8,
+        1
+      ]
+    }
+  ],
+  "strokes": [],
+  "symbols": [],
+  "libraryFolders": [],
+  "assets": [],
+  "armatures": [],
+  "scripts": [],
+  "swatches": [
+    "fill-main"
+  ],
+  "metadata": {
+    "author": "",
+    "description": "Original public-domain test geometry; generated for VibeAnimate.",
+    "tags": []
+  }
+}

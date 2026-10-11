@@ -1,0 +1,21 @@
+[
+  {
+    "name": "typescript",
+    "version": "5.9.3",
+    "integrity": "sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==",
+    "noticeHashes": [
+      "a5e9f9b1575301c7a7a03508fdaa2e05a918cc17fd21c6e898096a96d6a34f61",
+      "01de8bc3c687a3df5a83e8b80db5006270f9f3361dbb437faf3dcc033dcd6bb1"
+    ],
+    "scope": "development",
+    "evidence": "docs/licensing/typescript-review.md",
+    "decision": "approved",
+    "date": "2026-10-11",
+    "additionalTerms": [
+      "LicenseRef-Unicode-1991-2017",
+      "LicenseRef-W3C-Software-And-Document",
+      "CC-BY-4.0",
+      "LicenseRef-W3C-Community-Final-Specification-Agreement"
+    ]
+  }
+]

@@ -1,7 +1,14 @@
 # Verification strategy
 
-Status: production tests **NOT IMPLEMENTED**. Research checks and numerical probes
+Status: editor behavior tests **NOT IMPLEMENTED**. Structural schema, license audit,
+type contracts and research checks are executable. Numerical probes
 are tracked separately in checkpoint reports. Test plans do not count as passed tests.
+
+Current entry point: audit before installing (`node scripts/audit-dependencies.mjs`),
+`npm ci --ignore-scripts`, then `npm run check`. This includes generated contract and
+notice drift, strict TypeScript checks and the Node test suites. `npm run demo:contracts`
+exercises an original rectangle DTO and a malformed quadratic. Neither this demo nor
+schema acceptance proves a valid topology, saved package or editor interaction.
 
 ## Required suites and oracles
 

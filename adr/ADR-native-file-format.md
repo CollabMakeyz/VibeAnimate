@@ -1,6 +1,6 @@
 # ADR: original versioned native package
 
-Date: 2026-10-10. Status: **ACCEPTED format strategy; v1 schema pending Phase One**.
+Date: 2026-10-10; updated 2026-10-11. Status: **ACCEPTED v1 design; persistence runtime pending**.
 
 Decision: `.vibeanim` contains manifest, explicit document DTO and referenced assets;
 canonical snapshots, migrations, atomic saves and separate recovery journal. XFL/SWF
@@ -16,4 +16,9 @@ subject to the dependency policy; ZIP is not adopted without bounds and audit.
 
 Acceptance: canonical round-trip, version awareness, original-file preservation,
 path/size/cycle protection, injected interrupted saves and recovery. Revisit envelope
-details in Phase One; changing envelope cannot redefine the document model.
+details in `docs/native-format-v1.md`; changing envelope cannot redefine the document model.
+
+Phase One selects a bounded ZIP32 stored/DEFLATE envelope, canonical explicit JSON,
+content-addressed media and scripts, and document.json as the single authored-data
+authority. Schema and structural validation are executable. ZIP codec, bounded JSON
+parser, semantic validation, atomic writing and recovery remain implementation work.

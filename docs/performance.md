@@ -36,6 +36,23 @@ Suggested starting cache caps: 128 MiB meshes, 64 MiB thumbnails, 128 MiB undo;
 configurable and reported, not hidden unbounded growth. High-DPI effect targets
 must be included in accounting. Revisit caps with real document workloads.
 
+Phase One admission defaults: one interactive geometry job active per document,
+at most eight queued geometry jobs and 64 MiB queued payload bytes; two thumbnail
+jobs with 16 MiB queued bytes; one export job with two unacknowledged chunks of at
+most 8 MiB each. Deduplicate obsolete thumbnails before admission. Each geometry
+job starts with 128 MiB scratch, 100,000 records, depth 64 and 10,000,000 operations.
+Resource limits are checked before allocations and within bounded loops. A worker
+checks cancellation at least every 4,096 elementary operations; a measured 2-second
+nonresponse deadline permits termination, without claiming a 2-second UI pause.
+Large operations return an explicit budget diagnostic instead of partial artwork.
+These are initial limits to measure during implementation, not achieved latency.
+
+Raster/effect allocation includes width×height×bytes-per-pixel×sample-count and all
+temporary targets. Total GPU target budget starts at 256 MiB with explicit capability
+clamping; do not allocate a 65,536² target merely because the file allows that Stage
+size. Tile or reject with a diagnostic. UI diagnostics update at most ten times per
+second; captured ink and Stage overlay ingestion are not throttled to that rate.
+
 CI measures algorithms and logical invariants, not virtual-GPU FPS. Once calibrated,
 investigate median/p95 >20% regressions across three controlled repeats. Do not
 fail a benchmark solely from one noisy wall-clock sample. Preserve baseline

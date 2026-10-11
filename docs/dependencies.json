@@ -1,0 +1,191 @@
+[
+  {
+    "path": "node_modules/ajv",
+    "name": "ajv",
+    "version": "8.20.0",
+    "resolved": "https://registry.npmjs.org/ajv/-/ajv-8.20.0.tgz",
+    "integrity": "sha512-Thbli+OlOj+iMPYFBVBfJ3OmCAnaSyNn4M1vz9T6Gka5Jt9ba/HIR56joy65tY6kx/FCF5VXNB819Y7/GUrBGA==",
+    "license": "MIT",
+    "selectedLicenses": [
+      "MIT"
+    ],
+    "purpose": "Schema contract validation",
+    "relationship": "direct",
+    "source": "https://github.com/ajv-validator/ajv",
+    "reason": "Draft 2020-12 and strict non-mutating validation",
+    "replacementDifficulty": "Medium",
+    "scope": "development",
+    "reviewed": "2026-10-11",
+    "dependencies": {
+      "fast-deep-equal": "^3.1.3",
+      "fast-uri": "^3.0.1",
+      "json-schema-traverse": "^1.0.0",
+      "require-from-string": "^2.0.2"
+    },
+    "notices": [
+      {
+        "file": "LICENSE",
+        "saved": "docs/licensing/ajv-8.20.0-LICENSE",
+        "sha256": "a05350a88e318e4f5f2c2a1ff1e2e88daa4dd38e6e78b71cccae422bdc762cc3"
+      }
+    ],
+    "bundledLicenseReview": "Reviewed license/notice files and package metadata; no additional bundled license terms identified.",
+    "approval": null,
+    "additionalTerms": []
+  },
+  {
+    "path": "node_modules/fast-deep-equal",
+    "name": "fast-deep-equal",
+    "version": "3.1.3",
+    "resolved": "https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz",
+    "integrity": "sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==",
+    "license": "MIT",
+    "selectedLicenses": [
+      "MIT"
+    ],
+    "purpose": "Ajv equality comparisons",
+    "relationship": "transitive",
+    "source": "https://github.com/epoberezkin/fast-deep-equal",
+    "reason": "Required by Ajv",
+    "replacementDifficulty": "Low",
+    "scope": "development",
+    "reviewed": "2026-10-11",
+    "dependencies": {},
+    "notices": [
+      {
+        "file": "LICENSE",
+        "saved": "docs/licensing/fast-deep-equal-3.1.3-LICENSE",
+        "sha256": "7bf9b2de73a6b356761c948d0e9eeb4be6c1270bd04c79cd489c1e400ffdfc1a"
+      }
+    ],
+    "bundledLicenseReview": "Reviewed license/notice files and package metadata; no additional bundled license terms identified.",
+    "approval": null,
+    "additionalTerms": []
+  },
+  {
+    "path": "node_modules/fast-uri",
+    "name": "fast-uri",
+    "version": "3.1.8",
+    "resolved": "https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.8.tgz",
+    "integrity": "sha512-GZMtZUTNRpOVIECoXwLNZS5xUGE+mVNbTB8h/7Rwh2TFWcBQiPzTgyZi05BF9UMZKkLJv8XBRJTlU7zg8+ZfMg==",
+    "license": "BSD-3-Clause",
+    "selectedLicenses": [
+      "BSD-3-Clause"
+    ],
+    "purpose": "Ajv schema URI resolution",
+    "relationship": "transitive",
+    "source": "https://github.com/fastify/fast-uri",
+    "reason": "Required by Ajv",
+    "replacementDifficulty": "Medium",
+    "scope": "development",
+    "reviewed": "2026-10-11",
+    "dependencies": {},
+    "notices": [
+      {
+        "file": "LICENSE",
+        "saved": "docs/licensing/fast-uri-3.1.8-LICENSE",
+        "sha256": "b010b0dfdfdb23d7396e03b82cd4621fc9bb8f95d6b0aea70b9c24e12074c786"
+      }
+    ],
+    "bundledLicenseReview": "Reviewed license/notice files and package metadata; no additional bundled license terms identified.",
+    "approval": null,
+    "additionalTerms": []
+  },
+  {
+    "path": "node_modules/json-schema-traverse",
+    "name": "json-schema-traverse",
+    "version": "1.0.0",
+    "resolved": "https://registry.npmjs.org/json-schema-traverse/-/json-schema-traverse-1.0.0.tgz",
+    "integrity": "sha512-NM8/P9n3XjXhIZn1lLhkFaACTOURQXjWhV4BA/RnOv8xvgqtqpAX9IO4mRQxSx1Rlo4tqzeqb0sOlruaOy3dug==",
+    "license": "MIT",
+    "selectedLicenses": [
+      "MIT"
+    ],
+    "purpose": "Ajv schema traversal",
+    "relationship": "transitive",
+    "source": "https://github.com/epoberezkin/json-schema-traverse",
+    "reason": "Required by Ajv",
+    "replacementDifficulty": "Low",
+    "scope": "development",
+    "reviewed": "2026-10-11",
+    "dependencies": {},
+    "notices": [
+      {
+        "file": "LICENSE",
+        "saved": "docs/licensing/json-schema-traverse-1.0.0-LICENSE",
+        "sha256": "7bf9b2de73a6b356761c948d0e9eeb4be6c1270bd04c79cd489c1e400ffdfc1a"
+      }
+    ],
+    "bundledLicenseReview": "Reviewed license/notice files and package metadata; no additional bundled license terms identified.",
+    "approval": null,
+    "additionalTerms": []
+  },
+  {
+    "path": "node_modules/require-from-string",
+    "name": "require-from-string",
+    "version": "2.0.2",
+    "resolved": "https://registry.npmjs.org/require-from-string/-/require-from-string-2.0.2.tgz",
+    "integrity": "sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==",
+    "license": "MIT",
+    "selectedLicenses": [
+      "MIT"
+    ],
+    "purpose": "Ajv dependency for compiled module loading",
+    "relationship": "transitive",
+    "source": "https://github.com/floatdrop/require-from-string",
+    "reason": "Required by Ajv; not an editor scripting API",
+    "replacementDifficulty": "Low",
+    "scope": "development",
+    "reviewed": "2026-10-11",
+    "dependencies": {},
+    "notices": [
+      {
+        "file": "license",
+        "saved": "docs/licensing/require-from-string-2.0.2-license",
+        "sha256": "6ee0feb1f6ef996ff5a68600f8cf98909cf412d39ef3cdceaefd87d636fa1b7f"
+      }
+    ],
+    "bundledLicenseReview": "Reviewed license/notice files and package metadata; no additional bundled license terms identified.",
+    "approval": null,
+    "additionalTerms": []
+  },
+  {
+    "path": "node_modules/typescript",
+    "name": "typescript",
+    "version": "5.9.3",
+    "resolved": "https://registry.npmjs.org/typescript/-/typescript-5.9.3.tgz",
+    "integrity": "sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==",
+    "license": "Apache-2.0",
+    "selectedLicenses": [
+      "Apache-2.0"
+    ],
+    "purpose": "Static checking of required TypeScript contracts",
+    "relationship": "direct",
+    "source": "https://github.com/microsoft/TypeScript",
+    "reason": "Mature pinned 5.9 compiler; newer compiler adoption requires separate review",
+    "replacementDifficulty": "Medium",
+    "scope": "development",
+    "reviewed": "2026-10-11",
+    "dependencies": {},
+    "notices": [
+      {
+        "file": "LICENSE.txt",
+        "saved": "docs/licensing/typescript-5.9.3-LICENSE.txt",
+        "sha256": "a5e9f9b1575301c7a7a03508fdaa2e05a918cc17fd21c6e898096a96d6a34f61"
+      },
+      {
+        "file": "ThirdPartyNoticeText.txt",
+        "saved": "docs/licensing/typescript-5.9.3-ThirdPartyNoticeText.txt",
+        "sha256": "01de8bc3c687a3df5a83e8b80db5006270f9f3361dbb437faf3dcc033dcd6bb1"
+      }
+    ],
+    "bundledLicenseReview": "TypeScript bundled Unicode, W3C and CC-BY terms explicitly approved; see linked review.",
+    "approval": "docs/licensing/typescript-review.md",
+    "additionalTerms": [
+      "LicenseRef-Unicode-1991-2017",
+      "LicenseRef-W3C-Software-And-Document",
+      "CC-BY-4.0",
+      "LicenseRef-W3C-Community-Final-Specification-Agreement"
+    ]
+  }
+]

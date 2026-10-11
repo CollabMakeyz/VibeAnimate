@@ -2,20 +2,24 @@
 
 An original desktop vector-animation editor project, following the full specification
 in [MASTER PLAN](docs/MASTER%20PLAN.md). **Current state: Phase Zero research reviewed;
-Phase One architecture next. There is no runnable editor yet.**
+Phase One architecture specified and validated. There is no runnable editor yet.**
 [PROGRESS.md](PROGRESS.md) records all phases and milestones.
 
 The repository currently contains sourced behavior specifications, architectural
-decisions, feature/risk inventories, and a dependency-free research test harness.
+decisions, feature/risk inventories, typed contracts and executable schema validation.
 Numerical experiments are disposable probes and do not implement the application.
 
 ## Run the current verification tools
 
-Requires Node.js 22 or newer (validated locally with 24.19.0). No package installation
-is needed for this research checkpoint.
+Requires Node.js 22 or newer (validated locally with 24.19.0). Install the pinned,
+reviewed development packages without lifecycle scripts:
 
 ```sh
+node scripts/audit-dependencies.mjs
+npm ci --ignore-scripts
+node scripts/audit-dependencies.mjs --installed
 npm run check
+npm run demo:contracts
 npm run benchmark:research
 npm run probe:rendering
 npm run doctor
@@ -32,6 +36,7 @@ server with Ctrl+C. Saved results are in `docs/checkpoints/`.
 ## Project records
 
 - [Research ledger and sources](docs/research.md)
+- [Architecture contracts](docs/architecture.md) and [native format v1](docs/native-format-v1.md)
 - [Feature matrix](docs/feature-matrix.md)
 - [Known limitations](docs/known-limitations.md)
 - [Assumptions](docs/assumptions.md)

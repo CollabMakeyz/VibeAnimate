@@ -1,4 +1,4 @@
-name: Phase Zero research checks
+name: Research and architecture checks
 on:
   push:
   pull_request:
@@ -6,7 +6,7 @@ permissions:
   contents: read
 jobs:
   research:
-    name: Research harness (${{ matrix.os }})
+    name: Contracts and research (${{ matrix.os }})
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -24,7 +24,13 @@ jobs:
         run: |
           node --version
           node -e "if (Number(process.versions.node.split('.')[0]) < 22) { console.error('Research checks require Node 22 or newer'); process.exit(1); }"
-      - name: Validate research and run tests (no dependencies)
+      - name: Audit locked dependencies and retained notices before installation
+        run: node scripts/audit-dependencies.mjs
+      - name: Install reviewed development dependencies without lifecycle scripts
+        run: npm ci --ignore-scripts
+      - name: Match installed notices to reviewed copies
+        run: node scripts/audit-dependencies.mjs --installed
+      - name: Validate research, contracts and tests
         run: npm run check
       - name: Numerical research probe (not a graphics benchmark)
         run: npm run benchmark:research

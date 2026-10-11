@@ -31,3 +31,15 @@ Decisions dated 2026-10-10. None of these entries is evidence of implemented par
 11. **Source citations in the supplied plan:** opaque citation tokens have no
     resolvable bibliography. Research documents use independently retrieved URLs
     and page/section locators instead of presenting those tokens as evidence.
+12. **Phase One conventions confirmed (2026-10-11):** logical Stage pixels, float64
+    storage, x right/y down, zero-based half-open frame ranges, rational FPS,
+    explicit angle units and sRGB saved colors. See docs/architecture.md.
+13. **Native v1 authority:** document.json contains authoritative library metadata
+    and symbol definitions; optional library entries cannot override it. Select
+    bounded ZIP32 stored/DEFLATE, with no library adopted by this design choice.
+14. **Compiler exception:** the user explicitly approved TypeScript 5.9.3 and its
+    bundled Unicode/W3C/CC-BY terms for development only on 2026-10-11. Exact evidence
+    and notice hashes are recorded in docs/licensing; upgrades are not preapproved.
+15. **Phase One completion:** interfaces are architecture deliverables, not runtime
+    stubs or claims of implemented tools. All model, command, renderer, worker,
+    file-container and native-shell behavior still needs milestone implementation.

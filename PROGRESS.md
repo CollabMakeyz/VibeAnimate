@@ -9,7 +9,7 @@ known limitations, and a demo project before it is checked.
 ## Phases and milestones (in required order)
 
 - [x] Phase Zero — deep research and all research exit gates.
-- [ ] Phase One — architecture, interfaces, schema, workers, save format and ADRs.
+- [x] Phase One — architecture, interfaces, schema, workers, save format and ADRs.
 - [ ] M1 Foundation — monorepo, Tauri/Rust, TypeScript, lint/format, test/E2E harness,
       CI, logging, error boundary, capabilities, documentation and license audit.
 - [ ] M2 UI Shell + Stage — commands, panels/docking/floating, tabs, Stage,
@@ -47,37 +47,37 @@ known limitations, and a demo project before it is checked.
 
 ## Phase One exit gates
 
-- [ ] Folder tree and principal interfaces.
-- [ ] Explicit versioned schema and native save format v1.
-- [ ] Command/transaction design and worker boundaries.
-- [ ] Renderer and tablet abstractions.
-- [ ] Performance budgets and architectural decision records.
+- [x] Folder tree and principal interfaces.
+- [x] Explicit versioned schema and native save format v1 specification.
+- [x] Command/transaction design and worker boundaries.
+- [x] Renderer and tablet abstractions.
+- [x] Performance budgets and architectural decision records.
 
 ## Current checkpoint
 
-Phase Zero research COMPLETE; Phase One next. Read all 3,857 lines of the supplied plan and established that
-the initial repository contained only README.md. Created the required first-delivery
-research documents, four ADRs, a 95-item feature matrix, 16-source bibliography,
-19-risk register, panel/tool/menu/shortcut inventories, testing and benchmark plans.
+Phase Zero research and Phase One architecture COMPLETE. M1 Foundation is next.
+The supplied 3,857-line plan was read in full; the initial repo contained only README.
+Research preserves the 95-item feature matrix, 16 sources, 19 risks and thirty AA
+measurements. See `docs/checkpoints/phase-zero-review.md` for that accepted scope.
 
-Dependency-free research harness and disposable numerical experiments: 47 tests
-passed on Windows/Node 24.19.0. `npm run check` validates research references,
-matrix synchronization, absence of unaudited package dependencies, and tests.
-`npm run gate:phase-zero` now passes all fifteen reviewed research deliverables.
-Benchmark evidence: `docs/checkpoints/phase-zero-numerics.json` (20,000 cases per
-batch, ten measured batches; not a graphics/frame-rate benchmark). Thirty browser AA
-scenarios also measured successfully, including shared edges and a decomposed hole:
-`docs/checkpoints/phase-zero-rendering-boundaries.json`. Independent fringe produced
-visible internal seams; MSAA and supersampling preserved the shared boundary.
-Original cubic-to-quadratic conversion passed 200 seeded-curve bound checks.
+Phase One adds explicit v1 JSON Schema and generated readonly DTOs; model, command,
+geometry, input, tool, renderer, timeline, persistence and worker contracts; original
+rectangle DTO demonstration; structural validation; native-format and transaction
+specifications; concrete resource budgets; and five ADRs. Details and exact limits
+are in `docs/checkpoints/phase-one-review.md`. The save format is specified, not a
+functioning serializer. Interfaces are not implementations of editor features.
 
-The dated menu inventory was reconciled against the primary manual; dynamic
-entries, OS variants and Clear Keyframe/workspace placement conflicts are explicit.
-Motion Editor/shape hints/span boundaries, primitive/text/3D tools and solver/fitting
-literature are specified; provisional shortcuts remain clearly identified.
-Next: Phase One typed interfaces, versioned schema/native package format,
-command transactions, worker boundaries and renderer/tablet contracts. No production feature
-has been accepted. Rust/Cargo and physical tablet validation are still unavailable.
+`npm run check` passes 67 tests on Windows/Node 24.19.0, plus strict TypeScript 5.9.3
+contract checks and generated artifact synchronization. `npm run demo:contracts`
+passes. Six exact development packages are license-audited, with retained notices
+and an explicit user-approved exception for TypeScript 5.9.3 bundled terms. CI has
+been updated for these checks on three operating systems; native builds are pending.
+
+Next concrete work: M1 prerequisite inspection and native toolchain setup, pinned
+Tauri 2/UI/build dependency selection with complete npm/Cargo license auditing, real
+desktop shell, logging/error boundary/capability detection, lint/format/E2E harness,
+then run/build the app. Rust/Cargo were unavailable at the previous inspection.
+No M1–M11 production feature or physical tablet acceptance is claimed.
 
 ## Evidence rules
 

@@ -1,6 +1,8 @@
 # Native format research and proposed v1
 
-Status: **PROPOSED; serializer/schema not implemented**. Extension: `.vibeanim`.
+Status: **v1 schema and structural validation implemented; serializer pending**.
+The authoritative Phase One contract is [native-format-v1.md](native-format-v1.md).
+Extension: `.vibeanim`.
 The format is original. FLA/XFL/SWF are external formats, not document models.
 [Historical format evidence](https://helpx.adobe.com/animate/desktop/multimedia-and-video/opening-cs6-files-cc.html)
 distinguishes CS4 binary FLA from the CS5 XFL generation. CS4 manual PDF 52 also
@@ -19,7 +21,7 @@ metadata/       optional descriptive metadata
 recovery/       recovery metadata, not a substitute for external autosave
 ```
 
-Phase One must select and schema-test the final v1 DTO before feature persistence.
+Phase One defines and schema-tests the v1 DTO before feature persistence.
 Do not publish the above directory sketch as a functioning file format. JSON schema
 validation is followed by semantic validation: ID uniqueness/references, graph
 invariants, frame ranges, symbol cycles and resource quotas. Unknown future major
