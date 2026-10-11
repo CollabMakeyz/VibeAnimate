@@ -75,6 +75,8 @@ pkg-config, and a feature change must fail audit. No GPL/AFL vendored build is
 approved here. Apple SDK conditions mentioned by objc2 upstream remain a separate
 platform build/distribution review; the crate grants are recorded as declared.
 
-The complete 406-package graph and 223 deduplicated retained notice files are in
-[the candidate inventory](../cargo-candidates.json). They remain candidates until
-all adoption checks pass. This proposal grants no approval by itself.
+The original 406-package candidate graph is preserved in
+[the candidate inventory](../cargo-candidates.json). After explicit approval and
+successful checks, the [adopted inventory](../cargo-dependencies.json) records the
+desktop custom-protocol feature review. The original proposal JSON remains unchanged.
+The user's exact response above, not the proposal by itself, supplies approval.

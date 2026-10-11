@@ -96,6 +96,6 @@ export async function auditDependencies(base = root) {
   return errors;
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
-  try { const errors = await auditDependencies(); errors.forEach(e => console.error(e)); if (errors.length) process.exitCode = 1; else console.log('Pinned npm and complete Cargo inventories, retained notices and scoped approvals verified.'); }
+  try { const errors = await auditDependencies(); errors.forEach(e => console.error(e)); if (errors.length) process.exitCode = 1; else console.log(process.argv.includes('--npm-only') ? 'Pinned npm inventory and notices verified before installation; Cargo audit runs after installing the reviewed TOML parser.' : 'Pinned npm and complete Cargo inventories, retained notices and scoped approvals verified.'); }
   catch (error) { console.error(error.message); process.exitCode = 1; }
 }
