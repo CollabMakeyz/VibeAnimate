@@ -1,8 +1,9 @@
 # Historical menu inventory
 
-Status: **PARTIAL**. Entries below were located in the official CS4 user manual;
-PDF pages are one based. This is a behavioral command inventory, not a verified
-exhaustive export of every menu, separator, dynamic item or platform variant.
+Status: **research inventory reviewed**. Primary rows use the official CS4 manual;
+the dated supplement covers menu families not enumerated there. PDF pages are one
+based. This is a behavioral inventory, not a certified export of separators,
+dynamic values or every installed-extension variant.
 All production commands are **NOT IMPLEMENTED**. Do not expose inert menu items.
 
 The manual contains shared Creative Suite instructions. Commands specifically
@@ -54,14 +55,30 @@ script windows are separate contexts and must not be put into the main menu blin
 | Window / Extensions | Kuler | 142 | Historical service only; original color tooling required |
 | Help | Product Help; Adobe Product Improvement Program | 6–7 | Historical labels only; own local help/voluntary diagnostics |
 
-## Outstanding completeness checks
+## Reconciliation and coverage limits
 
-Obtain a dated primary full menu/shortcut export or review all relevant remaining
-manual sections and record coverage limits explicitly. Verify Text submenus,
-Window Align/Transform/Info/Motion Editor entries, Help variants, Debug toolbar vs
-menu distinctions, recent files/dynamic scenes and OS-specific placement. Resolve
-Clear Keyframe's conflicting Edit/Modify references using primary version evidence.
-Until then, the full-menu Phase Zero exit criterion stays unchecked.
+All eleven requested top-level menus have inventory coverage. Source A confirms
+Align (126), Transform (122) and Info (129) under Window; detailed Motion Editor
+behavior is in PDF 208–214. Text scrollability is verified on PDF 257; paragraph
+and character formatting on PDF 260. Preview quality levels are enumerated on
+PDF 442. Revert is verified on PDF 51, motion copy/paste on PDF 206/220 and reverse
+frames on PDF 216. Debugger step/continue/end actions are verified as controls on
+PDF 363/367; the dated supplement records their menu presence. These contexts must
+remain distinct in the command registry.
+
+Clear Keyframe is explicitly Modify > Timeline on PDF 216, while PDF 178 gives
+Edit > Timeline. Record both source locations; select Modify in the proposed
+Classic menu and retain a searchable command. This is an explicit unresolved
+placement discrepancy, not a missing behavior. Window workspace placement in the
+supplement remains provisional against the primary Application bar instructions.
+
+Font/style/size lists, recent files, scene names, window lists, script commands and
+installed extensions are dynamic, so the inventory records their generators,
+not a fictitious fixed set of values. Host OS application-menu substitutions are
+identified above. The supplement supplies historical evidence where no exact
+primary menu path was located; it is not promoted to class A. Later M11 parity
+validation must retain these confidence limits instead of advertising perfect
+menu reproduction. Research inventory completion does not accept the product UI.
 
 ## Dated inventory supplement
 

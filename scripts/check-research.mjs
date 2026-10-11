@@ -124,11 +124,18 @@ export async function checkResearch(base = root, requireComplete = false) {
       errors.push(`Evidence unavailable: ${path} (${error.message})`);
     }
   }
-  if (requireComplete) {
-    if (data.gates.status !== 'COMPLETE') errors.push(`Phase Zero status is ${data.gates.status}`);
-    for (const gate of data.gates.gates) if (gate.status !== 'REVIEWED') errors.push(`Open gate ${gate.id}: ${gate.next}`);
-  }
+  if (requireComplete) errors.push(...phaseZeroExitErrors(data.gates));
   return { errors, data };
+}
+
+export function phaseZeroExitErrors(gates) {
+  const errors = [];
+  if (gates?.status !== 'COMPLETE') errors.push(`Phase Zero status is ${gates?.status ?? 'MISSING'}`);
+  if (!Array.isArray(gates?.gates) || !gates.gates.length) errors.push('Phase Zero gate inventory is missing');
+  for (const gate of gates?.gates ?? []) {
+    if (gate?.status !== 'REVIEWED') errors.push(`Open gate ${gate?.id ?? 'UNKNOWN'}: ${gate?.next ?? 'Review missing record'}`);
+  }
+  return errors;
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {

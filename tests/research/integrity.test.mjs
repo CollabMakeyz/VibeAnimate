@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdtemp, mkdir, writeFile, rm, readFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
-import { checkResearch, loadResearch, validateResearch, resolveEvidencePath, root } from '../../scripts/check-research.mjs';
+import { checkResearch, loadResearch, validateResearch, resolveEvidencePath, phaseZeroExitErrors, root } from '../../scripts/check-research.mjs';
 import { renderMatrix } from '../../scripts/feature-matrix.mjs';
 import { auditResearchDependencies, checkDependencyFreeManifest } from '../../scripts/check-licenses.mjs';
 
@@ -21,10 +21,19 @@ test('production implementation is not inferred from research artifacts', () => 
   assert.ok(baseline.features.every(f => f.automatedTest.status === 'PLANNED'));
 });
 
-test('Phase Zero exit gate fails with actionable open items', async () => {
+test('reviewed Phase Zero inventory passes the exit gate', async () => {
   const { errors } = await checkResearch(root, true);
-  assert.ok(errors.some(e => e.includes('Open gate menus:')));
-  assert.ok(!errors.some(e => e.includes('Open gate rendering:')));
+  assert.deepEqual(errors, []);
+});
+
+test('exit guard rejects partial, missing and unreviewed inventories with actionable diagnostics', () => {
+  const gates = structuredClone(baseline.gates);
+  gates.status = 'PARTIAL'; gates.gates[0].status = 'PARTIAL';
+  const errors = phaseZeroExitErrors(gates);
+  assert.ok(errors.some(e => e.includes('Phase Zero status is PARTIAL')));
+  assert.ok(errors.some(e => e.includes(gates.gates[0].next)));
+  assert.ok(phaseZeroExitErrors(null).length >= 2);
+  assert.ok(phaseZeroExitErrors({status: 'COMPLETE', gates: []}).length >= 1);
 });
 
 test('duplicate feature IDs are rejected', () => {
@@ -52,7 +61,7 @@ test('DONE cannot rely on planned tests without acceptance evidence', () => {
 });
 
 test('phase cannot be marked complete while a gate remains partial', () => {
-  assert.ok(modified(d => { d.gates.status = 'COMPLETE'; }).some(e => e.includes('unreviewed gates')));
+  assert.ok(modified(d => { d.gates.status = 'COMPLETE'; d.gates.gates[0].status = 'PARTIAL'; }).some(e => e.includes('unreviewed gates')));
 });
 
 test('risk mitigation, owner and trigger must be present', () => {

@@ -1,11 +1,11 @@
 {
   "phase": "Phase Zero",
-  "status": "PARTIAL",
+  "status": "COMPLETE",
   "gates": [
     {"id":"feature-matrix","status":"REVIEWED","evidence":["docs/feature-matrix.json","docs/feature-matrix.md","docs/research.md"],"next":"Expand individual feature rows as subsystem research reveals additional acceptance cases."},
     {"id":"panels","status":"REVIEWED","evidence":["docs/panels.md","docs/timeline-model.md"],"next":"Implement original panel controls and validate contextual focus/layout during M2 onward."},
     {"id":"tools","status":"REVIEWED","evidence":["docs/tools.md"],"next":"Use documented interaction contracts and explicit unknowns to create each tool corpus before acceptance."},
-    {"id":"menus","status":"PARTIAL","evidence":["docs/menus.md"],"next":"Obtain complete dated menu export or finish primary manual coverage with documented version/context limits."},
+    {"id":"menus","status":"REVIEWED","evidence":["docs/menus.md","docs/sources.json"],"next":"Implement original command registry with dynamic/context/OS menu rules; retain documented Clear Keyframe/workspace source conflicts for M11 parity review."},
     {"id":"shortcuts","status":"REVIEWED","evidence":["docs/historical-shortcuts.md"],"next":"Implement remappable presets with verified/provisional/unknown states and context conflict tests; never certify provisional bindings."},
     {"id":"vector-model","status":"REVIEWED","evidence":["docs/vector-model.md","adr/ADR-vector-model.md"],"next":"Run numerical robustness probes before production intersections and face reconstruction."},
     {"id":"timeline-tween-symbols","status":"REVIEWED","evidence":["docs/timeline-model.md"],"next":"Implement exposure/tween span corpus, linked spatial tracks, hint correspondence and deterministic nested evaluation in M5–M7."},

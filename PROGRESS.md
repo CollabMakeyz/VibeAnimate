@@ -8,7 +8,7 @@ known limitations, and a demo project before it is checked.
 
 ## Phases and milestones (in required order)
 
-- [ ] Phase Zero — deep research and all research exit gates.
+- [x] Phase Zero — deep research and all research exit gates.
 - [ ] Phase One — architecture, interfaces, schema, workers, save format and ADRs.
 - [ ] M1 Foundation — monorepo, Tauri/Rust, TypeScript, lint/format, test/E2E harness,
       CI, logging, error boundary, capabilities, documentation and license audit.
@@ -36,7 +36,7 @@ known limitations, and a demo project before it is checked.
 ## Phase Zero exit gates
 
 - [x] Feature matrix and research evidence/confidence classification (95 items).
-- [ ] Panel, tool (including contextual behavior), and menu inventories.
+- [x] Panel, tool (including contextual behavior), and menu inventories.
 - [x] Verified/provisional/unknown Windows/macOS shortcut matrix.
 - [x] Merge/Object Drawing specifications and vector model ADR.
 - [x] Timeline, tween comparison, symbols, IK and 3D behavior specifications.
@@ -55,15 +55,15 @@ known limitations, and a demo project before it is checked.
 
 ## Current checkpoint
 
-PARTIAL — Phase Zero. Read all 3,857 lines of the supplied plan and established that
+Phase Zero research COMPLETE; Phase One next. Read all 3,857 lines of the supplied plan and established that
 the initial repository contained only README.md. Created the required first-delivery
 research documents, four ADRs, a 95-item feature matrix, 16-source bibliography,
 19-risk register, panel/tool/menu/shortcut inventories, testing and benchmark plans.
 
-Dependency-free research harness and disposable numerical experiments: 46 tests
+Dependency-free research harness and disposable numerical experiments: 47 tests
 passed on Windows/Node 24.19.0. `npm run check` validates research references,
 matrix synchronization, absence of unaudited package dependencies, and tests.
-`npm run gate:phase-zero` correctly fails while the research gate is incomplete.
+`npm run gate:phase-zero` now passes all fifteen reviewed research deliverables.
 Benchmark evidence: `docs/checkpoints/phase-zero-numerics.json` (20,000 cases per
 batch, ten measured batches; not a graphics/frame-rate benchmark). Thirty browser AA
 scenarios also measured successfully, including shared edges and a decomposed hole:
@@ -71,12 +71,12 @@ scenarios also measured successfully, including shared edges and a decomposed ho
 visible internal seams; MSAA and supersampling preserved the shared boundary.
 Original cubic-to-quadratic conversion passed 200 seeded-curve bound checks.
 
-Research gate review now leaves one open item: reconcile the supplemental dated
-menu inventory against the primary manual, preserving source conflicts explicitly.
+The dated menu inventory was reconciled against the primary manual; dynamic
+entries, OS variants and Clear Keyframe/workspace placement conflicts are explicit.
 Motion Editor/shape hints/span boundaries, primitive/text/3D tools and solver/fitting
 literature are specified; provisional shortcuts remain clearly identified.
-Next: finish that inventory reconciliation and run the Phase Zero exit check.
-Then close Phase Zero based on evidence and enter Phase One. No production feature
+Next: Phase One typed interfaces, versioned schema/native package format,
+command transactions, worker boundaries and renderer/tablet contracts. No production feature
 has been accepted. Rust/Cargo and physical tablet validation are still unavailable.
 
 ## Evidence rules

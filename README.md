@@ -1,8 +1,9 @@
 # VibeAnimate
 
 An original desktop vector-animation editor project, following the full specification
-in [MASTER PLAN](docs/MASTER%20PLAN.md). **Current state: Phase Zero research, not a
-runnable editor.** [PROGRESS.md](PROGRESS.md) records all phases and milestones.
+in [MASTER PLAN](docs/MASTER%20PLAN.md). **Current state: Phase Zero research reviewed;
+Phase One architecture next. There is no runnable editor yet.**
+[PROGRESS.md](PROGRESS.md) records all phases and milestones.
 
 The repository currently contains sourced behavior specifications, architectural
 decisions, feature/risk inventories, and a dependency-free research test harness.
@@ -20,9 +21,9 @@ npm run probe:rendering
 npm run doctor
 ```
 
-`npm run gate:phase-zero` intentionally exits nonzero until every research exit
-criterion has been reviewed. It reports the remaining work. That gate is separate
-from passing structural validation and numerical research tests.
+`npm run gate:phase-zero` passes the reviewed research inventory. Its negative
+tests reject partial or missing records. This is separate from product acceptance
+and does not establish full historical compatibility.
 
 The rendering probe serves http://127.0.0.1:4173; choose **Run measurements** to
 compare thirty AA cases. It is a disposable experiment, not the editor. Stop its

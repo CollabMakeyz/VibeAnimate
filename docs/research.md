@@ -1,6 +1,6 @@
 # Research ledger
 
-Status: **PARTIAL — Phase Zero**. Research is not production functionality.
+Status: **Phase Zero research deliverables reviewed**. Research is not production functionality.
 Retrieved 2026-10-10. `sources.json` is the machine-readable bibliography.
 Page numbers for CS4 below are **PDF pages**, one based; printed page = PDF − 5.
 The 474-page official manual is dated 5 March 2009. Its downloaded SHA-256 is
@@ -48,16 +48,25 @@ Tests named in this ledger are planned until executable evidence is recorded.
 | Time | Stateful stepping / frame-addressable evaluation | Plan; CS4 timeline | Random-access determinism | Explicit MovieClip clock context | Classic + motion + poses separate | Original implementation | Cache evaluated immutable scenes | Rational frame rate and pure evaluators | Runtime scripting semantics |
 | Video | Bundled FFmpeg / WebCodecs / native codec | WEBCODECS; plan | No compulsory bundled encoder | Codec/muxer availability varies | Explicit unsupported reports | Codec distribution reviewed separately | Worker export with backpressure | Pluggable encoder | Supported OS/backend validation |
 
-## Research gaps and exit policy
+## Research exit review and remaining validation
 
-The official user manual documents commands in task descriptions, not an exhaustive
-versioned menu/shortcut export. `menus.md` distinguishes located entries from
-unverified completeness; `historical-shortcuts.md` does the same for defaults.
-Do not declare full menu or keyboard parity from a list recalled from memory.
-Phase Zero remains open until the inventories are reviewed against historical
-primary evidence, the remaining tool contexts are documented, and prototype
-results support the numerical/rendering decisions. Unknown historical behavior
-may be recorded, but an unchecked exit gate is not silently waived.
+The official manual's task descriptions and a dated publisher menu inventory now
+cover the requested menus, panels and tool families. `menus.md` records the source
+reconciliation, dynamic entries and placement conflicts. The shortcut matrix keeps
+verified, provisional and unknown states; research completion is not a claim of
+full historical keyboard or menu parity. No behavior is certified from memory.
+
+The thirty-case browser experiment demonstrates shared-edge seams in naive
+independent fringe/Canvas fills and supports an initial MSAA strategy. Numerical
+probes test subdivisions, intersections, camera transforms and bounded cubic
+conversion. Fitting/IK mathematical design and original implementation safeguards
+are recorded in `geometry-algorithms.md`. All fifteen research deliverables have
+reviewed evidence in `research-gates.json`. Phase One may now begin.
+
+Production validation still includes robust arbitrary-contour tessellation,
+complex paints, target WebViews, exact interaction corpus, dependency audits and
+physical tablets. These are implementation acceptance requirements, not evidence
+implicitly supplied by research. Preserve all source conflicts in later reports.
 
 The plan's first delivery documents are present as specifications; statuses and
 evidence distinguish a design from its implementation. See PROGRESS.md.

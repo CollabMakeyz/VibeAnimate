@@ -5,10 +5,11 @@ README.md alone. There is no runnable editor, renderer, document engine, native
 shell, import/export system or production feature yet. All M1–M11 features remain
 NOT IMPLEMENTED. Numerical probes are explicitly non-production experiments.
 
-Phase Zero remains partial: full historical menu/default-shortcut completeness,
-some per-tool contexts, renderer AA/tessellator comparison and published fitting/IK
-algorithm review remain outstanding. A dated official manual has been retrieved;
-primary source discrepancies are documented rather than hidden.
+Phase Zero research deliverables have been reviewed; Phase One architecture is
+next. Historical shortcut unknowns and menu placement conflicts remain explicit.
+The browser AA probe covers thirty convex/decomposed cases, not arbitrary topology.
+Fitting/IK mathematical choices still require production implementation and corpus
+validation. Source discrepancies are documented rather than hidden.
 
 No production build, E2E editor interaction, graphical benchmark or physical tablet
 test has passed. Rust/Cargo were not available in the inspected standard locations.
