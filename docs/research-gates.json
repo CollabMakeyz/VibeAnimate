@@ -1,0 +1,21 @@
+{
+  "phase": "Phase Zero",
+  "status": "PARTIAL",
+  "gates": [
+    {"id":"feature-matrix","status":"REVIEWED","evidence":["docs/feature-matrix.json","docs/feature-matrix.md","docs/research.md"],"next":"Expand individual feature rows as subsystem research reveals additional acceptance cases."},
+    {"id":"panels","status":"PARTIAL","evidence":["docs/panels.md"],"next":"Finish exact Align/Info/Transform/Motion Editor controls and distinguish shared-suite examples."},
+    {"id":"tools","status":"PARTIAL","evidence":["docs/tools.md"],"next":"Review remaining primitive, text, 3D, modifier and double-click behavior; record unmeasurable historical thresholds explicitly."},
+    {"id":"menus","status":"PARTIAL","evidence":["docs/menus.md"],"next":"Obtain complete dated menu export or finish primary manual coverage with documented version/context limits."},
+    {"id":"shortcuts","status":"PARTIAL","evidence":["docs/historical-shortcuts.md"],"next":"Verify remaining default bindings from dated primary material; resolve source contradictions and OS variants."},
+    {"id":"vector-model","status":"REVIEWED","evidence":["docs/vector-model.md","adr/ADR-vector-model.md"],"next":"Run numerical robustness probes before production intersections and face reconstruction."},
+    {"id":"timeline-tween-symbols","status":"PARTIAL","evidence":["docs/timeline-model.md"],"next":"Finish frame-range boundary semantics, Motion Editor curves and shape-hint correspondence research."},
+    {"id":"ik-3d","status":"PARTIAL","evidence":["docs/timeline-model.md","docs/tools.md"],"next":"Read solver mathematics and document algorithm choice/constraints; finish perspective and pivot details."},
+    {"id":"external-formats","status":"REVIEWED","evidence":["docs/file-format.md","docs/compatibility.md","adr/ADR-native-file-format.md"],"next":"Phase One defines native DTO/schema; M10 implements isolated adapters and corpus."},
+    {"id":"tablet","status":"REVIEWED","evidence":["docs/tablet-input.md","adr/ADR-tablet-backends.md"],"next":"Implement synthetic suite in M4; physical device acceptance remains separate and mandatory."},
+    {"id":"rendering","status":"PARTIAL","evidence":["docs/rendering.md","adr/ADR-renderer.md"],"next":"Benchmark AA/tessellation candidates and document tradeoffs on actual rendering contexts."},
+    {"id":"licensing","status":"REVIEWED","evidence":["docs/licensing.md","THIRD_PARTY_NOTICES.md"],"next":"Audit pinned npm/Cargo graph before adopting dependencies; no exception approval assumed."},
+    {"id":"risks","status":"REVIEWED","evidence":["docs/risks.json","docs/risks.md"],"next":"Update risk triggers as measurements and implementations arrive."},
+    {"id":"testing","status":"REVIEWED","evidence":["docs/testing.md"],"next":"Add executable subsystem tests before each feature acceptance."},
+    {"id":"benchmarks","status":"PARTIAL","evidence":["docs/performance.md"],"next":"Run research probes, then identify real graphics reference machines and record AA results."}
+  ]
+}

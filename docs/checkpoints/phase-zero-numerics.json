@@ -1,0 +1,37 @@
+{
+  "kind": "Phase Zero numerical research; NOT an editor/GPU benchmark",
+  "seed": 1447641669,
+  "casesPerBatch": 20000,
+  "warmupBatches": 2,
+  "measuredBatches": 10,
+  "environment": {
+    "node": "v24.19.0",
+    "platform": "win32",
+    "arch": "x64"
+  },
+  "batchMilliseconds": {
+    "subdivisionWithValidation": {
+      "count": 10,
+      "min": 4.730599999999981,
+      "p50": 7.868099999999998,
+      "p95": 13.008199999999988,
+      "p99": 13.008199999999988,
+      "max": 13.008199999999988,
+      "method": "nearest-rank"
+    },
+    "anchoredZoomWithValidation": {
+      "count": 10,
+      "min": 4.667100000000005,
+      "p50": 6.774900000000002,
+      "p95": 10.693399999999997,
+      "p99": 10.693399999999997,
+      "max": 10.693399999999997,
+      "method": "nearest-rank"
+    }
+  },
+  "correctness": {
+    "maxSplitError": 6.431098710768743e-13,
+    "maxAnchorError": 8.556067554929069e-13,
+    "checksum": -981355070.5148362
+  }
+}

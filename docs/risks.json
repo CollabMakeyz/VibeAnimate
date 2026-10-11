@@ -1,0 +1,193 @@
+[
+  {
+    "id": "merge-topology",
+    "risk": "Merge topology complexity",
+    "likelihood": "High",
+    "impact": "Critical",
+    "mitigation": "Incremental DCEL, transactional validation, canonical overlap corpus",
+    "owner": "geometry",
+    "trigger": "Invalid face or paint ownership",
+    "status": "OPEN"
+  },
+  {
+    "id": "bezier-robustness",
+    "risk": "Bezier numeric robustness",
+    "likelihood": "High",
+    "impact": "Critical",
+    "mitigation": "Central tolerance, local normalization, tangent/coincident fixtures",
+    "owner": "geometry",
+    "trigger": "Nonfinite coordinate, missed intersection or unstable split",
+    "status": "OPEN"
+  },
+  {
+    "id": "shape-correspondence",
+    "risk": "Shape tween correspondence",
+    "likelihood": "High",
+    "impact": "High",
+    "mitigation": "Contour/hole matching, hints, explicit ambiguity diagnostics",
+    "owner": "tween-engine",
+    "trigger": "Twisted interpolation or lost holes",
+    "status": "OPEN"
+  },
+  {
+    "id": "webview-tablet",
+    "risk": "WebView tablet inconsistency",
+    "likelihood": "High",
+    "impact": "High",
+    "mitigation": "API versus observed matrix; physical tests per platform",
+    "owner": "input",
+    "trigger": "Missing sensor or capture behavior",
+    "status": "OPEN"
+  },
+  {
+    "id": "driver-quirks",
+    "risk": "Driver quirks",
+    "likelihood": "Medium",
+    "impact": "High",
+    "mitigation": "Replay captures plus physical reproduction before workaround",
+    "owner": "input",
+    "trigger": "Device-specific loss or duplicate samples",
+    "status": "OPEN"
+  },
+  {
+    "id": "offscreen",
+    "risk": "OffscreenCanvas support",
+    "likelihood": "Medium",
+    "impact": "Medium",
+    "mitigation": "Real worker handshake and main-surface fallback",
+    "owner": "platform",
+    "trigger": "Constructor exists but worker context fails",
+    "status": "OPEN"
+  },
+  {
+    "id": "dpi-memory",
+    "risk": "High-DPI memory",
+    "likelihood": "High",
+    "impact": "High",
+    "mitigation": "Bounded surface/effect sizes and cache eviction",
+    "owner": "renderer",
+    "trigger": "DPR resize exceeds configured memory",
+    "status": "OPEN"
+  },
+  {
+    "id": "context-loss",
+    "risk": "GPU context loss",
+    "likelihood": "Medium",
+    "impact": "High",
+    "mitigation": "Rebuild caches from model; surface replacement fallback",
+    "owner": "renderer",
+    "trigger": "webglcontextlost",
+    "status": "OPEN"
+  },
+  {
+    "id": "codec-availability",
+    "risk": "Video codec availability",
+    "likelihood": "High",
+    "impact": "High",
+    "mitigation": "Per-configuration encoder support check and diagnostics",
+    "owner": "export",
+    "trigger": "Unsupported codec/container/dimensions",
+    "status": "OPEN"
+  },
+  {
+    "id": "codec-license",
+    "risk": "Codec licensing/patent review",
+    "likelihood": "Medium",
+    "impact": "High",
+    "mitigation": "Separate approved distribution decision; no automatic FFmpeg",
+    "owner": "export/licensing",
+    "trigger": "New encoder or distribution target",
+    "status": "OPEN"
+  },
+  {
+    "id": "xfl-variation",
+    "risk": "XFL variation",
+    "likelihood": "High",
+    "impact": "High",
+    "mitigation": "Producer/version corpus and reports",
+    "owner": "import-xfl",
+    "trigger": "Unknown node/version or contradictory mapping",
+    "status": "OPEN"
+  },
+  {
+    "id": "swf-parser",
+    "risk": "SWF parser security",
+    "likelihood": "High",
+    "impact": "Critical",
+    "mitigation": "Bounded reads, quotas and malformed corpus",
+    "owner": "import-swf",
+    "trigger": "Length overflow, expansion or unsupported compression",
+    "status": "OPEN"
+  },
+  {
+    "id": "shortcuts",
+    "risk": "Legacy shortcut uncertainty",
+    "likelihood": "High",
+    "impact": "Medium",
+    "mitigation": "Dated evidence matrix; provisional labels",
+    "owner": "commands",
+    "trigger": "Conflicting source or OS interception",
+    "status": "OPEN"
+  },
+  {
+    "id": "fonts",
+    "risk": "Font differences",
+    "likelihood": "High",
+    "impact": "High",
+    "mitigation": "Explicit fallback and text metrics fixtures",
+    "owner": "text",
+    "trigger": "Font unavailable or export differs",
+    "status": "OPEN"
+  },
+  {
+    "id": "nested-recursion",
+    "risk": "Nested timeline recursion",
+    "likelihood": "Medium",
+    "impact": "Critical",
+    "mitigation": "Cycle validation plus depth/expansion budget",
+    "owner": "document-model",
+    "trigger": "Cycle or exponential expansion",
+    "status": "OPEN"
+  },
+  {
+    "id": "large-memory",
+    "risk": "Large project memory",
+    "likelihood": "High",
+    "impact": "High",
+    "mitigation": "Asset quotas, lazy decode and measured cache budgets",
+    "owner": "document-model",
+    "trigger": "Resident memory exceeds scenario budget",
+    "status": "OPEN"
+  },
+  {
+    "id": "undo-memory",
+    "risk": "Undo memory growth",
+    "likelihood": "High",
+    "impact": "High",
+    "mitigation": "Delta commands, byte accounting, bounded history",
+    "owner": "command-system",
+    "trigger": "History limit reached",
+    "status": "OPEN"
+  },
+  {
+    "id": "perf-regression",
+    "risk": "Performance regression",
+    "likelihood": "High",
+    "impact": "High",
+    "mitigation": "Reproducible corpora and p95 thresholds",
+    "owner": "benchmarks",
+    "trigger": "Algorithm/graphics regression beyond threshold",
+    "status": "OPEN"
+  },
+  {
+    "id": "recovery",
+    "risk": "Corrupted project recovery",
+    "likelihood": "Medium",
+    "impact": "Critical",
+    "mitigation": "Atomic save, independent journal and injected failures",
+    "owner": "file-format",
+    "trigger": "Interrupted write or invalid latest snapshot",
+    "status": "OPEN"
+  }
+]
+

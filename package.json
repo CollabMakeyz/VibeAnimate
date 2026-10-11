@@ -1,0 +1,19 @@
+{
+  "name": "vibeanimate",
+  "version": "0.0.0",
+  "private": true,
+  "description": "VibeAnimate Phase Zero research and verification harness",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test tests/research/*.test.mjs tests/prototypes/*.test.mjs",
+    "check:research": "node scripts/check-research.mjs",
+    "gate:phase-zero": "node scripts/check-research.mjs --gate",
+    "check:matrix": "node scripts/feature-matrix.mjs --check",
+    "generate:matrix": "node scripts/feature-matrix.mjs",
+    "check:licenses": "node scripts/check-licenses.mjs",
+    "check": "npm run check:research && npm run check:matrix && npm run check:licenses && npm test",
+    "benchmark:research": "node experiments/numerics/benchmark.mjs",
+    "doctor": "node scripts/doctor.mjs"
+  }
+}

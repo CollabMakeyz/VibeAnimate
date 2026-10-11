@@ -1,0 +1,30 @@
+name: Phase Zero research checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  research:
+    name: Research harness (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - name: Fetch exact public repository revision (no third-party actions)
+        shell: bash
+        run: |
+          git init .
+          git fetch --no-tags --depth=1 "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git" "$GITHUB_SHA"
+          git checkout --detach FETCH_HEAD
+      - name: Verify runner Node runtime
+        shell: bash
+        run: |
+          node --version
+          node -e "if (Number(process.versions.node.split('.')[0]) < 22) { console.error('Research checks require Node 22 or newer'); process.exit(1); }"
+      - name: Validate research and run tests (no dependencies)
+        run: npm run check
+      - name: Numerical research probe (not a graphics benchmark)
+        run: npm run benchmark:research

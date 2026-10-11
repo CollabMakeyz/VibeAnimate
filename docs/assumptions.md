@@ -1,0 +1,33 @@
+# Decisions and assumptions
+
+Decisions dated 2026-10-10. None of these entries is evidence of implemented parity.
+
+1. **Continuation baseline:** the supplied GitHub repository at `a673883` contains
+   only README.md. Start at Phase Zero, preserving that history.
+2. **Product name:** the user explicitly named the project VibeAnimate. Substitute
+   that name for the generic `[PRODUCT NAME]` token. Historical trademarks appear
+   only in research and compatibility documents; use original branding/artwork.
+3. **Milestone numbering:** M1–M11 follow the eleven named milestones in the plan.
+   The isolated reference to scripting as “M7” does not override their order;
+   scripting belongs to M9 Text + Scripting + Publish.
+4. **Working branch:** `codex/vibeanimate-foundation`; commits remain reviewable.
+   No force push or replacement of remote history.
+5. **Research vs implementation:** present-day documentation is class A for its
+   own version, not proof of 2008 behavior. Historical claims require historical
+   evidence or an explicit PROVISIONAL/UNKNOWN marker.
+6. **Coordinate conventions (proposed):** Stage origin top left; x right, y down;
+   stored coordinates float64; GPU float32; internal frame indices zero based,
+   displayed frame labels one based. Confirm in Phase One contracts.
+7. **Format name (proposed):** `.vibeanim`, an original versioned package. File
+   extension availability is not a trademark or format-compatibility claim.
+8. **Dependencies:** research tools on the host are not runtime dependencies. Do
+   not redistribute downloaded manuals, proprietary resources, or their code.
+   Dependency adoption requires recorded version and license evidence first.
+9. **Native build environment:** Node 24.19.0 and npm 12.0.2 are available;
+   Rust/Cargo were not found on PATH or in the standard user cargo directory.
+   This is an environment finding, not a reason to waive desktop build checks.
+10. **Hardware:** no physical tablet has been exercised. Synthetic tests will not
+    be reported as Wacom/Huion/XP-Pen/Surface certification.
+11. **Source citations in the supplied plan:** opaque citation tokens have no
+    resolvable bibliography. Research documents use independently retrieved URLs
+    and page/section locators instead of presenting those tokens as evidence.

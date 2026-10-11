@@ -1,0 +1,1713 @@
+[
+  {
+    "id": "monorepo",
+    "feature": "monorepo",
+    "category": "Foundation",
+    "historicalBehavior": "Independent packages with enforced dependency boundaries",
+    "reference": "PLAN",
+    "confidence": "Required architecture (modern)",
+    "requiredParity": "Reject UI/DOM imports from geometry and timeline",
+    "modernExtension": "Required modern behavior",
+    "milestone": "M1",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "foundation.monorepo",
+      "status": "PLANNED"
+    },
+    "manualTest": "Reject UI/DOM imports from geometry and timeline",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "tauri-shell",
+    "feature": "tauri shell",
+    "category": "Foundation",
+    "historicalBehavior": "Tauri 2 and Rust host with minimal permissions",
+    "reference": "PLAN",
+    "confidence": "Required architecture (modern)",
+    "requiredParity": "Build and launch native window on each supported platform",
+    "modernExtension": "Required modern behavior",
+    "milestone": "M1",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "foundation.tauri-shell",
+      "status": "PLANNED"
+    },
+    "manualTest": "Build and launch native window on each supported platform",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "toolchain",
+    "feature": "toolchain",
+    "category": "Foundation",
+    "historicalBehavior": "TypeScript, lint, format, unit/integration/E2E and CI",
+    "reference": "PLAN",
+    "confidence": "Required architecture (modern)",
+    "requiredParity": "Clean checkout runs documented checks",
+    "modernExtension": "Required modern behavior",
+    "milestone": "M1",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "foundation.toolchain",
+      "status": "PLANNED"
+    },
+    "manualTest": "Clean checkout runs documented checks",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "capabilities",
+    "feature": "capabilities",
+    "category": "Foundation",
+    "historicalBehavior": "Runtime API/context detection with explicit fallback",
+    "reference": "PLAN",
+    "confidence": "Required architecture (modern)",
+    "requiredParity": "Simulate absent APIs, failed contexts and initialization errors",
+    "modernExtension": "Required modern behavior",
+    "milestone": "M1",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "foundation.capabilities",
+      "status": "PLANNED"
+    },
+    "manualTest": "Simulate absent APIs, failed contexts and initialization errors",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "logging",
+    "feature": "logging",
+    "category": "Foundation",
+    "historicalBehavior": "Structured subsystem logs, bounded diagnostics and error surface",
+    "reference": "PLAN",
+    "confidence": "Required architecture (modern)",
+    "requiredParity": "Errors retain context without dumping pointer streams",
+    "modernExtension": "Required modern behavior",
+    "milestone": "M1",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "foundation.logging",
+      "status": "PLANNED"
+    },
+    "manualTest": "Errors retain context without dumping pointer streams",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "license-audit",
+    "feature": "license audit",
+    "category": "Foundation",
+    "historicalBehavior": "Pinned direct/transitive dependency inventory",
+    "reference": "PLAN",
+    "confidence": "Required architecture (modern)",
+    "requiredParity": "Unknown/disallowed licenses fail checks",
+    "modernExtension": "Required modern behavior",
+    "milestone": "M1",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "foundation.license-audit",
+      "status": "PLANNED"
+    },
+    "manualTest": "Unknown/disallowed licenses fail checks",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "menus",
+    "feature": "menus",
+    "category": "Workspace",
+    "historicalBehavior": "Context-sensitive command registry shared by menu/shortcut/palette",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 16–32,38–41)",
+    "requiredParity": "Disabled commands cannot mutate document",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M2",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "workspace.menus",
+      "status": "PLANNED"
+    },
+    "manualTest": "Disabled commands cannot mutate document",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "docking",
+    "feature": "docking",
+    "category": "Workspace",
+    "historicalBehavior": "Dock, tab, float, resize, collapse, close and restore panels",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 16–32,38–41)",
+    "requiredParity": "Save/reopen layout and keyboard navigation",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M2",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "workspace.docking",
+      "status": "PLANNED"
+    },
+    "manualTest": "Save/reopen layout and keyboard navigation",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "document-tabs",
+    "feature": "document tabs",
+    "category": "Workspace",
+    "historicalBehavior": "Multiple documents with distinct active editing state",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 16–32,38–41)",
+    "requiredParity": "Switch tabs without losing content, history or unsaved state",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M2",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "workspace.document-tabs",
+      "status": "PLANNED"
+    },
+    "manualTest": "Switch tabs without losing content, history or unsaved state",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "stage",
+    "feature": "stage",
+    "category": "Workspace",
+    "historicalBehavior": "Stage and pasteboard with WebGL2/Canvas2D rendering",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 16–32,38–41)",
+    "requiredParity": "Both backends display the same reference geometry",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M2",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "workspace.stage",
+      "status": "PLANNED"
+    },
+    "manualTest": "Both backends display the same reference geometry",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "camera",
+    "feature": "camera",
+    "category": "Workspace",
+    "historicalBehavior": "Pan, zoom and fit; modern rotation/mirror gestures",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 16–32,38–41)",
+    "requiredParity": "Cursor world coordinate remains fixed during zoom",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M2",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "workspace.camera",
+      "status": "PLANNED"
+    },
+    "manualTest": "Cursor world coordinate remains fixed during zoom",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "rulers-guides-grid",
+    "feature": "rulers guides grid",
+    "category": "Workspace",
+    "historicalBehavior": "Rulers and editable guides/grid, explicit snapping",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 16–32,38–41)",
+    "requiredParity": "Guide snapping wins in conflicts with grid",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M2",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "workspace.rulers-guides-grid",
+      "status": "PLANNED"
+    },
+    "manualTest": "Guide snapping wins in conflicts with grid",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "workspace-presets",
+    "feature": "workspace presets",
+    "category": "Workspace",
+    "historicalBehavior": "Essentials/Animator/Designer and custom layouts",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 16–32,38–41)",
+    "requiredParity": "Save, rename, delete/reset custom workspace",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M2",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "workspace.workspace-presets",
+      "status": "PLANNED"
+    },
+    "manualTest": "Save, rename, delete/reset custom workspace",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "themes",
+    "feature": "themes",
+    "category": "Workspace",
+    "historicalBehavior": "Original Classic/Modern Dark artwork",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 16–32,38–41)",
+    "requiredParity": "Reduced motion, focus visibility and UI scale",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M2",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "workspace.themes",
+      "status": "PLANNED"
+    },
+    "manualTest": "Reduced motion, focus visibility and UI scale",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "merge-drawing",
+    "feature": "merge drawing",
+    "category": "Vector",
+    "historicalBehavior": "Shared raw geometry with split intersections and paint replacement",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 99–139); implementation details original",
+    "requiredParity": "Move top paint to expose a cutout; independent stroke/fill delete",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M3",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "vector.merge-drawing",
+      "status": "PLANNED"
+    },
+    "manualTest": "Move top paint to expose a cutout; independent stroke/fill delete",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "object-drawing",
+    "feature": "object drawing",
+    "category": "Vector",
+    "historicalBehavior": "Isolated local graph per drawing object",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 99–139); implementation details original",
+    "requiredParity": "Overlap/move leaves both objects unchanged",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M3",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "vector.object-drawing",
+      "status": "PLANNED"
+    },
+    "manualTest": "Overlap/move leaves both objects unchanged",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "selection",
+    "feature": "selection",
+    "category": "Vector",
+    "historicalBehavior": "Click/double-click/marquee selection with partial raw geometry",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 99–139); implementation details original",
+    "requiredParity": "Connected stroke versus filled boundary selection",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M3",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "vector.selection",
+      "status": "PLANNED"
+    },
+    "manualTest": "Connected stroke versus filled boundary selection",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "subselection",
+    "feature": "subselection",
+    "category": "Vector",
+    "historicalBehavior": "Anchor/control editing and nudge",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 99–139); implementation details original",
+    "requiredParity": "Move one anchor, preserve valid neighboring curves",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M3",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "vector.subselection",
+      "status": "PLANNED"
+    },
+    "manualTest": "Move one anchor, preserve valid neighboring curves",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "lasso",
+    "feature": "lasso",
+    "category": "Vector",
+    "historicalBehavior": "Freehand/polygon region selection",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 99–139); implementation details original",
+    "requiredParity": "Partial fill selection and object contact settings",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M3",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "vector.lasso",
+      "status": "PLANNED"
+    },
+    "manualTest": "Partial fill selection and object contact settings",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "pen",
+    "feature": "pen",
+    "category": "Vector",
+    "historicalBehavior": "Stateful path building, handles, close/join/open paths",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 99–139); implementation details original",
+    "requiredParity": "Close on first anchor, finish open without phantom fill",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M3",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "vector.pen",
+      "status": "PLANNED"
+    },
+    "manualTest": "Close on first anchor, finish open without phantom fill",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "anchor-tools",
+    "feature": "anchor tools",
+    "category": "Vector",
+    "historicalBehavior": "Add, delete and convert corner/smooth points",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 99–139); implementation details original",
+    "requiredParity": "No dangling references; undo reproduces original path",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M3",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "vector.anchor-tools",
+      "status": "PLANNED"
+    },
+    "manualTest": "No dangling references; undo reproduces original path",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "line",
+    "feature": "line",
+    "category": "Vector",
+    "historicalBehavior": "Single line with constrained angle and stroke attributes",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 99–139); implementation details original",
+    "requiredParity": "Shift angles and merge intersection splitting",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M3",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "vector.line",
+      "status": "PLANNED"
+    },
+    "manualTest": "Shift angles and merge intersection splitting",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "rectangle",
+    "feature": "rectangle",
+    "category": "Vector",
+    "historicalBehavior": "Raw/object rectangle with fill/stroke",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 99–139); implementation details original",
+    "requiredParity": "Constrained square and independent fill/stroke",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M3",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "vector.rectangle",
+      "status": "PLANNED"
+    },
+    "manualTest": "Constrained square and independent fill/stroke",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "oval",
+    "feature": "oval",
+    "category": "Vector",
+    "historicalBehavior": "Raw/object quadratic oval",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 99–139); implementation details original",
+    "requiredParity": "Curve intersection, tangent and bounds corpus",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M3",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "vector.oval",
+      "status": "PLANNED"
+    },
+    "manualTest": "Curve intersection, tangent and bounds corpus",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "rectangle-primitive",
+    "feature": "rectangle primitive",
+    "category": "Vector",
+    "historicalBehavior": "Editable corner radii and dimensions",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 99–139); implementation details original",
+    "requiredParity": "Post-creation parameter change survives save/load",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M3",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "vector.rectangle-primitive",
+      "status": "PLANNED"
+    },
+    "manualTest": "Post-creation parameter change survives save/load",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "oval-primitive",
+    "feature": "oval primitive",
+    "category": "Vector",
+    "historicalBehavior": "Editable start/end angles, inner radius and closure",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 99–139); implementation details original",
+    "requiredParity": "Arc/ring parameters round-trip",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M3",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "vector.oval-primitive",
+      "status": "PLANNED"
+    },
+    "manualTest": "Arc/ring parameters round-trip",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "polystar",
+    "feature": "polystar",
+    "category": "Vector",
+    "historicalBehavior": "Polygon/star with sides and point depth",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 99–139); implementation details original",
+    "requiredParity": "Parameters generate finite deterministic contours",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M3",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "vector.polystar",
+      "status": "PLANNED"
+    },
+    "manualTest": "Parameters generate finite deterministic contours",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "pencil",
+    "feature": "pencil",
+    "category": "Vector",
+    "historicalBehavior": "Distinct Straighten/Smooth/Ink behaviors",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 99–139); implementation details original",
+    "requiredParity": "Straighten recognizes shape; Ink preserves intended roughness",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M3",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "vector.pencil",
+      "status": "PLANNED"
+    },
+    "manualTest": "Straighten recognizes shape; Ink preserves intended roughness",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "classic-brush",
+    "feature": "classic brush",
+    "category": "Vector",
+    "historicalBehavior": "Vector fill brush with five painting modes",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 99–139); implementation details original",
+    "requiredParity": "Normal/Fills/Behind/Selection/Inside alter correct regions",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M3",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "vector.classic-brush",
+      "status": "PLANNED"
+    },
+    "manualTest": "Normal/Fills/Behind/Selection/Inside alter correct regions",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "paint-bucket",
+    "feature": "paint bucket",
+    "category": "Vector",
+    "historicalBehavior": "Fill enclosed region with gap policy",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 99–139); implementation details original",
+    "requiredParity": "Closed/gapped/too-large-gap corpus",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M3",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "vector.paint-bucket",
+      "status": "PLANNED"
+    },
+    "manualTest": "Closed/gapped/too-large-gap corpus",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "ink-bottle",
+    "feature": "ink bottle",
+    "category": "Vector",
+    "historicalBehavior": "Apply stroke properties to boundary",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 99–139); implementation details original",
+    "requiredParity": "Boundary stroke changes without changing fill",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M3",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "vector.ink-bottle",
+      "status": "PLANNED"
+    },
+    "manualTest": "Boundary stroke changes without changing fill",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "eyedropper",
+    "feature": "eyedropper",
+    "category": "Vector",
+    "historicalBehavior": "Sample stroke/fill and switch to appropriate application tool",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 99–139); implementation details original",
+    "requiredParity": "Stroke selects Ink Bottle, fill selects Bucket",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M3",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "vector.eyedropper",
+      "status": "PLANNED"
+    },
+    "manualTest": "Stroke selects Ink Bottle, fill selects Bucket",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "eraser",
+    "feature": "eraser",
+    "category": "Vector",
+    "historicalBehavior": "Erase geometry with contextual modes",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 99–139); implementation details original",
+    "requiredParity": "Interior erase creates valid holes and one undo unit",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M3",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "vector.eraser",
+      "status": "PLANNED"
+    },
+    "manualTest": "Interior erase creates valid holes and one undo unit",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "free-transform",
+    "feature": "free transform",
+    "category": "Vector",
+    "historicalBehavior": "Scale/rotate/skew/pivot handles",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 99–139); implementation details original",
+    "requiredParity": "Matrix transform, undo and no repeated decomposition drift",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M3",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "vector.free-transform",
+      "status": "PLANNED"
+    },
+    "manualTest": "Matrix transform, undo and no repeated decomposition drift",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "gradient-transform",
+    "feature": "gradient transform",
+    "category": "Vector",
+    "historicalBehavior": "Fill transform independent of object transform",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 99–139); implementation details original",
+    "requiredParity": "Move gradient center while outline stays fixed",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M3",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "vector.gradient-transform",
+      "status": "PLANNED"
+    },
+    "manualTest": "Move gradient center while outline stays fixed",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "fills",
+    "feature": "fills",
+    "category": "Vector",
+    "historicalBehavior": "Solid/linear/radial/bitmap with alpha and fill transform",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 99–139); implementation details original",
+    "requiredParity": "Backend/export parity for each fill type",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M3",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "vector.fills",
+      "status": "PLANNED"
+    },
+    "manualTest": "Backend/export parity for each fill type",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "strokes",
+    "feature": "strokes",
+    "category": "Vector",
+    "historicalBehavior": "Width/cap/join/miter/scale/hinting",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 99–139); implementation details original",
+    "requiredParity": "Visual joins/caps and mathematical hit testing",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M3",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "vector.strokes",
+      "status": "PLANNED"
+    },
+    "manualTest": "Visual joins/caps and mathematical hit testing",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "color-swatches",
+    "feature": "color swatches",
+    "category": "Vector",
+    "historicalBehavior": "Color edits and document palette",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 99–139); implementation details original",
+    "requiredParity": "Palette persistence, gradients and alpha",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M3",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "vector.color-swatches",
+      "status": "PLANNED"
+    },
+    "manualTest": "Palette persistence, gradients and alpha",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "group-break-apart",
+    "feature": "group break apart",
+    "category": "Vector",
+    "historicalBehavior": "Ownership grouping versus geometry union",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 99–139); implementation details original",
+    "requiredParity": "Ungroup and transformed Break Apart semantics",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M3",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "vector.group-break-apart",
+      "status": "PLANNED"
+    },
+    "manualTest": "Ungroup and transformed Break Apart semantics",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "geometry-kernel",
+    "feature": "geometry kernel",
+    "category": "Vector",
+    "historicalBehavior": "Quadratics, intersections, topology, spatial queries and fitting",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 99–139); implementation details original",
+    "requiredParity": "Seeded invariant/property/canonical corpus",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M3",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "vector.geometry-kernel",
+      "status": "PLANNED"
+    },
+    "manualTest": "Seeded invariant/property/canonical corpus",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "pressure-brush",
+    "feature": "pressure brush",
+    "category": "Input",
+    "historicalBehavior": "Independent size/opacity/flow pressure controls",
+    "reference": "POINTER",
+    "confidence": "A/high for API; product behavior specified by plan",
+    "requiredParity": "Measured output differs across pressure ramp",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M4",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "input.pressure-brush",
+      "status": "PLANNED"
+    },
+    "manualTest": "Measured output differs across pressure ramp",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "pressure-curves",
+    "feature": "pressure curves",
+    "category": "Input",
+    "historicalBehavior": "Visual curve editor and local profiles",
+    "reference": "POINTER",
+    "confidence": "A/high for API; product behavior specified by plan",
+    "requiredParity": "Monotonicity, clamps, presets and deterministic evaluation",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M4",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "input.pressure-curves",
+      "status": "PLANNED"
+    },
+    "manualTest": "Monotonicity, clamps, presets and deterministic evaluation",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "tilt-twist",
+    "feature": "tilt twist",
+    "category": "Input",
+    "historicalBehavior": "Nib orientation/aspect and available twist",
+    "reference": "POINTER",
+    "confidence": "A/high for API; product behavior specified by plan",
+    "requiredParity": "No angular discontinuity at wrap",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M4",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "input.tilt-twist",
+      "status": "PLANNED"
+    },
+    "manualTest": "No angular discontinuity at wrap",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "eraser-barrel",
+    "feature": "eraser barrel",
+    "category": "Input",
+    "historicalBehavior": "Temporary tool override and configurable barrel action",
+    "reference": "POINTER",
+    "confidence": "A/high for API; product behavior specified by plan",
+    "requiredParity": "Restore previous tool on all termination paths",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M4",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "input.eraser-barrel",
+      "status": "PLANNED"
+    },
+    "manualTest": "Restore previous tool on all termination paths",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "hover",
+    "feature": "hover",
+    "category": "Input",
+    "historicalBehavior": "Actual brush footprint overlay",
+    "reference": "POINTER",
+    "confidence": "A/high for API; product behavior specified by plan",
+    "requiredParity": "No document mutation from hover",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M4",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "input.hover",
+      "status": "PLANNED"
+    },
+    "manualTest": "No document mutation from hover",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "coalescing",
+    "feature": "coalescing",
+    "category": "Input",
+    "historicalBehavior": "Ordered confirmed samples without duplication",
+    "reference": "POINTER",
+    "confidence": "A/high for API; product behavior specified by plan",
+    "requiredParity": "Empty/duplicate/coalesced event sequences",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M4",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "input.coalescing",
+      "status": "PLANNED"
+    },
+    "manualTest": "Empty/duplicate/coalesced event sequences",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "prediction",
+    "feature": "prediction",
+    "category": "Input",
+    "historicalBehavior": "Speculative tail separate from persistent ink",
+    "reference": "POINTER",
+    "confidence": "A/high for API; product behavior specified by plan",
+    "requiredParity": "No predicted point in save or undo",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M4",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "input.prediction",
+      "status": "PLANNED"
+    },
+    "manualTest": "No predicted point in save or undo",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "palm-gestures",
+    "feature": "palm gestures",
+    "category": "Input",
+    "historicalBehavior": "Best-effort pen state and two-finger navigation",
+    "reference": "POINTER",
+    "confidence": "A/high for API; product behavior specified by plan",
+    "requiredParity": "Touch never changes an active pen stroke",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M4",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "input.palm-gestures",
+      "status": "PLANNED"
+    },
+    "manualTest": "Touch never changes an active pen stroke",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "stabilization",
+    "feature": "stabilization",
+    "category": "Input",
+    "historicalBehavior": "Resample/stabilize/corner-preserve/fit/convert",
+    "reference": "POINTER",
+    "confidence": "A/high for API; product behavior specified by plan",
+    "requiredParity": "Error budget, thousands of points and finite output",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M4",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "input.stabilization",
+      "status": "PLANNED"
+    },
+    "manualTest": "Error budget, thousands of points and finite output",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "tablet-diagnostics",
+    "feature": "tablet diagnostics",
+    "category": "Input",
+    "historicalBehavior": "API presence versus observed sensors and local calibration",
+    "reference": "POINTER",
+    "confidence": "A/high for API; product behavior specified by plan",
+    "requiredParity": "Synthetic coverage plus physical tablet report",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M4",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "input.tablet-diagnostics",
+      "status": "PLANNED"
+    },
+    "manualTest": "Synthetic coverage plus physical tablet report",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "layers",
+    "feature": "layers",
+    "category": "Timeline",
+    "historicalBehavior": "Normal/folder/guide/guided/mask/masked relationships",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 27–29,177–185,225–228)",
+    "requiredParity": "Reorder keeps explicit relationships",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M5",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "timeline.layers",
+      "status": "PLANNED"
+    },
+    "manualTest": "Reorder keeps explicit relationships",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "frame-operations",
+    "feature": "frame operations",
+    "category": "Timeline",
+    "historicalBehavior": "Held/blank/keyframes and range edits",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 27–29,177–185,225–228)",
+    "requiredParity": "Clear restores prior exposure; copy/paste/undo",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M5",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "timeline.frame-operations",
+      "status": "PLANNED"
+    },
+    "manualTest": "Clear restores prior exposure; copy/paste/undo",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "playback",
+    "feature": "playback",
+    "category": "Timeline",
+    "historicalBehavior": "Scrub, loop, step and rational fps",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 27–29,177–185,225–228)",
+    "requiredParity": "Direct seek equals sequential playback evaluation",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M5",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "timeline.playback",
+      "status": "PLANNED"
+    },
+    "manualTest": "Direct seek equals sequential playback evaluation",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "onion-skin",
+    "feature": "onion skin",
+    "category": "Timeline",
+    "historicalBehavior": "Previous/next range, opacity/tint and cached neighbors",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 27–29,177–185,225–228)",
+    "requiredParity": "Range and tint match selected frames",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M5",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "timeline.onion-skin",
+      "status": "PLANNED"
+    },
+    "manualTest": "Range and tint match selected frames",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "scenes",
+    "feature": "scenes",
+    "category": "Timeline",
+    "historicalBehavior": "Ordered named scenes with separate timelines",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 27–29,177–185,225–228)",
+    "requiredParity": "Reorder/rename/save/load",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M5",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "timeline.scenes",
+      "status": "PLANNED"
+    },
+    "manualTest": "Reorder/rename/save/load",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "timeline-virtualization",
+    "feature": "timeline virtualization",
+    "category": "Timeline",
+    "historicalBehavior": "Visible viewport plus overscan",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 27–29,177–185,225–228)",
+    "requiredParity": "50 × 500 does not create 25,000 interactive cells",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M5",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "timeline.timeline-virtualization",
+      "status": "PLANNED"
+    },
+    "manualTest": "50 × 500 does not create 25,000 interactive cells",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "symbol-types",
+    "feature": "symbol types",
+    "category": "Symbols",
+    "historicalBehavior": "MovieClip/Graphic/Button with separate semantics",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 153–173)",
+    "requiredParity": "Graphic loop/once/single; Button Up/Over/Down/Hit",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M6",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "symbols.symbol-types",
+      "status": "PLANNED"
+    },
+    "manualTest": "Graphic loop/once/single; Button Up/Over/Down/Hit",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "nested-editing",
+    "feature": "nested editing",
+    "category": "Symbols",
+    "historicalBehavior": "Edit in place with breadcrumb and global undo",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 153–173)",
+    "requiredParity": "Definition changes update every instance",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M6",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "symbols.nested-editing",
+      "status": "PLANNED"
+    },
+    "manualTest": "Definition changes update every instance",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "library",
+    "feature": "library",
+    "category": "Symbols",
+    "historicalBehavior": "Folders/assets/search/sort/rename/duplicate/delete/preview/drag",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 153–173)",
+    "requiredParity": "Unused detection, stable IDs and asset persistence",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M6",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "symbols.library",
+      "status": "PLANNED"
+    },
+    "manualTest": "Unused detection, stable IDs and asset persistence",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "color-effects",
+    "feature": "color effects",
+    "category": "Symbols",
+    "historicalBehavior": "None/Brightness/Tint/Alpha/Advanced",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 153–173)",
+    "requiredParity": "Same color transform in Stage and export",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M6",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "symbols.color-effects",
+      "status": "PLANNED"
+    },
+    "manualTest": "Same color transform in Stage and export",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "blend-modes",
+    "feature": "blend modes",
+    "category": "Symbols",
+    "historicalBehavior": "Research-defined compositing modes",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 153–173)",
+    "requiredParity": "Reference image parity and explicit fallback",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M6",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "symbols.blend-modes",
+      "status": "PLANNED"
+    },
+    "manualTest": "Reference image parity and explicit fallback",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "filters",
+    "feature": "filters",
+    "category": "Symbols",
+    "historicalBehavior": "Blur/glow/shadow/bevel/gradient effects/color adjustment",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 153–173)",
+    "requiredParity": "Pixel output survives save/load and export",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M6",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "symbols.filters",
+      "status": "PLANNED"
+    },
+    "manualTest": "Pixel output survives save/load and export",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "symbol-recursion",
+    "feature": "symbol recursion",
+    "category": "Symbols",
+    "historicalBehavior": "Cycle and expansion protection",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 153–173)",
+    "requiredParity": "Malformed recursive or explosive graph rejected",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M6",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "symbols.symbol-recursion",
+      "status": "PLANNED"
+    },
+    "manualTest": "Malformed recursive or explosive graph rejected",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "classic-tween",
+    "feature": "classic tween",
+    "category": "Tween",
+    "historicalBehavior": "Content-keyframe transform/color interpolation and guides",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 192–225)",
+    "requiredParity": "Start/mid/end, type diagnostics and undo",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M7",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "tween.classic-tween",
+      "status": "PLANNED"
+    },
+    "manualTest": "Start/mid/end, type diagnostics and undo",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "motion-tween",
+    "feature": "motion tween",
+    "category": "Tween",
+    "historicalBehavior": "One target span with independent property tracks",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 192–225)",
+    "requiredParity": "Scrub identical to ordered playback",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M7",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "tween.motion-tween",
+      "status": "PLANNED"
+    },
+    "manualTest": "Scrub identical to ordered playback",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "motion-editor",
+    "feature": "motion editor",
+    "category": "Tween",
+    "historicalBehavior": "Graphical property/time/value editor",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 192–225)",
+    "requiredParity": "Add/delete/drag/tangents/clipboard undo and persistence",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M7",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "tween.motion-editor",
+      "status": "PLANNED"
+    },
+    "manualTest": "Add/delete/drag/tangents/clipboard undo and persistence",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "motion-path",
+    "feature": "motion path",
+    "category": "Tween",
+    "historicalBehavior": "Stage path edit and orientation offset",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 192–225)",
+    "requiredParity": "Path edits change the evaluated motion",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M7",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "tween.motion-path",
+      "status": "PLANNED"
+    },
+    "manualTest": "Path edits change the evaluated motion",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "motion-guides",
+    "feature": "motion guides",
+    "category": "Tween",
+    "historicalBehavior": "Guide/guided attachment and orient-to-path",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 192–225)",
+    "requiredParity": "Classic path following with consistent endpoint snaps",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M7",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "tween.motion-guides",
+      "status": "PLANNED"
+    },
+    "manualTest": "Classic path following with consistent endpoint snaps",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "shape-tween",
+    "feature": "shape tween",
+    "category": "Tween",
+    "historicalBehavior": "Contour correspondence and geometry interpolation",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 192–225)",
+    "requiredParity": "Circle→square, holes, disconnected contours, unequal counts",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M7",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "tween.shape-tween",
+      "status": "PLANNED"
+    },
+    "manualTest": "Circle→square, holes, disconnected contours, unequal counts",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "shape-hints",
+    "feature": "shape hints",
+    "category": "Tween",
+    "historicalBehavior": "Explicit source/destination correspondences",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 192–225)",
+    "requiredParity": "Hints change correspondence instead of cosmetic markers",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M7",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "tween.shape-hints",
+      "status": "PLANNED"
+    },
+    "manualTest": "Hints change correspondence instead of cosmetic markers",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "easing",
+    "feature": "easing",
+    "category": "Tween",
+    "historicalBehavior": "Serializable historical/custom/property easing",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 192–225)",
+    "requiredParity": "Endpoint values, monotonic time and known samples",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M7",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "tween.easing",
+      "status": "PLANNED"
+    },
+    "manualTest": "Endpoint values, monotonic time and known samples",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "bone-ik",
+    "feature": "bone ik",
+    "category": "Advanced",
+    "historicalBehavior": "Deterministic constrained linear/branched armatures",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 113–115,144–151,228–237)",
+    "requiredParity": "Unreachable targets, joint limits and convergence",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M8",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "advanced.bone-ik",
+      "status": "PLANNED"
+    },
+    "manualTest": "Unreachable targets, joint limits and convergence",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "bind",
+    "feature": "bind",
+    "category": "Advanced",
+    "historicalBehavior": "Editable point/region bone influences",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 113–115,144–151,228–237)",
+    "requiredParity": "Changing influence deforms the actual shape",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M8",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "advanced.bind",
+      "status": "PLANNED"
+    },
+    "manualTest": "Changing influence deforms the actual shape",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "poses",
+    "feature": "poses",
+    "category": "Advanced",
+    "historicalBehavior": "Pose layer keys/interpolation",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 113–115,144–151,228–237)",
+    "requiredParity": "Save/reload/undo and direct seek equality",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M8",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "advanced.poses",
+      "status": "PLANNED"
+    },
+    "manualTest": "Save/reload/undo and direct seek equality",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "translation-3d",
+    "feature": "translation 3d",
+    "category": "Advanced",
+    "historicalBehavior": "Projected MovieClip translation local/global",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 113–115,144–151,228–237)",
+    "requiredParity": "Gizmo and numeric controls change rendered projection",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M8",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "advanced.translation-3d",
+      "status": "PLANNED"
+    },
+    "manualTest": "Gizmo and numeric controls change rendered projection",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "rotation-3d",
+    "feature": "rotation 3d",
+    "category": "Advanced",
+    "historicalBehavior": "Projected rotation/pivot and perspective",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 113–115,144–151,228–237)",
+    "requiredParity": "Stage and export agree without CSS transforms",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M8",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "advanced.rotation-3d",
+      "status": "PLANNED"
+    },
+    "manualTest": "Stage and export agree without CSS transforms",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "deco",
+    "feature": "deco",
+    "category": "Advanced",
+    "historicalBehavior": "Symmetry/Grid/Vine procedural patterns",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 113–115,144–151,228–237)",
+    "requiredParity": "Seed and parameters regenerate identical vectors",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M8",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "advanced.deco",
+      "status": "PLANNED"
+    },
+    "manualTest": "Seed and parameters regenerate identical vectors",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "spray",
+    "feature": "spray",
+    "category": "Advanced",
+    "historicalBehavior": "Dot/symbol density/scatter/rotation/scale",
+    "reference": "CS4",
+    "confidence": "A/high (PDF 113–115,144–151,228–237)",
+    "requiredParity": "Seed round-trip and editable generated content",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M8",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "advanced.spray",
+      "status": "PLANNED"
+    },
+    "manualTest": "Seed round-trip and editable generated content",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "text",
+    "feature": "text",
+    "category": "Publishing",
+    "historicalBehavior": "Runs/paragraphs/static font/style/layout/tracking/leading",
+    "reference": "PLAN",
+    "confidence": "Required modern implementation; historical text behavior research pending",
+    "requiredParity": "Fallback diagnostics, edit/undo/save/export",
+    "modernExtension": "Required modern behavior",
+    "milestone": "M9",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "publishing.text",
+      "status": "PLANNED"
+    },
+    "manualTest": "Fallback diagnostics, edit/undo/save/export",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "editor-scripting",
+    "feature": "editor scripting",
+    "category": "Publishing",
+    "historicalBehavior": "Original permissioned API in isolated runtime",
+    "reference": "PLAN",
+    "confidence": "Required modern implementation; historical text behavior research pending",
+    "requiredParity": "No ambient native filesystem/shell access",
+    "modernExtension": "Required modern behavior",
+    "milestone": "M9",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "publishing.editor-scripting",
+      "status": "PLANNED"
+    },
+    "manualTest": "No ambient native filesystem/shell access",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "png-sequence",
+    "feature": "png sequence",
+    "category": "Publishing",
+    "historicalBehavior": "PNG and deterministic frame sequence",
+    "reference": "PLAN",
+    "confidence": "Required modern implementation; historical text behavior research pending",
+    "requiredParity": "Decode frames; verify content/alpha/order",
+    "modernExtension": "Required modern behavior",
+    "milestone": "M9",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "publishing.png-sequence",
+      "status": "PLANNED"
+    },
+    "manualTest": "Decode frames; verify content/alpha/order",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "svg",
+    "feature": "svg",
+    "category": "Publishing",
+    "historicalBehavior": "Representable vector export with explicit bake/unsupported report",
+    "reference": "PLAN",
+    "confidence": "Required modern implementation; historical text behavior research pending",
+    "requiredParity": "Paths/styles/masks/text output validation",
+    "modernExtension": "Required modern behavior",
+    "milestone": "M9",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "publishing.svg",
+      "status": "PLANNED"
+    },
+    "manualTest": "Paths/styles/masks/text output validation",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "gif",
+    "feature": "gif",
+    "category": "Publishing",
+    "historicalBehavior": "Real animated GIF encoding",
+    "reference": "PLAN",
+    "confidence": "Required modern implementation; historical text behavior research pending",
+    "requiredParity": "Decode palette/disposal/timing and multiple nonblank frames",
+    "modernExtension": "Required modern behavior",
+    "milestone": "M9",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "publishing.gif",
+      "status": "PLANNED"
+    },
+    "manualTest": "Decode palette/disposal/timing and multiple nonblank frames",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "html5",
+    "feature": "html5",
+    "category": "Publishing",
+    "historicalBehavior": "Standalone animation package",
+    "reference": "PLAN",
+    "confidence": "Required modern implementation; historical text behavior research pending",
+    "requiredParity": "Plays without editor or online services",
+    "modernExtension": "Required modern behavior",
+    "milestone": "M9",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "publishing.html5",
+      "status": "PLANNED"
+    },
+    "manualTest": "Plays without editor or online services",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "video",
+    "feature": "video",
+    "category": "Publishing",
+    "historicalBehavior": "Async WebM and capability-dependent MP4",
+    "reference": "PLAN",
+    "confidence": "Required modern implementation; historical text behavior research pending",
+    "requiredParity": "Decode output; unavailable codec diagnostics",
+    "modernExtension": "Required modern behavior",
+    "milestone": "M9",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "publishing.video",
+      "status": "PLANNED"
+    },
+    "manualTest": "Decode output; unavailable codec diagnostics",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "export-cancel",
+    "feature": "export cancel",
+    "category": "Publishing",
+    "historicalBehavior": "Worker job cancellation/backpressure",
+    "reference": "PLAN",
+    "confidence": "Required modern implementation; historical text behavior research pending",
+    "requiredParity": "No leaked jobs or replacement of previous successful output",
+    "modernExtension": "Required modern behavior",
+    "milestone": "M9",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "publishing.export-cancel",
+      "status": "PLANNED"
+    },
+    "manualTest": "No leaked jobs or replacement of previous successful output",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "swf-subset",
+    "feature": "swf subset",
+    "category": "Compatibility",
+    "historicalBehavior": "Bounded SWF import/export adapter",
+    "reference": "SWF",
+    "confidence": "A/high for format; authoring parity requires corpus",
+    "requiredParity": "Versioned valid/malformed corpus with reports",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M10",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "compatibility.swf-subset",
+      "status": "PLANNED"
+    },
+    "manualTest": "Versioned valid/malformed corpus with reports",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "xfl-subset",
+    "feature": "xfl subset",
+    "category": "Compatibility",
+    "historicalBehavior": "External XML import/export adapter",
+    "reference": "SWF",
+    "confidence": "A/high for format; authoring parity requires corpus",
+    "requiredParity": "Producer/version corpus and exact/approximate/dropped reports",
+    "modernExtension": "See subsystem specification; original assets and deterministic persistence",
+    "milestone": "M10",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "compatibility.xfl-subset",
+      "status": "PLANNED"
+    },
+    "manualTest": "Producer/version corpus and exact/approximate/dropped reports",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "performance",
+    "feature": "performance",
+    "category": "Quality",
+    "historicalBehavior": "Measured scenes and input/render/memory budgets",
+    "reference": "PLAN",
+    "confidence": "Modern requirements",
+    "requiredParity": "Reference machine p50/p95/p99, regression thresholds",
+    "modernExtension": "Required modern behavior",
+    "milestone": "M11",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "quality.performance",
+      "status": "PLANNED"
+    },
+    "manualTest": "Reference machine p50/p95/p99, regression thresholds",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "accessibility",
+    "feature": "accessibility",
+    "category": "Quality",
+    "historicalBehavior": "Keyboard/focus/ARIA/scale and reduced motion",
+    "reference": "PLAN",
+    "confidence": "Modern requirements",
+    "requiredParity": "Keyboard workflow and assistive technology checklist",
+    "modernExtension": "Required modern behavior",
+    "milestone": "M11",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "quality.accessibility",
+      "status": "PLANNED"
+    },
+    "manualTest": "Keyboard workflow and assistive technology checklist",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "high-dpi",
+    "feature": "high dpi",
+    "category": "Quality",
+    "historicalBehavior": "DPR changes and scaled UI independent of Stage",
+    "reference": "PLAN",
+    "confidence": "Modern requirements",
+    "requiredParity": "Move between displays without geometry changes",
+    "modernExtension": "Required modern behavior",
+    "milestone": "M11",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "quality.high-dpi",
+      "status": "PLANNED"
+    },
+    "manualTest": "Move between displays without geometry changes",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "keyboard-parity",
+    "feature": "keyboard parity",
+    "category": "Quality",
+    "historicalBehavior": "Classic/Modern/Custom context-sensitive shortcuts",
+    "reference": "PLAN",
+    "confidence": "Modern requirements",
+    "requiredParity": "Text fields never trigger drawing tools",
+    "modernExtension": "Required modern behavior",
+    "milestone": "M11",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "quality.keyboard-parity",
+      "status": "PLANNED"
+    },
+    "manualTest": "Text fields never trigger drawing tools",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "recovery-autosave",
+    "feature": "recovery autosave",
+    "category": "Quality",
+    "historicalBehavior": "Separate autosave, atomic save and crash recovery",
+    "reference": "PLAN",
+    "confidence": "Modern requirements",
+    "requiredParity": "Injected write failure and restart recovery",
+    "modernExtension": "Required modern behavior",
+    "milestone": "M11",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "quality.recovery-autosave",
+      "status": "PLANNED"
+    },
+    "manualTest": "Injected write failure and restart recovery",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "installers",
+    "feature": "installers",
+    "category": "Quality",
+    "historicalBehavior": "Windows/macOS/Linux build/install artifacts",
+    "reference": "PLAN",
+    "confidence": "Modern requirements",
+    "requiredParity": "Clean-machine install, launch and uninstall",
+    "modernExtension": "Required modern behavior",
+    "milestone": "M11",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "quality.installers",
+      "status": "PLANNED"
+    },
+    "manualTest": "Clean-machine install, launch and uninstall",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  },
+  {
+    "id": "hardware-matrix",
+    "feature": "hardware matrix",
+    "category": "Quality",
+    "historicalBehavior": "Physical pen/mouse/touch device validation",
+    "reference": "PLAN",
+    "confidence": "Modern requirements",
+    "requiredParity": "Recorded OS/driver/backend data, no synthetic certification",
+    "modernExtension": "Required modern behavior",
+    "milestone": "M11",
+    "implementationStatus": "NOT IMPLEMENTED",
+    "automatedTest": {
+      "id": "quality.hardware-matrix",
+      "status": "PLANNED"
+    },
+    "manualTest": "Recorded OS/driver/backend data, no synthetic certification",
+    "knownDeviations": "No implementation yet; no parity claimed"
+  }
+]
+
