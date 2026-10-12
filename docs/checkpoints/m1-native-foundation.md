@@ -1,7 +1,8 @@
 # M1 native foundation checkpoint
 
 2026-10-11. Windows 10.0.26200 x64, Node 24.19.0, Rust/Cargo 1.99.0, MSVC 2026,
-WebView2 154.0.4258.62. M1 acceptance is pending review of the new cross-platform CI.
+WebView2 154.0.4258.62. Initial checkpoint below; M1 accepted on 2026-10-12 after
+the corrected native CI passed, as recorded at the end.
 
 Implemented: native workspace and real Tauri window, strict TS/Preact frontend,
 local-only declared IPC permissions, structured bounded rotating logs, GPU/API
@@ -47,3 +48,27 @@ The test runner now reports the last discovery result and captured native output
 on timeout. Two Windows unit tests validate isolated-profile and argument rejection;
 six Windows Rust tests and Clippy passed locally. Native CI confirmation is pending.
 No added third-party package or new external Cargo feature was required.
+
+## M1 acceptance — 2026-10-12
+
+[CI run 38273313767](https://github.com/CollabMakeyz/VibeAnimate/actions/runs/38273313767), commit
+7814abc64e299086aa7847c7e7815cdcef570bb7: all three jobs succeeded.
+The Windows job log confirms six Rust tests and all five native E2E check groups,
+including a real WebView created using the explicit test-only native API settings.
+macOS/Linux each passed four Rust tests, native builds and all shared checks.
+
+| Foundation requirement | Authoritative implementation / evidence |
+|---|---|
+| Monorepo, Tauri/Rust, TS config | root Cargo workspace; apps/desktop; pinned npm graph; compiled on three OSes |
+| Lint and format | strict TS/AST/printer checks; Rustfmt; Clippy with warnings denied; CI passed |
+| Unit tests | 77 Node tests; six Windows/four other-OS Rust tests |
+| E2E bootstrap | Windows native executable, IPC and UI actions; passing job 114892637628 |
+| CI | actual matrix run linked above, no skipped required build/test gates |
+| Logging | enumerated JSONL events; real file tests; size bound and rotation; UI readback |
+| Error boundary | actual controlled render failure and recovery verified through the native WebView |
+| Capability detection | actual graphics context probe with fallback; API flags and honest unverified tablet state |
+| Documentation and demo | docs/desktop-development.md, checkpoint/limitations; running diagnostics window |
+| License checker | complete npm/Cargo inventories, exact scoped approvals, retained notices and MPL source archives |
+
+M1 is complete at its foundation scope. This is not completion of M2–M11, a native
+E2E pass on macOS/Linux, an installer, editor parity or physical tablet acceptance.

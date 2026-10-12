@@ -10,7 +10,7 @@ known limitations, and a demo project before it is checked.
 
 - [x] Phase Zero — deep research and all research exit gates.
 - [x] Phase One — architecture, interfaces, schema, workers, save format and ADRs.
-- [ ] M1 Foundation — monorepo, Tauri/Rust, TypeScript, lint/format, test/E2E harness,
+- [x] M1 Foundation — monorepo, Tauri/Rust, TypeScript, lint/format, test/E2E harness,
       CI, logging, error boundary, capabilities, documentation and license audit.
 - [ ] M2 UI Shell + Stage — commands, panels/docking/floating, tabs, Stage,
       camera, rulers/guides/grid/snapping, themes and persistent workspaces.
@@ -55,7 +55,7 @@ known limitations, and a demo project before it is checked.
 
 ## Current checkpoint
 
-Phase Zero research and Phase One architecture COMPLETE. M1 Foundation is in progress.
+Phase Zero, Phase One and M1 Foundation COMPLETE. M2 UI Shell + Stage is next.
 The supplied 3,857-line plan was read in full; the initial repo contained only README.
 Research preserves the 95-item feature matrix, 16 sources, 19 risks and thirty AA
 measurements. See `docs/checkpoints/phase-zero-review.md` for that accepted scope.
@@ -72,19 +72,20 @@ strict compiler checks, TS formatting/AST lint, Rustfmt/Clippy, enumerated local
 IPC capabilities, bounded rotating JSONL logs, capability detection and a recoverable
 render error boundary. The native bootstrap test launches the built Windows executable.
 
-Local validation: 77 Node tests, six Windows Rust tests, strict types, generated artifacts,
-license/notice checks, native build/run and E2E pass. Full Tauri cross-platform CI
-passed macOS/Linux, but Windows native E2E timed out connecting to the WebView.
-The debug-only native API configuration fix is implemented and unit-tested;
-CI validation is pending. M1 remains unchecked until that gate passes. Screenshot: docs/checkpoints/screenshots/m1-native-window.png.
+M1 acceptance on 2026-10-12: 77 Node tests, six Windows Rust tests (four on
+macOS/Linux), strict types, generated records, licenses/notices, formatting, Clippy
+and native builds passed. CI at commit 7814abc passed Windows/macOS/Linux;
+Windows native E2E passed startup, IPC, log actions, permission/input/CSP rejection,
+render-failure recovery and reload. Run: https://github.com/CollabMakeyz/VibeAnimate/actions/runs/38273313767.
+Screenshot: docs/checkpoints/screenshots/m1-native-window.png.
 
 Nine exact npm packages and 406 external Rust packages are adopted. Three separate
 user approvals cover TypeScript bundled terms, 31 exact Cargo versions and the
 Tauri JavaScript API 2.12.3 bundled terms. Full retained notices, Cargo feature and
 checksum evidence, and unmodified MPL corresponding sources accompany the build.
 
-Next: review/fix cross-platform native CI; finalize M1 acceptance; then begin M2
-UI Shell + Stage in order. macOS/Linux native E2E and physical tablet validation
+Next: implement M2 UI Shell + Stage in order, starting with camera math, the shared
+command registry and the DOM-independent workspace/docking model. macOS/Linux native E2E and physical tablet validation
 remain explicit later validation work. No drawing, timeline, save/load or export
 feature is claimed. See docs/checkpoints/m1-native-foundation.md for exact evidence.
 

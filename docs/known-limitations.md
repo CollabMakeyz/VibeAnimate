@@ -12,10 +12,11 @@ window is not evidence of animation parity. TypeScript interfaces describe bound
 not implemented model/worker/renderer behavior. Structural schema validation does not
 check dangling references, cycles, geometry or native package bytes.
 
-Local Windows checks passed: 77 Node tests, four Rust tests, strict TypeScript,
+Local Windows checks passed: 77 Node tests, six Windows Rust tests, strict TypeScript,
 formatting and Clippy, native build/run and the E2E bootstrap including actual IPC,
 log writes, input/permission/CSP rejection, render-error recovery and reload.
-Cross-platform CI for this revision is pending. macOS/Linux native E2E drivers are
+Cross-platform native CI passed at 7814abc; Windows native E2E passed after
+configuring the debug test endpoint through the native API. macOS/Linux native E2E drivers are
 not implemented. No installer, release signing or reference-machine performance
 acceptance exists. No physical tablet has been exercised.
 
