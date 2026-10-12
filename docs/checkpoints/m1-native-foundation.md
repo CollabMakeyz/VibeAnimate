@@ -30,3 +30,20 @@ features cannot drift unnoticed. The complete Rust graph includes other OS targe
 
 Next: review cross-platform native CI, finalize M1, then implement M2. macOS/Linux
 native UI automation and physical tablet validation remain untested.
+
+## CI follow-up — 2026-10-12
+
+Runs 38186111032 and 38186258788 passed the complete macOS/Linux jobs and Windows
+format/lint/unit/native build checks. Windows native E2E timed out waiting for its
+owned CDP endpoint while the process remained alive. This is not a passing M1 gate.
+[Run 38186258788](https://github.com/CollabMakeyz/VibeAnimate/actions/runs/38186258788).
+
+Microsoft documents that elevated WebView2 hosts ignore environment-variable
+browser overrides starting with Runtime 150. The previous harness relied on those
+variables. The candidate fix uses an explicit debug-only e2e Cargo feature: validated
+port/profile arguments configure the native WebView API directly. The normal and
+release application paths omit this configuration. No system policy is modified.
+The test runner now reports the last discovery result and captured native output
+on timeout. Two Windows unit tests validate isolated-profile and argument rejection;
+six Windows Rust tests and Clippy passed locally. Native CI confirmation is pending.
+No added third-party package or new external Cargo feature was required.

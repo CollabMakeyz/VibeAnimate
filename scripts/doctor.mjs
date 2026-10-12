@@ -12,4 +12,4 @@ for (const tool of tools) {
   } else console.log(result.stdout.trim());
 }
 console.log('Contracts and research: npm run check; npm run demo:contracts; npm run benchmark:research.');
-console.log('Desktop app: NOT IMPLEMENTED. Native build additionally requires the platform prerequisites in docs/sources.json (TAURI-PREREQ).');
+console.log('Desktop foundation: npm start. Native build requires platform prerequisites described in docs/desktop-development.md.');

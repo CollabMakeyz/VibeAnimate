@@ -73,8 +73,13 @@ it is not yet an openable animation file.
 profile and loopback CDP endpoint. It tests native startup/IPC, capability rendering,
 log actions, permission and input rejection, CSP, actual render-error recovery and
 reload. It writes a screenshot and JSON report under `test-results/`, then stops
-only its own process. Debug flags are confined to that child process. This uses
-[Microsoft's WebView2 debug environment variables](https://learn.microsoft.com/en-us/microsoft-edge/webview2/reference/win32/webview2-idl?view=webview2-1.0.2420.47).
+only its own process. The test command first builds the explicit Cargo e2e feature. Only debug Windows
+builds with that feature recognize the test arguments. They validate a loopback port
+and an existing empty absolute profile directory, then pass the settings directly
+to the native WebView API. Normal builds and release builds have no such code.
+This follows [Microsoft's explanation of elevated WebView2 hosts](https://github.com/MicrosoftEdge/WebView2Feedback/issues/5645): Runtime 150+ ignores
+WebView environment overrides in elevated processes. No registry/security setting
+is changed, and the host runtime is not downgraded.
 macOS/Linux native E2E drivers are not implemented; they are not counted as passes.
 
 ## License delivery

@@ -99,7 +99,7 @@ export async function verifyCargoNotices(base, inventory) {
   return errors;
 }
 
-export async function auditCargoProject(base, { live = false } = {}) {
+export async function auditCargoProject(base, { live = false, features = [] } = {}) {
   const [inventory, approvals, metadata, workspace] = await Promise.all(['docs/cargo-dependencies.json', 'docs/licensing/cargo-approvals.json', 'docs/cargo-metadata.json', 'docs/cargo-workspace.json'].map(async p => JSON.parse(await readFile(resolve(base, p), 'utf8'))));
   const lock = parseCargoLock(await readFile(resolve(base, 'Cargo.lock'), 'utf8'));
   const errors = [...auditCargoGraph(lock, metadata, inventory, approvals), ...await verifyCargoNotices(base, inventory)];
@@ -111,7 +111,9 @@ export async function auditCargoProject(base, { live = false } = {}) {
   if (!errors.length && live) {
     // Metadata resolves sources but does not execute crate build scripts. The
     // complete all-target graph is checked before any build is started.
-    const actual = JSON.parse(execFileSync('cargo', ['metadata', '--locked', '--format-version', '1'], { cwd: base, env: nativeEnvironment(), windowsHide: true, maxBuffer: 16 * 1024 * 1024 }));
+    const args = ['metadata', '--locked', '--format-version', '1'];
+    if (features.length) args.push('--features', features.join(','));
+    const actual = JSON.parse(execFileSync('cargo', args, { cwd: base, env: nativeEnvironment(), windowsHide: true, maxBuffer: 16 * 1024 * 1024 }));
     errors.push(...auditCargoGraph(lock, actual, inventory, approvals));
   }
   return errors;

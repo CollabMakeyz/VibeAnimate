@@ -58,3 +58,9 @@ Decisions dated 2026-10-10. None of these entries is evidence of implemented par
 19. **Formatting:** use the already reviewed TypeScript compiler syntax printer
     for desktop TS formatting, strict compiler/AST checks for frontend lint, and
     Rustfmt/Clippy for Rust. Do not add a second parser dependency merely for style.
+
+20. **Windows CI testing (2026-10-12):** Runtime 150+ does not honor WebView
+    environment overrides in elevated processes. Configure CDP through the native
+    API only in the explicit debug e2e feature, with a fresh empty profile and a
+    validated loopback port. Normal/release startup excludes the test configuration;
+    do not downgrade the runtime or change system policy to make the test pass.

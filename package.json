@@ -27,7 +27,7 @@
     "build:native": "npm run build:desktop && node scripts/native.mjs build",
     "start": "npm run build:desktop && node scripts/native.mjs run",
     "test:native": "node scripts/native.mjs test",
-    "test:e2e": "node scripts/e2e-desktop.mjs",
+    "test:e2e": "node scripts/native.mjs build-e2e && node scripts/e2e-desktop.mjs",
     "lint": "node scripts/check-code.mjs && tsc -p apps/desktop/tsconfig.json --noEmit",
     "lint:native": "node scripts/native.mjs lint",
     "format": "node scripts/check-code.mjs --write",

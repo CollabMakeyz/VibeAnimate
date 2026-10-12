@@ -72,10 +72,11 @@ strict compiler checks, TS formatting/AST lint, Rustfmt/Clippy, enumerated local
 IPC capabilities, bounded rotating JSONL logs, capability detection and a recoverable
 render error boundary. The native bootstrap test launches the built Windows executable.
 
-Local validation: 77 Node tests, four Rust tests, strict types, generated artifacts,
+Local validation: 77 Node tests, six Windows Rust tests, strict types, generated artifacts,
 license/notice checks, native build/run and E2E pass. Full Tauri cross-platform CI
-is now configured; results for this checkpoint are pending. M1 remains unchecked
-until the new CI results are reviewed. Screenshot: docs/checkpoints/screenshots/m1-native-window.png.
+passed macOS/Linux, but Windows native E2E timed out connecting to the WebView.
+The debug-only native API configuration fix is implemented and unit-tested;
+CI validation is pending. M1 remains unchecked until that gate passes. Screenshot: docs/checkpoints/screenshots/m1-native-window.png.
 
 Nine exact npm packages and 406 external Rust packages are adopted. Three separate
 user approvals cover TypeScript bundled terms, 31 exact Cargo versions and the

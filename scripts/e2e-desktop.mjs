@@ -17,12 +17,11 @@ await new Promise(ok => server.close(ok));
 const results = resolve(root, 'test-results');
 await mkdir(results, { recursive: true });
 const profile = await mkdtemp(resolve(results, 'webview-profile-'));
-const app = spawn(resolve(root, 'target/debug/vibeanimate-desktop.exe'), [], {
+const app = spawn(resolve(root, 'target/debug/vibeanimate-desktop.exe'), ['--e2e-port', String(port), '--e2e-profile', profile], {
   cwd: root, windowsHide: true, stdio: ['ignore', 'pipe', 'pipe'],
-  env: { ...process.env, WEBVIEW2_USER_DATA_FOLDER: profile,
-    WEBVIEW2_ADDITIONAL_BROWSER_ARGUMENTS: `--remote-debugging-address=127.0.0.1 --remote-debugging-port=${port}` },
+  env: { ...process.env },
 });
-let exited = false, output = '', ws;
+let exited = false, output = '', ws, lastProbe = 'not attempted';
 app.on('exit', () => { exited = true; });
 app.on('error', error => { exited = true; output += error.message; });
 app.stdout.on('data', data => { output += data; }); app.stderr.on('data', data => { output += data; });
@@ -33,15 +32,17 @@ async function until(probe, label) {
     const value = await probe(); if (value) return value;
     await delay(150);
   }
-  throw Error(`Timed out: ${label}`);
+  throw Error(`Timed out: ${label}; last discovery: ${lastProbe}; native output: ${output}`);
 }
 const checks = [];
 try {
   const page = await until(async () => {
     try {
       const response = await fetch(`http://127.0.0.1:${port}/json/list`, { signal: AbortSignal.timeout(1000) });
-      return (await response.json()).find(p => p.type === 'page' && p.url === 'http://tauri.localhost/');
-    } catch { return null; }
+      const pages = await response.json();
+      lastProbe = JSON.stringify(pages.map(p => ({ type: p.type, url: p.url })));
+      return pages.find(p => p.type === 'page' && p.url === 'http://tauri.localhost/');
+    } catch (error) { lastProbe = `${error.message}: ${error.cause?.code ?? ''}`; return null; }
   }, 'owned Tauri webview');
   ws = new WebSocket(page.webSocketDebuggerUrl);
   await new Promise((ok, fail) => { ws.addEventListener('open', ok, { once: true }); ws.addEventListener('error', fail, { once: true }); });

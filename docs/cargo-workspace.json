@@ -6,7 +6,7 @@
     },
     {
       "path": "apps/desktop/src-tauri/Cargo.toml",
-      "sha256": "437338a62a5b181ee47d8baa7ecf0479f71c5d32ddd8d9c1dc6c1677a8a08901"
+      "sha256": "adf3c5ace88634fc18a1ee5948468f36775a4afb440992abc00ff3347caa5d48"
     }
   ]
 }
