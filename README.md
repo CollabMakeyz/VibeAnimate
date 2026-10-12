@@ -1,7 +1,7 @@
 # VibeAnimate
 
 An original desktop vector-animation editor project following [MASTER PLAN](docs/MASTER%20PLAN.md).
-**Current state: a runnable native foundation and diagnostics window. Drawing and
+**Current state: a native Stage with camera navigation and diagnostics. Drawing and
 animation workflows are not implemented yet.** [PROGRESS.md](PROGRESS.md) tracks
 all phases and milestones; screenshots do not imply complete editor functionality.
 
@@ -17,8 +17,12 @@ node scripts/audit-dependencies.mjs --installed
 npm start
 ```
 
-The window reports actual native IPC and graphics/API availability. Refresh the
-diagnostics or consult the local log. Pressure/tilt/eraser remain physically unverified.
+The window opens a blank Stage. Drag with the Hand tool or middle mouse button to
+pan; Ctrl/Command + wheel zooms at the cursor; Alt + wheel rotates. The toolbar
+provides fit/100%/center, rotation/reset, mirror and grid controls. The rendering
+selector switches between WebGL2 and Canvas2D. Diagnóstico opens actual native
+IPC and graphics/API availability plus the local log. Pressure/tilt/eraser and
+touch hardware remain physically unverified.
 See [desktop development](docs/desktop-development.md) for architecture, build outputs,
 logging, licensing, tooling and the native E2E harness.
 

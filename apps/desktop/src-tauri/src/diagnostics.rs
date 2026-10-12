@@ -117,17 +117,54 @@ impl DiagnosticLog {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use std::sync::atomic::{AtomicU64, Ordering};
+
+    static NEXT_DIRECTORY: AtomicU64 = AtomicU64::new(0);
+
+    fn reserve_directory(timestamp: u128) -> PathBuf {
+        let root = std::env::temp_dir().canonicalize().unwrap();
+        loop {
+            let sequence = NEXT_DIRECTORY.fetch_add(1, Ordering::Relaxed);
+            let directory = root.join(format!(
+                "vibeanimate-log-{}-{timestamp}-{sequence}",
+                std::process::id()
+            ));
+            assert_eq!(directory.parent(), Some(root.as_path()));
+            match fs::create_dir(&directory) {
+                Ok(()) => return directory,
+                Err(error) if error.kind() == io::ErrorKind::AlreadyExists => continue,
+                Err(error) => panic!("Cannot reserve test log directory: {error}"),
+            }
+        }
+    }
 
     fn with_log(test: impl FnOnce(&DiagnosticLog)) {
         let unique = SystemTime::now()
             .duration_since(UNIX_EPOCH)
             .unwrap()
             .as_nanos();
-        let directory =
-            std::env::temp_dir().join(format!("vibeanimate-log-{}-{unique}", std::process::id()));
+        let directory = reserve_directory(unique);
         let log = DiagnosticLog::new(directory.clone()).unwrap();
         test(&log);
         fs::remove_dir_all(directory).unwrap();
+    }
+
+    #[test]
+    fn equal_clock_ticks_cannot_share_test_directories() {
+        let directories = std::thread::scope(|scope| {
+            let workers: Vec<_> = (0..16)
+                .map(|_| scope.spawn(|| reserve_directory(42)))
+                .collect();
+            workers
+                .into_iter()
+                .map(|worker| worker.join().unwrap())
+                .collect::<Vec<_>>()
+        });
+        let unique: std::collections::HashSet<_> = directories.iter().collect();
+        assert_eq!(unique.len(), directories.len());
+        for directory in directories {
+            fs::remove_dir(directory).unwrap();
+        }
     }
 
     #[test]

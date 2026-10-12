@@ -75,5 +75,5 @@ export async function checkStage({ evaluate, send, until, checks }) {
   await until(() => evaluate(`document.querySelector('.stage-surface canvas')?.dataset.backend==='webgl2'`), 'WebGL retry');
   assert.deepEqual(await camera(), retained);
   checks.push('Actual WebGL context loss falls back to Canvas2D; explicit retry preserves camera');
-  await evaluate(`document.querySelector('[data-command="view.reset-rotation"]').click();document.querySelector('[data-command="view.fit"]').click()`);
+  await evaluate(`(()=>{document.querySelector('[data-command="view.reset-rotation"]').click();document.querySelector('[data-command="view.fit"]').click();})()`);
 }

@@ -100,6 +100,10 @@ buttons/shortcuts; pointer navigation supports pan/pinch/rotation; blank documen
 creation conforms to v1. 114 Node tests passed. Native E2E additions cover real
 pixel readback, pointer/keyboard interaction and context-loss recovery; their new
 CI result is not yet available. No physical gesture/device certification is claimed.
+The first Stage CI (38314318271, ae515ec) passed Linux but exposed an invalid CDP
+test expression and a macOS temporary-test-directory collision. Both are fixed,
+with additional regression tests; the expanded suites contain 115 Node tests and
+seven Windows/five Unix Rust tests. Native Stage acceptance awaits the corrected CI.
 
 Next: verify the new native Stage E2E, then connect persistent workspace settings
 and functional panel docking, document tabs, useful Properties/Library/Timeline

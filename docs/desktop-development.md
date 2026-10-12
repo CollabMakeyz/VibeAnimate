@@ -1,9 +1,10 @@
-# Desktop foundation
+# Desktop development
 
-The M1 application is a real Tauri window with a Rust backend, Preact application
-chrome, capability diagnostics, structured bounded local logs and a recoverable
-render-error boundary. It does not contain drawing or animation controls yet.
-Those belong to M2 onward. The design and icon are original.
+The application is a real Tauri window with a Rust backend, Preact chrome,
+capability diagnostics, structured bounded local logs and a recoverable render
+boundary. M2 adds a blank Stage, shared camera commands, navigation and WebGL2/
+Canvas2D backdrop rendering. Artwork editing and animation are still pending.
+The design and icon are original.
 
 ## Prerequisites and startup
 
@@ -38,13 +39,15 @@ and starts the native process. There is no required frontend development server.
 Cargo's workspace owns `apps/desktop/src-tauri`; the root npm lock owns frontend
 and verification packages. `packages/` and `workers/` remain independently typed
 architecture boundaries. The DOM framework is used only by application chrome.
-TypeScript emits native ES modules; an import map resolves three audited local
-module files. This avoids a bundler and does not load modules from a CDN.
+TypeScript emits native ES modules under dist/modules, preserving repository-relative
+paths; an import map resolves audited local vendor modules. This avoids a bundler
+and does not load modules from a CDN. Core modules are separately type-checked
+without DOM types; Stage surface backends and Preact chrome belong to the desktop.
 
 `npm run lint` uses strict TypeScript semantic checks plus application AST rules
 against explicit `any`, dynamic code execution, raw HTML injection and type-check
 suppression. `npm run format` applies TypeScript's own stable syntax printer to
-desktop TS sources. `npm run lint:native` runs Clippy with warnings denied;
+desktop TS sources and implemented runtime package modules. `npm run lint:native` runs Clippy with warnings denied;
 `cargo fmt --all` formats Rust, and `npm run format:check` checks both languages.
 These checks have stated scope; they do not claim comprehensive security analysis.
 
@@ -67,12 +70,16 @@ API availability only. Physical pressure, tilt, eraser and latency remain unveri
 The running diagnostics window is the M1 demonstration. Refresh its diagnostics
 and consult the session log to exercise native IPC and real file persistence.
 `examples/contracts/rectangle.document.json` remains the architecture sample;
-it is not yet an openable animation file.
+it is not yet an openable animation file. The M2 Stage starts from a canonical,
+deeply immutable blank DocumentDTO; camera/grid display settings remain outside it.
+Its current scope and outstanding work are in checkpoints/m2-stage.md.
 
 `npm run test:e2e` launches the built Windows executable with an isolated WebView2
 profile and loopback CDP endpoint. It tests native startup/IPC, capability rendering,
 log actions, permission and input rejection, CSP, actual render-error recovery and
-reload. It writes a screenshot and JSON report under `test-results/`, then stops
+reload. Stage checks additionally read actual pixels from both graphics backends,
+dispatch pointer/keyboard events and exercise context loss/recovery. It writes a
+screenshot and JSON report under `test-results/`, then stops
 only its own process. The test command first builds the explicit Cargo e2e feature. Only debug Windows
 builds with that feature recognize the test arguments. They validate a loopback port
 and an existing empty absolute profile directory, then pass the settings directly

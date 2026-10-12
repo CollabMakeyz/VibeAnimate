@@ -71,3 +71,16 @@ external-network CSP rejection, render-error recovery and reload from embedded
 assets. The generated screenshot/report are under test-results/.
 See docs/desktop-development.md for exact commands and scope. This is foundation
 coverage; no editor operation or physical tablet test is included yet.
+
+## M2 verification under development (2026-10-12)
+
+The Node suite now contains 114 tests. Camera math, shared command dispatch,
+immutable docking/layout operations, named workspace durability, a canonical blank
+document, Stage/grid clipping and pointer-navigation math are exercised from the
+same emitted runtime modules used by the desktop. `scripts/e2e-stage.mjs` extends
+the existing Windows native harness with actual WebGL2/Canvas2D pixel readback at
+DPR 1/2 (channel tolerance 1/255 for interior samples), pan, anchored zoom,
+rotation/mirror/grid controls, input-field isolation and context-loss recovery.
+See checkpoints/m2-stage.md for the latest execution evidence; added tests alone
+do not establish native acceptance. Touch math/synthetic pointer input is not a
+physical multi-touch or tablet certification.

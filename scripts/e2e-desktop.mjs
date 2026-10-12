@@ -71,7 +71,7 @@ try {
   assert.equal(await evaluate(`document.querySelectorAll('.fact').length`), 10);
   checks.push('Packaged native startup, IPC handshake, capability rendering, loading cleanup');
   const before = await evaluate(`(await (await import('@tauri-apps/api/core')).invoke('read_logs')).split(String.fromCharCode(10)).filter(Boolean).length`);
-  await evaluate(`document.querySelector('#open-diagnostics').click();Array.from(document.querySelectorAll('button')).find(b=>b.textContent==='Atualizar diagnóstico').click()`);
+  await evaluate(`(()=>{document.querySelector('#open-diagnostics').click();Array.from(document.querySelectorAll('button')).find(b=>b.textContent==='Atualizar diagnóstico').click();})()`);
   await until(async () => (await evaluate(`(await (await import('@tauri-apps/api/core')).invoke('read_logs')).split(String.fromCharCode(10)).filter(Boolean).length`)) > before, 'refresh persisted log');
   await evaluate(`Array.from(document.querySelectorAll('button')).find(b=>b.textContent==='Consultar registro').click()`);
   await until(() => evaluate(`document.querySelector('.log-output')?.textContent.includes('diagnostics_requested')`), 'real log display');

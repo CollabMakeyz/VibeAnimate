@@ -55,3 +55,19 @@ Implementation references: [Khronos WebGL 2.0 specification](https://registry.kh
 for context creation and GL API semantics, and [W3C Pointer Events](https://w3c.github.io/pointerevents/)
 for pointer capture/cancellation and touch-action. Both are living specifications;
 no historical editor parity claim is derived from them.
+
+## CI regression findings
+
+Run 38314318271 at ae515ec passed Linux but found two test-harness defects:
+Windows CDP rejected two statements supplied where the evaluator expects an
+expression; macOS exposed concurrent diagnostic tests sharing a timestamp-based
+temporary directory. The Stage interaction checks had not yet executed when the
+Windows harness failed. No renderer acceptance is inferred from that run.
+
+Both are corrected: multi-statement evaluations use an explicit function expression,
+and temporary test folders use an atomic sequence plus exclusive directory creation.
+A Node regression parses every literal E2E expression in the actual async wrapper;
+it failed on the original code and passes after the fix. A Rust regression reserves
+16 directories concurrently using the same clock tick and verifies uniqueness.
+The expanded suites contain 115 Node tests and seven Windows Rust tests (five on
+macOS/Linux); the new native CI result still needs verification.
