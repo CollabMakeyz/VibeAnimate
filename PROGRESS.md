@@ -93,10 +93,17 @@ panel docking/floating/tabbing/restore, presets and durable named workspaces.
 generated artifacts. No new dependency was added. These modules are not yet wired
 to the native window; M2 remains unchecked. See docs/checkpoints/m2-workspace-core.md.
 
-Next: integrate those modules into the real editor chrome, add Stage WebGL2 and
-Canvas2D rendering, connect pointer/keyboard gestures and persistent settings,
-then implement document tabs, useful Properties/Library/Timeline surfaces,
-rulers/guides/grid/snapping, themes and full native interaction tests. macOS/Linux
+M2 Stage integration checkpoint: native startup now opens a navigable Stage, with
+the M1 diagnostic surface accessible separately. WebGL2/Canvas2D painters consume
+the same clipped backdrop geometry; the shared command registry drives camera
+buttons/shortcuts; pointer navigation supports pan/pinch/rotation; blank document
+creation conforms to v1. 114 Node tests passed. Native E2E additions cover real
+pixel readback, pointer/keyboard interaction and context-loss recovery; their new
+CI result is not yet available. No physical gesture/device certification is claimed.
+
+Next: verify the new native Stage E2E, then connect persistent workspace settings
+and functional panel docking, document tabs, useful Properties/Library/Timeline
+surfaces, rulers/guides/snapping, themes and full native interaction tests. macOS/Linux
 native E2E and physical tablet validation remain explicit validation work. No
 drawing, timeline, document save/load or export feature is claimed.
 

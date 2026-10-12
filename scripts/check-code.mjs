@@ -15,7 +15,16 @@ async function visit(directory) {
     if (!file.endsWith('.ts')) continue;
     const content = await readFile(file, 'utf8');
     const source = ts.createSourceFile(file, content, ts.ScriptTarget.Latest, true);
-    const formatted = printer.printFile(source);
+    // The compiler printer may retain source-layout hints on the first pass
+    // (notably arrow bodies inside object literals). Reach a stable print before
+    // comparing/writing so one format invocation is sufficient.
+    let formatted = printer.printFile(source);
+    for (let pass = 0; pass < 8; pass++) {
+      const next = printer.printFile(ts.createSourceFile(file, formatted, ts.ScriptTarget.Latest, true));
+      if (next === formatted) break;
+      if (pass === 7) throw new Error(`TypeScript formatting did not converge: ${file}`);
+      formatted = next;
+    }
     if (process.argv.includes('--write')) await writeFile(file, formatted);
     else if (content.replaceAll('\r\n', '\n') !== formatted) { console.error(`${file}: run npm run format`); failed = true; }
     function lint(node) {
@@ -32,6 +41,9 @@ async function visit(directory) {
 }
 await visit(resolve(root, 'apps/desktop/src'));
 await visit(resolve(root, 'packages/renderer-core/src/camera.ts'));
+await visit(resolve(root, 'packages/renderer-core/src/stage-backdrop.ts'));
+await visit(resolve(root, 'packages/document-model/src/create-document.ts'));
+await visit(resolve(root, 'packages/input/src/navigation.ts'));
 await visit(resolve(root, 'packages/command-system/src/registry.ts'));
 await visit(resolve(root, 'packages/workspace/src'));
 if (failed) process.exitCode = 1;

@@ -5,6 +5,7 @@ import { createServer } from 'node:net';
 import { resolve } from 'node:path';
 import { setTimeout as delay } from 'node:timers/promises';
 import { root } from './check-research.mjs';
+import { checkStage } from './e2e-stage.mjs';
 
 // This harness owns the process, isolated WebView profile and loopback debugger.
 // It never attaches to a user's browser. Other native engines need their own
@@ -70,7 +71,7 @@ try {
   assert.equal(await evaluate(`document.querySelectorAll('.fact').length`), 10);
   checks.push('Packaged native startup, IPC handshake, capability rendering, loading cleanup');
   const before = await evaluate(`(await (await import('@tauri-apps/api/core')).invoke('read_logs')).split(String.fromCharCode(10)).filter(Boolean).length`);
-  await evaluate(`document.querySelector('button').click()`);
+  await evaluate(`document.querySelector('#open-diagnostics').click();Array.from(document.querySelectorAll('button')).find(b=>b.textContent==='Atualizar diagnóstico').click()`);
   await until(async () => (await evaluate(`(await (await import('@tauri-apps/api/core')).invoke('read_logs')).split(String.fromCharCode(10)).filter(Boolean).length`)) > before, 'refresh persisted log');
   await evaluate(`Array.from(document.querySelectorAll('button')).find(b=>b.textContent==='Consultar registro').click()`);
   await until(() => evaluate(`document.querySelector('.log-output')?.textContent.includes('diagnostics_requested')`), 'real log display');
@@ -89,6 +90,7 @@ try {
   await send('Page.reload');
   await until(() => evaluate(`document.querySelector('#runtime-status')?.textContent.includes('confirmada')`), 'reload');
   checks.push('Reload from embedded assets reconnects to native backend');
+  await checkStage({ evaluate, send, until, checks });
   const screenshot = await send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: false });
   await writeFile(resolve(results, 'native-e2e.png'), Buffer.from(screenshot.data, 'base64'));
   const report = { platform: process.platform, date: new Date().toISOString(), checks, page: page.url, profile };

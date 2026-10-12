@@ -5,12 +5,15 @@ Phase Zero research and Phase One architecture are reviewed. The application ope
 an actual Tauri window with native IPC, bounded persistent diagnostic logs, graphics
 and API detection, error handling and render-boundary recovery.
 
-M2 now implements pure camera transforms, the command/shortcut registry, the
-DockLayout model and the versioned named-workspace store. They have unit coverage
-but are not yet connected to the visible application. Current `npm run check`
-passes 106 Node tests. The historical native M1 evidence below remains distinct.
+M2 now opens a Stage view using WebGL2/Canvas2D, camera commands, hand/zoom tools
+and a bounded adaptive grid. Pointer pan/pinch/rotation and the command registry
+are integrated. The DockLayout model and named-workspace store still await UI
+integration. Current Node suite has 114 passing tests. Newly added native Stage
+E2E must pass before claiming native interaction acceptance. The historical native
+M1 evidence below remains distinct.
 
-There is no drawing Stage, editable document, transaction/undo engine, timeline, library,
+The Stage displays a canonical empty document; it does not yet edit artwork.
+There is no transaction/undo engine, functional timeline/library editor,
 import/export, scripting or save/load container implementation yet. M2–M11 remain
 unchecked. The 95-item editor feature matrix remains NOT IMPLEMENTED; the diagnostics
 window is not evidence of animation parity. TypeScript interfaces describe boundaries,
