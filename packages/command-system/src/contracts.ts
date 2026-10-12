@@ -33,10 +33,13 @@ export interface CommandBus {
   redo(): Result<TransactionReceipt>;
   readonly history: { readonly canUndo: boolean; readonly canRedo: boolean; readonly usedBytes: number; readonly limitBytes: number; readonly savedRevision: number | null; readonly currentStateId: Id; readonly savedStateId: Id | null; readonly dirty: boolean };
 }
+export type KeyboardContext = 'global' | 'stage' | 'timeline' | 'panel' | 'textEditing' | 'motionEditor' | 'modal' | 'inputField';
 export interface CommandDefinition {
   readonly id: string;
   readonly label: string;
-  readonly contexts: ReadonlySet<'stage' | 'timeline' | 'panel' | 'text' | 'modal' | 'global'>;
+  readonly contexts: ReadonlySet<KeyboardContext>;
+  readonly defaultShortcuts: readonly string[];
+  readonly allowRepeat?: boolean;
   enabled(): boolean;
   checked(): boolean | null;
   execute(): void;

@@ -6,8 +6,8 @@
     "noUnusedLocals": true, "noUnusedParameters": true, "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true, "verbatimModuleSyntax": true,
     "isolatedModules": true, "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": false, "rootDir": "src", "outDir": "dist/app",
+    "skipLibCheck": false, "rootDir": "../..", "outDir": "dist/modules",
     "sourceMap": true
   },
-  "include": ["src/**/*.ts"]
+  "include": ["src/**/*.ts", "../../packages/**/*.ts"]
 }

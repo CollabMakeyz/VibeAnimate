@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { detectCapabilities } from '../../apps/desktop/dist/app/platform/capabilities.js';
+import { detectCapabilities } from '../../apps/desktop/dist/modules/apps/desktop/src/platform/capabilities.js';
 
 function host({ gl = null, canvas = null, throws = false, pointer = undefined, ratio = 1 } = {}) {
   return { document: { createElement: () => ({ getContext(type) { if (throws) throw Error('Disabled by policy'); return type === 'webgl2' ? gl : canvas; } }) }, PointerEvent: pointer, devicePixelRatio: ratio };

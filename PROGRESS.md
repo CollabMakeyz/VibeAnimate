@@ -55,7 +55,7 @@ known limitations, and a demo project before it is checked.
 
 ## Current checkpoint
 
-Phase Zero, Phase One and M1 Foundation COMPLETE. M2 UI Shell + Stage is next.
+Phase Zero, Phase One and M1 Foundation COMPLETE. M2 UI Shell + Stage is in progress.
 The supplied 3,857-line plan was read in full; the initial repo contained only README.
 Research preserves the 95-item feature matrix, 16 sources, 19 risks and thirty AA
 measurements. See `docs/checkpoints/phase-zero-review.md` for that accepted scope.
@@ -84,10 +84,21 @@ user approvals cover TypeScript bundled terms, 31 exact Cargo versions and the
 Tauri JavaScript API 2.12.3 bundled terms. Full retained notices, Cargo feature and
 checksum evidence, and unmodified MPL corresponding sources accompany the build.
 
-Next: implement M2 UI Shell + Stage in order, starting with camera math, the shared
-command registry and the DOM-independent workspace/docking model. macOS/Linux native E2E and physical tablet validation
-remain explicit later validation work. No drawing, timeline, save/load or export
-feature is claimed. See docs/checkpoints/m1-native-foundation.md for exact evidence.
+M2 first implementation checkpoint (2026-10-12): production camera math, shared
+command registry, immutable DOM-independent DockLayout and versioned workspace
+settings store are implemented. Tests exercise anchored zoom/rotation/mirrors,
+DPR independence, fit/resize, keyboard context isolation, remapping/conflicts,
+panel docking/floating/tabbing/restore, presets and durable named workspaces.
+`npm run check` passes 106 tests plus strict types, formatting, inventories and
+generated artifacts. No new dependency was added. These modules are not yet wired
+to the native window; M2 remains unchecked. See docs/checkpoints/m2-workspace-core.md.
+
+Next: integrate those modules into the real editor chrome, add Stage WebGL2 and
+Canvas2D rendering, connect pointer/keyboard gestures and persistent settings,
+then implement document tabs, useful Properties/Library/Timeline surfaces,
+rulers/guides/grid/snapping, themes and full native interaction tests. macOS/Linux
+native E2E and physical tablet validation remain explicit validation work. No
+drawing, timeline, document save/load or export feature is claimed.
 
 ## Evidence rules
 

@@ -80,7 +80,7 @@ try {
   // CSP rejects this before a network request. The origin is reserved and never a service.
   assert.equal(await evaluate(`(async()=>{try{await fetch('https://blocked.invalid/');return false;}catch{return true;}})()`), true);
   checks.push('Unregistered filesystem IPC, oversize log input and external network denied');
-  await evaluate(`(async()=>{const {h,render}=await import('preact');const {ErrorBoundary}=await import('./app/ui/error-boundary.js');let first=true;function Fault(){if(first){first=false;throw Error('E2E controlled render failure');}return h('p',{id:'recovered'},'Recovered');}const container=document.createElement('div');container.id='boundary-test';document.body.append(container);render(h(ErrorBoundary,null,h(Fault)),container);})()`);
+  await evaluate(`(async()=>{const {h,render}=await import('preact');const {ErrorBoundary}=await import('./modules/apps/desktop/src/ui/error-boundary.js');let first=true;function Fault(){if(first){first=false;throw Error('E2E controlled render failure');}return h('p',{id:'recovered'},'Recovered');}const container=document.createElement('div');container.id='boundary-test';document.body.append(container);render(h(ErrorBoundary,null,h(Fault)),container);})()`);
   await until(() => evaluate(`!!document.querySelector('#boundary-test [role=alert]')`), 'error boundary');
   await evaluate(`document.querySelector('#boundary-test button').click()`);
   await until(() => evaluate(`document.querySelector('#recovered')?.textContent==='Recovered'`), 'boundary recovery');

@@ -64,3 +64,28 @@ Decisions dated 2026-10-10. None of these entries is evidence of implemented par
     API only in the explicit debug e2e feature, with a fresh empty profile and a
     validated loopback port. Normal/release startup excludes the test configuration;
     do not downgrade the runtime or change system policy to make the test pass.
+21. **M2 camera (2026-10-12):** mirror world axes, rotate, then translate in CSS
+    pixels. DPR applies only to the backing-store matrix. Zoom spans 1/65536–256;
+    cursor zoom clamps at these endpoints. Fit preserves rotation and mirrors;
+    resize preserves the world point at viewport center. This is editor view state,
+    independent of authored geometry and UI scale.
+22. **M2 commands:** shortcuts use logical KeyboardEvent keys, exact modifiers and
+    Primary = Command on macOS / Control elsewhere. Space and Plus are named keys.
+    Text editing, input fields and modals isolate global shortcuts unless a command
+    explicitly opts into that context. Specific context wins over global fallback;
+    a disabled specific command does not invoke the global command instead. IME,
+    dead keys and AltGr never dispatch commands. Repeat requires explicit opt-in.
+23. **M2 workspace model:** the first panel catalog contains Tools, Properties,
+    Library and Timeline. Tools can dock left/right; other panels support all four
+    edges. Closed tabs retain their group/position. Floating coordinates are relative
+    to the application workspace, not OS-native windows, and recover inside the
+    current viewport. Presets reset to factory layout; custom reset restores its
+    last explicit save. Unsaved layout changes persist separately across restarts.
+    Custom workspace names are NFC-normalized, case-insensitively unique, up to 64
+    UTF-16 code units; at most 20 custom layouts. Settings have a 131072-code-unit
+    serialized limit and do not enter the document format. Storage errors propagate
+    before publishing state so a failed write cannot be reported as saved.
+24. **M2 module build:** TypeScript preserves repository-relative module paths in
+    desktop dist/modules. Core modules are tested from the same emitted JavaScript
+    shipped to the app. The separate contracts compiler still excludes DOM types,
+    preserving the framework-independent package boundary without a new bundler.

@@ -5,7 +5,12 @@ Phase Zero research and Phase One architecture are reviewed. The application ope
 an actual Tauri window with native IPC, bounded persistent diagnostic logs, graphics
 and API detection, error handling and render-boundary recovery.
 
-There is no drawing Stage, editable document, command engine, timeline, library,
+M2 now implements pure camera transforms, the command/shortcut registry, the
+DockLayout model and the versioned named-workspace store. They have unit coverage
+but are not yet connected to the visible application. Current `npm run check`
+passes 106 Node tests. The historical native M1 evidence below remains distinct.
+
+There is no drawing Stage, editable document, transaction/undo engine, timeline, library,
 import/export, scripting or save/load container implementation yet. M2–M11 remain
 unchecked. The 95-item editor feature matrix remains NOT IMPLEMENTED; the diagnostics
 window is not evidence of animation parity. TypeScript interfaces describe boundaries,
