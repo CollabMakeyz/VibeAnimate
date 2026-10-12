@@ -9,6 +9,10 @@ import { buildStageBackdrop } from '../../../../packages/renderer-core/src/stage
 import { StageSurface } from './surface.js';
 import type { StageBackend } from './surface.js';
 import { reportError } from '../platform/native.js';
+import { DockChrome } from '../workspace/dock-chrome.js';
+import { WorkspaceStore } from '../../../../packages/workspace/src/workspace-store.js';
+import { PANEL_IDS, PRESETS, presetLayout, selectPanel } from '../../../../packages/workspace/src/dock-layout.js';
+import type { DockLayout, PanelId } from '../../../../packages/workspace/src/dock-layout.js';
 interface State {
     readonly camera: Camera;
     readonly backend: StageBackend | null;
@@ -16,6 +20,9 @@ interface State {
     readonly gridSize: number;
     readonly tool: 'hand' | 'zoom';
     readonly error: string | null;
+    readonly layout: DockLayout;
+    readonly workspaceName: string;
+    readonly settingsError: string | null;
 }
 export class StageWorkspace extends Component<Record<string, never>, State> {
     readonly #document = createBlankDocument('document-start', 'Sem título 1');
@@ -28,9 +35,18 @@ export class StageWorkspace extends Component<Record<string, never>, State> {
     #fitted = false;
     #frame = 0;
     #space = false;
-    override state: State = { camera: this.#navigation.camera, backend: null, grid: false, gridSize: 32, tool: 'hand', error: null };
+    #workspace: WorkspaceStore | null = null;
+    override state: State = { camera: this.#navigation.camera, backend: null, grid: false, gridSize: 32, tool: 'hand', error: null, layout: presetLayout('Essentials'), workspaceName: '', settingsError: null };
     constructor() {
         super();
+        try {
+            this.#workspace = new WorkspaceStore({ read: () => localStorage.getItem('vibeanimate.workspace.v1'), write: value => localStorage.setItem('vibeanimate.workspace.v1', value) });
+            this.state = { ...this.state, layout: this.#workspace.state.current };
+        }
+        catch (error) {
+            reportError(error);
+            this.state = { ...this.state, settingsError: 'Não foi possível carregar os workspaces. O layout desta sessão não será salvo.' };
+        }
         const add = (id: string, label: string, shortcuts: readonly string[], execute: () => void, checked: () => boolean | null = () => null, repeat = false): void => {
             this.#commands.register({ id, label, contexts: new Set(['stage']), defaultShortcuts: shortcuts, execute, enabled: () => this.#surface !== null, checked, allowRepeat: repeat });
         };
@@ -149,7 +165,7 @@ export class StageWorkspace extends Component<Record<string, never>, State> {
     };
     #keyDown = (event: KeyboardEvent): void => {
         const target = event.target;
-        const context = target instanceof Element && target.closest('input, textarea, select, button, a, [contenteditable]:not([contenteditable="false"])') ? 'inputField' : 'stage';
+        const context = target instanceof Element && target.closest('input, textarea, select, button, a, summary, [contenteditable]:not([contenteditable="false"])') ? 'inputField' : 'stage';
         if (context === 'stage' && event.key === ' ' && !event.isComposing && !event.ctrlKey && !event.metaKey && !event.altKey) {
             this.#space = true;
             event.preventDefault();
@@ -163,13 +179,53 @@ export class StageWorkspace extends Component<Record<string, never>, State> {
         const command = this.#commands.state(id, 'stage');
         return h('button', { type: 'button', 'data-command': id, disabled: !command.enabled, 'aria-pressed': command.checked ?? undefined, title: command.shortcuts.join(' / '), onClick: () => this.#commands.execute(id, 'stage') }, command.label);
     }
+    #layout = (layout: DockLayout, persist: boolean): void => {
+        if (!persist || !this.#workspace) {
+            this.setState({ layout });
+            return;
+        }
+        try {
+            this.#workspace.setLayout(layout);
+            this.setState({ layout: this.#workspace.state.current, settingsError: null });
+        }
+        catch (error) {
+            reportError(error);
+            this.setState({ layout: this.#workspace.state.current, settingsError: 'Não foi possível salvar o layout. A alteração foi desfeita.' });
+        }
+    };
+    #workspaceAction(action: (store: WorkspaceStore) => void): void {
+        if (!this.#workspace)
+            return;
+        try {
+            action(this.#workspace);
+            this.setState({ layout: this.#workspace.state.current, workspaceName: '', settingsError: null });
+        }
+        catch (error) {
+            reportError(error);
+            this.setState({ settingsError: `Workspace não alterado: ${error instanceof Error ? error.message : 'falha ao salvar'}` });
+        }
+    }
+    #repairWorkspace = (): void => {
+        try {
+            const store = new WorkspaceStore({ read: () => null, write: value => localStorage.setItem('vibeanimate.workspace.v1', value) });
+            store.setLayout(presetLayout('Essentials'));
+            this.#workspace = store;
+            this.setState({ layout: store.state.current, settingsError: null });
+        }
+        catch (error) {
+            reportError(error);
+        }
+    };
+    #workspaceControls() {
+        const saved = this.#workspace?.state;
+        const custom = saved?.active.startsWith('custom-') ?? false;
+        const labels: Record<PanelId, string> = { tools: 'Ferramentas', properties: 'Propriedades', library: 'Biblioteca', timeline: 'Timeline' };
+        return h('div', { class: 'workspace-controls' }, h('details', { class: 'workspace-menu' }, h('summary', null, 'Workspace'), h('div', null, h('label', null, 'Layout ', h('select', { 'aria-label': 'Workspace', value: saved?.active ?? 'preset:Essentials', disabled: !saved, onChange: (event: Event) => this.#workspaceAction(store => store.select((event.currentTarget as HTMLSelectElement).value)) }, ...PRESETS.map(preset => h('option', { value: `preset:${preset}` }, preset)), ...(saved?.custom ?? []).map(workspace => h('option', { value: workspace.id }, workspace.name)))), h('label', null, 'Nome ', h('input', { 'aria-label': 'Nome do workspace', maxLength: 64, value: this.state.workspaceName, disabled: !saved, onInput: (event: Event) => this.setState({ workspaceName: (event.currentTarget as HTMLInputElement).value }) })), h('button', { type: 'button', 'data-workspace-action': 'save', disabled: !saved || !this.state.workspaceName.trim(), onClick: () => this.#workspaceAction(store => store.saveNew(`custom-${crypto.randomUUID()}`, this.state.workspaceName)) }, 'Salvar novo'), h('button', { type: 'button', 'data-workspace-action': 'overwrite', disabled: !custom, onClick: () => this.#workspaceAction(store => store.overwrite(store.state.active)) }, 'Atualizar salvo'), h('button', { type: 'button', 'data-workspace-action': 'rename', disabled: !custom || !this.state.workspaceName.trim(), onClick: () => this.#workspaceAction(store => store.rename(store.state.active, this.state.workspaceName)) }, 'Renomear'), h('button', { type: 'button', 'data-workspace-action': 'delete', disabled: !custom, onClick: () => this.#workspaceAction(store => store.delete(store.state.active)) }, 'Excluir'), h('button', { type: 'button', 'data-workspace-action': 'reset', disabled: !saved, onClick: () => this.#workspaceAction(store => store.reset()) }, 'Restaurar layout'))), h('details', { class: 'workspace-menu' }, h('summary', null, 'Painéis'), h('div', null, ...PANEL_IDS.map(id => h('button', { type: 'button', 'data-restore-panel': id, 'aria-pressed': !this.state.layout.closed.includes(id), onClick: () => this.#layout(selectPanel(this.state.layout, id), true) }, labels[id])))));
+    }
     override render() {
-        const { camera, backend, gridSize, tool, error } = this.state;
+        const { camera, backend, gridSize, tool, error, layout, settingsError } = this.state;
         const degrees = camera.rotationRadians * 180 / Math.PI;
-        return h('section', { class: 'stage-workspace', 'aria-label': 'Palco de animação', onKeyDown: this.#keyDown, onKeyUp: (event: KeyboardEvent) => {
-                if (event.key === ' ')
-                    this.#space = false;
-            } }, h('div', { class: 'stage-document' }, h('strong', null, this.#document.title), h('span', null, `${this.#document.stage.width} × ${this.#document.stage.height} px · ${this.#document.fps.numerator} fps`)), h('div', { class: 'stage-toolbar', role: 'toolbar', 'aria-label': 'Câmera do palco' }, this.#button('tool.hand'), this.#button('tool.zoom'), h('span', { class: 'toolbar-divider' }), this.#button('view.fit'), this.#button('view.actual'), this.#button('view.center'), this.#button('view.zoom-out'), this.#button('view.zoom-in'), this.#button('view.rotate-left'), this.#button('view.rotate-right'), this.#button('view.reset-rotation'), this.#button('view.mirror-x'), this.#button('view.mirror-y'), this.#button('view.grid')), h('div', { class: 'stage-settings' }, h('label', null, 'Grade (px) ', h('input', { type: 'number', min: 1, max: 65536, value: gridSize, onChange: (event: Event) => {
+        const settings = h('div', { class: 'stage-settings' }, h('label', null, 'Grade (px) ', h('input', { type: 'number', min: 1, max: 65536, value: gridSize, onChange: (event: Event) => {
                 const value = Number((event.currentTarget as HTMLInputElement).value);
                 if (Number.isFinite(value) && value >= 1 && value <= 65536)
                     this.setState({ gridSize: value });
@@ -182,6 +238,13 @@ export class StageWorkspace extends Component<Record<string, never>, State> {
                 catch (error) {
                     this.#fail(error);
                 }
-            } }, h('option', { value: 'webgl2' }, 'WebGL 2'), h('option', { value: 'canvas2d' }, 'Canvas 2D')))), h('div', { ref: this.#host, class: `stage-surface tool-${tool}`, tabIndex: 0, role: 'application', 'aria-label': 'Palco. Arraste para mover. Control ou Command mais rolagem amplia no cursor.', onPointerDown: this.#down, onPointerMove: this.#move, onPointerUp: this.#up, onPointerCancel: this.#up, onLostPointerCapture: this.#up, onContextMenu: (event: MouseEvent) => event.preventDefault() }), error ? h('p', { role: 'alert', class: 'stage-error' }, error) : null, h('div', { class: 'stage-status', role: 'status', 'aria-live': 'off' }, h('output', { id: 'camera-status', 'data-zoom': camera.zoom, 'data-x': camera.translation[0], 'data-y': camera.translation[1], 'data-rotation': camera.rotationRadians, 'data-mirror-x': camera.mirrorX, 'data-mirror-y': camera.mirrorY }, `${(camera.zoom * 100).toFixed(1)}% · ${degrees.toFixed(0)}° · ${backend === 'webgl2' ? 'WebGL 2' : backend === 'canvas2d' ? 'Canvas 2D' : 'Inicializando'}`), h('span', null, 'Arrastar: mover · Ctrl/⌘ + rolagem: zoom · Alt + rolagem: girar')), h('p', { class: 'stage-note' }, 'Navegação do palco disponível. Desenho, edição da timeline e arquivos de projeto ainda estão em desenvolvimento.'));
+            } }, h('option', { value: 'webgl2' }, 'WebGL 2'), h('option', { value: 'canvas2d' }, 'Canvas 2D'))));
+        const panels = {
+            tools: h('div', { class: 'tools-panel' }, this.#button('tool.hand'), this.#button('tool.zoom')),
+            properties: h('div', { class: 'properties-panel' }, h('h2', null, 'Documento'), h('dl', null, h('dt', null, 'Dimensões'), h('dd', null, `${this.#document.stage.width} × ${this.#document.stage.height} px`), h('dt', null, 'Taxa de quadros'), h('dd', null, `${this.#document.fps.numerator / this.#document.fps.denominator} fps`), h('dt', null, 'Cena'), h('dd', null, this.#document.scenes[0]!.name)), h('h2', null, 'Visualização'), settings),
+            library: h('div', { class: 'library-panel' }, h('h2', null, 'Biblioteca do documento'), h('p', null, `${this.#document.symbols.length} símbolos · ${this.#document.assets.length} arquivos`), h('ul', null, ...this.#document.symbols.map(symbol => h('li', { key: symbol.id }, symbol.name))), this.#document.symbols.length === 0 && this.#document.assets.length === 0 ? h('p', { class: 'panel-note' }, 'Este documento ainda não contém itens de biblioteca.') : null),
+            timeline: h('div', { class: 'timeline-panel' }, h('p', null, `${this.#document.scenes[0]!.name} · ${this.#document.timelines[0]!.duration} quadro · ${this.#document.fps.numerator} fps`), h('table', null, h('thead', null, h('tr', null, h('th', { scope: 'col' }, 'Camada'), h('th', { scope: 'col' }, '1'))), h('tbody', null, ...this.#document.layers.map(layer => h('tr', { key: layer.id }, h('th', { scope: 'row' }, layer.name), h('td', { 'aria-label': 'Quadro-chave vazio' }, '○'))))), h('p', { class: 'panel-note' }, 'Edição e reprodução da timeline ainda em desenvolvimento.')),
+        };
+        return h('section', { class: 'stage-workspace', 'aria-label': 'Palco de animação', onKeyDown: this.#keyDown, onKeyUp: this.#releaseSpace }, h('div', { class: 'stage-document' }, h('strong', null, this.#document.title), h('span', null, `${this.#document.stage.width} × ${this.#document.stage.height} px`), this.#workspaceControls()), h('div', { class: 'stage-toolbar', role: 'toolbar', 'aria-label': 'Câmera do palco' }, this.#button('view.fit'), this.#button('view.actual'), this.#button('view.center'), this.#button('view.zoom-out'), this.#button('view.zoom-in'), this.#button('view.rotate-left'), this.#button('view.rotate-right'), this.#button('view.reset-rotation'), this.#button('view.mirror-x'), this.#button('view.mirror-y'), this.#button('view.grid')), settingsError ? h('div', { role: 'alert', class: 'stage-error' }, settingsError, !this.#workspace ? h('button', { onClick: this.#repairWorkspace }, 'Restaurar preferências de workspace') : null) : null, h(DockChrome, { layout, panels, onLayout: this.#layout }, h('div', { ref: this.#host, class: `stage-surface tool-${tool}`, tabIndex: 0, role: 'application', 'aria-label': 'Palco. Arraste para mover. Control ou Command mais rolagem amplia no cursor.', onPointerDown: this.#down, onPointerMove: this.#move, onPointerUp: this.#up, onPointerCancel: this.#up, onLostPointerCapture: this.#up, onContextMenu: (event: MouseEvent) => event.preventDefault() })), error ? h('p', { role: 'alert', class: 'stage-error' }, error) : null, h('div', { class: 'stage-status', role: 'status', 'aria-live': 'off' }, h('output', { id: 'camera-status', 'data-zoom': camera.zoom, 'data-x': camera.translation[0], 'data-y': camera.translation[1], 'data-rotation': camera.rotationRadians, 'data-mirror-x': camera.mirrorX, 'data-mirror-y': camera.mirrorY }, `${(camera.zoom * 100).toFixed(1)}% · ${degrees.toFixed(0)}° · ${backend === 'webgl2' ? 'WebGL 2' : backend === 'canvas2d' ? 'Canvas 2D' : 'Inicializando'}`), h('span', null, 'Arrastar: mover · Ctrl/⌘ + rolagem: zoom · Alt + rolagem: girar')), h('p', { class: 'stage-note' }, 'Desenho, edição da timeline e arquivos de projeto ainda estão em desenvolvimento.'));
     }
 }

@@ -59,3 +59,53 @@ footer { color: #99a5b9; font-size: 11px; padding-top: 4px; }
 .stage-note { margin: 0; padding: 6px 16px 10px; font-size: 11px; color: #aab4c8; }
 .stage-error { background: #462a30; color: #ffcdc7; margin: 0; padding: 12px 20px; }
 @media (max-width: 800px) { .editor-header .badge { display: none; } .stage-status span { display: none; } .stage-toolbar { padding: 7px; gap: 4px; } .stage-toolbar button { padding: 6px; } }
+.workspace-controls { display: flex; gap: 14px; margin-left: auto; }
+.workspace-menu { position: relative; font-size: 12px; }
+.workspace-menu summary, .dock-actions summary { cursor: pointer; padding: 4px; }
+.workspace-menu > div, .dock-actions > div { position: absolute; z-index: 20; top: 100%; right: 0; width: 220px; background: #252c3a; border: 1px solid #58627a; padding: 10px; box-shadow: 0 8px 20px #0008; display: grid; gap: 6px; }
+.workspace-menu button, .dock-actions button { font-size: 11px; padding: 6px; }
+.workspace-menu input, .workspace-menu select { width: 100%; padding: 5px; color: #edf0f7; background: #181c26; border: 1px solid #58627a; }
+.dock-workspace { position: relative; display: grid; grid-template-columns: auto minmax(80px, 1fr) auto; grid-template-rows: auto minmax(80px, 1fr) auto; flex: 1; min-height: 120px; min-width: 0; }
+.dock-zone { display: flex; min-height: 0; min-width: 0; }
+.dock-zone.left { grid-area: 2 / 1; flex-direction: column; }
+.dock-zone.right { grid-area: 2 / 3; flex-direction: column; }
+.dock-zone.top { grid-area: 1 / 1 / 2 / 4; }
+.dock-zone.bottom { grid-area: 3 / 1 / 4 / 4; }
+.dock-center { grid-area: 2 / 2; display: flex; min-width: 0; min-height: 0; }
+.dock-center .stage-surface { min-height: 0; }
+.dock-group { position: relative; display: flex; flex-direction: column; min-width: 0; min-height: 0; flex: 1; border: 1px solid #343b4c; background: #1b202b; }
+.dock-group.floating { position: absolute; z-index: 5; box-shadow: 0 8px 30px #0008; border-color: #66728a; }
+.dock-group.collapsed { flex: 0 0 36px; }
+.dock-heading { display: flex; min-height: 34px; align-items: center; border-bottom: 1px solid #343b4c; }
+.dock-handle { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #d8dfed; background: transparent; border: 0; border-radius: 0; padding: 8px; font-size: 11px; text-align: left; touch-action: none; }
+.dock-handle:hover { background: #30384a; }
+.dock-actions { position: relative; }
+.dock-actions summary { padding: 3px 8px; }
+.dock-actions > div { width: 150px; }
+.dock-body { min-height: 0; flex: 1; display: flex; flex-direction: column; }
+.dock-tabs { display: flex; gap: 3px; padding: 4px; overflow: auto; border-bottom: 1px solid #343b4c; }
+.dock-tabs button { padding: 5px 7px; font-size: 11px; color: #d8dfed; background: #252c3a; border-color: #58627a; }
+.dock-tabs button[aria-selected=true] { background: #b1a5ff; color: #211b36; }
+.dock-content { min-height: 0; overflow: auto; padding: 10px; font-size: 12px; }
+.dock-content h2 { font-size: 12px; margin-top: 6px; }
+.dock-content dd { text-align: left; margin: 4px 0 12px; }
+.dock-content .stage-settings { display: grid; gap: 10px; padding: 8px 0; background: transparent; }
+.dock-content .stage-settings label { display: grid; gap: 4px; }
+.tools-panel { display: grid; gap: 6px; }
+.tools-panel button { padding: 8px 3px; font-size: 11px; color: #d8dfed; background: #252c3a; border-color: #58627a; }
+.tools-panel button[aria-pressed=true] { background: #b1a5ff; color: #211b36; }
+.panel-note { font-size: 11px; color: #aab4c8; line-height: 1.5; }
+.timeline-panel table { border-collapse: collapse; min-width: 220px; }
+.timeline-panel th, .timeline-panel td { border: 1px solid #48546a; padding: 5px 12px; text-align: left; }
+.timeline-panel td { background: #38304f; color: #cfbcff; }
+.dock-resizer { position: absolute; z-index: 2; touch-action: none; }
+.dock-resizer.left { top: 0; right: -3px; bottom: 0; width: 6px; cursor: ew-resize; }
+.dock-resizer.right { top: 0; left: -3px; bottom: 0; width: 6px; cursor: ew-resize; }
+.dock-resizer.top { left: 0; right: 0; bottom: -3px; height: 6px; cursor: ns-resize; }
+.dock-resizer.bottom { left: 0; right: 0; top: -3px; height: 6px; cursor: ns-resize; }
+.dock-resizer.corner { right: 0; bottom: 0; width: 14px; height: 14px; cursor: nwse-resize; border-right: 3px solid #b1a5ff; border-bottom: 3px solid #b1a5ff; }
+.dock-drop-edge { position: absolute; z-index: 10; display: grid; place-items: center; background: #b1a5ff99; color: #171321; font-size: 10px; border: 1px dashed #dfd7ff; }
+.dock-drop-edge.left { left: 0; top: 25%; bottom: 25%; width: 30px; }
+.dock-drop-edge.right { right: 0; top: 25%; bottom: 25%; width: 30px; }
+.dock-drop-edge.top { left: 25%; right: 25%; top: 0; height: 30px; }
+.dock-drop-edge.bottom { left: 25%; right: 25%; bottom: 0; height: 30px; }

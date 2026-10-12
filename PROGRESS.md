@@ -105,9 +105,20 @@ test expression and a macOS temporary-test-directory collision. Both are fixed,
 with additional regression tests; the expanded suites contain 115 Node tests and
 seven Windows/five Unix Rust tests. Native Stage acceptance awaits the corrected CI.
 
-Next: verify the new native Stage E2E, then connect persistent workspace settings
-and functional panel docking, document tabs, useful Properties/Library/Timeline
-surfaces, rulers/guides/snapping, themes and full native interaction tests. macOS/Linux
+The corrected Rust/JS harness passed macOS/Linux in run 38314909700 (faf9e4f).
+Windows passed native startup and the dual-backend pixel checks, then failed the
+cursor-anchor comparison. The test now records the native wheel coordinates and
+requests integer CSS positions without relaxing tolerance; revalidation is pending.
+
+M2 docking integration now connects the four panels to DockLayout and scoped local
+workspace storage. Dock/float/tab/close/restore, pointer resizing, three presets and
+custom save/rename/delete/reset are connected. Properties exposes real view settings;
+Library/Timeline show the actual empty-document data and do not claim editing.
+New native tests cover floating pointer gestures, the DOM drop route and persistent
+custom layouts across reload. This integration is not yet accepted by native CI.
+
+Next: finish native Stage/docking validation, then document tabs, editable document
+properties, menus/palette, rulers/guides/snapping, themes and UI scaling. macOS/Linux
 native E2E and physical tablet validation remain explicit validation work. No
 drawing, timeline, document save/load or export feature is claimed.
 

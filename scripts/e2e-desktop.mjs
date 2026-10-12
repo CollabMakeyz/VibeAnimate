@@ -6,6 +6,7 @@ import { resolve } from 'node:path';
 import { setTimeout as delay } from 'node:timers/promises';
 import { root } from './check-research.mjs';
 import { checkStage } from './e2e-stage.mjs';
+import { checkWorkspace } from './e2e-workspace.mjs';
 
 // This harness owns the process, isolated WebView profile and loopback debugger.
 // It never attaches to a user's browser. Other native engines need their own
@@ -91,11 +92,15 @@ try {
   await until(() => evaluate(`document.querySelector('#runtime-status')?.textContent.includes('confirmada')`), 'reload');
   checks.push('Reload from embedded assets reconnects to native backend');
   await checkStage({ evaluate, send, until, checks });
+  await checkWorkspace({ evaluate, send, until, checks });
   const screenshot = await send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: false });
   await writeFile(resolve(results, 'native-e2e.png'), Buffer.from(screenshot.data, 'base64'));
   const report = { platform: process.platform, date: new Date().toISOString(), checks, page: page.url, profile };
   await writeFile(resolve(results, 'native-e2e.json'), JSON.stringify(report, null, 2) + '\n');
   console.log(JSON.stringify(report, null, 2));
+} catch (error) {
+  console.error(JSON.stringify({ completedChecks: checks, failure: String(error) }, null, 2));
+  throw error;
 } finally {
   ws?.close();
   if (!exited) app.kill();

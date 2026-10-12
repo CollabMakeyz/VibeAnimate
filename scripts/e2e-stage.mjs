@@ -33,7 +33,9 @@ export async function checkStage({ evaluate, send, until, checks }) {
 
   const camera = () => evaluate(`Object.fromEntries(Object.entries(document.querySelector('#camera-status').dataset).map(([key,value])=>[key,value==='true'?true:value==='false'?false:Number(value)]))`);
   const rect = await evaluate(`(()=>{const r=document.querySelector('.stage-surface').getBoundingClientRect();return {x:r.x,y:r.y,width:r.width,height:r.height};})()`);
-  const x = rect.x + rect.width * .4, y = rect.y + rect.height * .4;
+  // MouseEvent client coordinates can be quantized by the native WebView. Request
+  // whole CSS pixels and record the delivered wheel point for the anchor oracle.
+  const x = Math.round(rect.x + rect.width * .4), y = Math.round(rect.y + rect.height * .4);
   const before = await camera();
   await send('Input.dispatchMouseEvent', { type: 'mouseMoved', x, y });
   await send('Input.dispatchMouseEvent', { type: 'mousePressed', x, y, button: 'left', clickCount: 1 });
@@ -42,13 +44,14 @@ export async function checkStage({ evaluate, send, until, checks }) {
   await until(async () => Math.abs((await camera()).x - before.x - 48) < .01, 'pointer pan');
   const panned = await camera();
   assert.ok(Math.abs(panned.y - before.y - 24) < .01);
-  const anchor = [x - rect.x, y - rect.y];
-  const world = [(anchor[0] - panned.x) / panned.zoom, (anchor[1] - panned.y) / panned.zoom];
+  await evaluate(`document.querySelector('.stage-surface').addEventListener('wheel',event=>{const host=event.currentTarget;const r=host.getBoundingClientRect();host.dataset.testWheelPoint=JSON.stringify([event.clientX-r.left,event.clientY-r.top]);},{capture:true,once:true})`);
   await send('Input.dispatchMouseEvent', { type: 'mouseWheel', x, y, deltaX: 0, deltaY: -100, modifiers: 2 });
   await until(async () => (await camera()).zoom > panned.zoom, 'cursor zoom');
   const zoomed = await camera();
-  assert.ok(Math.abs((anchor[0] - zoomed.x) / zoomed.zoom - world[0]) < .01);
-  assert.ok(Math.abs((anchor[1] - zoomed.y) / zoomed.zoom - world[1]) < .01);
+  const anchor = await evaluate(`JSON.parse(document.querySelector('.stage-surface').dataset.testWheelPoint)`);
+  const world = [(anchor[0] - panned.x) / panned.zoom, (anchor[1] - panned.y) / panned.zoom];
+  assert.ok(Math.abs((anchor[0] - zoomed.x) / zoomed.zoom - world[0]) < .01, JSON.stringify({ anchor, panned, zoomed, rect }));
+  assert.ok(Math.abs((anchor[1] - zoomed.y) / zoomed.zoom - world[1]) < .01, JSON.stringify({ anchor, panned, zoomed, rect }));
   await evaluate(`document.querySelector('[data-command="view.rotate-right"]').click()`);
   await until(async () => (await camera()).rotation > .2, 'rotate command');
   await evaluate(`document.querySelector('[data-command="view.mirror-x"]').click()`);

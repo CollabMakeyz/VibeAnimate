@@ -7,9 +7,10 @@ and API detection, error handling and render-boundary recovery.
 
 M2 now opens a Stage view using WebGL2/Canvas2D, camera commands, hand/zoom tools
 and a bounded adaptive grid. Pointer pan/pinch/rotation and the command registry
-are integrated. The DockLayout model and named-workspace store still await UI
-integration. Current Node suite has 114 passing tests. Newly added native Stage
-E2E must pass before claiming native interaction acceptance. The historical native
+are integrated. Docking and named-workspace storage are now connected to UI, with
+native validation pending. Current Node suite has 115 passing tests. Native Stage
+E2E still has an unresolved cursor-coordinate assertion; the next run must verify
+the revised oracle. The historical native
 M1 evidence below remains distinct.
 
 The Stage displays a canonical empty document; it does not yet edit artwork.
