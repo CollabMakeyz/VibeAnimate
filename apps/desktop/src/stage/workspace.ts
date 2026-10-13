@@ -1,7 +1,8 @@
 import { Component, createRef, h } from 'preact';
 import { CommandRegistry } from '../../../../packages/command-system/src/registry.js';
 import { CameraNavigation } from '../../../../packages/input/src/navigation.js';
-import { createBlankDocument } from '../../../../packages/document-model/src/create-document.js';
+import type { DocumentDTO } from '../../../../packages/document-model/src/dto.js';
+import type { DocumentView } from '../../../../packages/workspace/src/document-tabs.js';
 import { createCamera, centerCamera, fitCamera, orientCameraAt, panCamera, resizeCamera, zoomCameraAt } from '../../../../packages/renderer-core/src/camera.js';
 import type { Point2D, ViewportSize } from '../../../../packages/renderer-core/src/camera.js';
 import type { Camera } from '../../../../packages/renderer-core/src/contracts.js';
@@ -13,6 +14,12 @@ import { DockChrome } from '../workspace/dock-chrome.js';
 import { WorkspaceStore } from '../../../../packages/workspace/src/workspace-store.js';
 import { PANEL_IDS, PRESETS, presetLayout, selectPanel } from '../../../../packages/workspace/src/dock-layout.js';
 import type { DockLayout, PanelId } from '../../../../packages/workspace/src/dock-layout.js';
+interface Props {
+    readonly document: DocumentDTO;
+    readonly view: DocumentView | null;
+    readonly commands: CommandRegistry;
+    readonly onView: (id: string, camera: Camera, size: ViewportSize) => void;
+}
 interface State {
     readonly camera: Camera;
     readonly backend: StageBackend | null;
@@ -24,11 +31,12 @@ interface State {
     readonly workspaceName: string;
     readonly settingsError: string | null;
 }
-export class StageWorkspace extends Component<Record<string, never>, State> {
-    readonly #document = createBlankDocument('document-start', 'Sem título 1');
+export class StageWorkspace extends Component<Props, State> {
+    get #document(): DocumentDTO { return this.props.document; }
     readonly #host = createRef<HTMLDivElement>();
     readonly #navigation = new CameraNavigation(createCamera());
-    readonly #commands = new CommandRegistry(navigator.platform.includes('Mac') ? 'mac' : 'windows');
+    readonly #commands: CommandRegistry;
+    readonly #unregister: (() => void)[] = [];
     #surface: StageSurface | null = null;
     #observer: ResizeObserver | null = null;
     #size: ViewportSize = { width: 1, height: 1 };
@@ -37,8 +45,9 @@ export class StageWorkspace extends Component<Record<string, never>, State> {
     #space = false;
     #workspace: WorkspaceStore | null = null;
     override state: State = { camera: this.#navigation.camera, backend: null, grid: false, gridSize: 32, tool: 'hand', error: null, layout: presetLayout('Essentials'), workspaceName: '', settingsError: null };
-    constructor() {
-        super();
+    constructor(props: Props) {
+        super(props);
+        this.#commands = props.commands;
         try {
             this.#workspace = new WorkspaceStore({ read: () => localStorage.getItem('vibeanimate.workspace.v1'), write: value => localStorage.setItem('vibeanimate.workspace.v1', value) });
             this.state = { ...this.state, layout: this.#workspace.state.current };
@@ -48,7 +57,7 @@ export class StageWorkspace extends Component<Record<string, never>, State> {
             this.state = { ...this.state, settingsError: 'Não foi possível carregar os workspaces. O layout desta sessão não será salvo.' };
         }
         const add = (id: string, label: string, shortcuts: readonly string[], execute: () => void, checked: () => boolean | null = () => null, repeat = false): void => {
-            this.#commands.register({ id, label, contexts: new Set(['stage']), defaultShortcuts: shortcuts, execute, enabled: () => this.#surface !== null, checked, allowRepeat: repeat });
+            this.#unregister.push(this.#commands.register({ id, label, contexts: new Set(['stage']), defaultShortcuts: shortcuts, execute, enabled: () => this.#surface !== null, checked, allowRepeat: repeat }));
         };
         add('view.fit', 'Ajustar palco', ['Primary+0'], () => this.#setCamera(fitCamera(this.#navigation.camera, this.#bounds(), this.#size, this.#padding())));
         add('view.actual', '100%', ['Primary+1'], () => this.#setCamera(zoomCameraAt(this.#navigation.camera, this.#center(), 1)));
@@ -67,7 +76,11 @@ export class StageWorkspace extends Component<Record<string, never>, State> {
     #bounds() { return { minX: 0, minY: 0, maxX: this.#document.stage.width, maxY: this.#document.stage.height }; }
     #center(): Point2D { return [this.#size.width / 2, this.#size.height / 2]; }
     #padding(): number { return Math.min(40, Math.min(this.#size.width, this.#size.height) / 8); }
-    #setCamera(camera: Camera): void { this.#navigation.setCamera(camera); this.setState({ camera }); }
+    #setCamera(camera: Camera): void {
+        this.#navigation.setCamera(camera);
+        this.props.onView(this.#document.id, camera, this.#size);
+        this.setState({ camera });
+    }
     #zoom(anchor: Point2D, factor: number): void { this.#setCamera(zoomCameraAt(this.#navigation.camera, anchor, this.#navigation.camera.zoom * factor)); }
     #rotate(delta: number): void { this.#setCamera(orientCameraAt(this.#navigation.camera, this.#center(), { rotationRadians: this.#navigation.camera.rotationRadians + delta })); }
     #position(event: MouseEvent): Point2D {
@@ -91,6 +104,7 @@ export class StageWorkspace extends Component<Record<string, never>, State> {
         }
     }
     override componentWillUnmount(): void {
+        this.#unregister.forEach(unregister => unregister());
         cancelAnimationFrame(this.#frame);
         this.#observer?.disconnect();
         this.#surface?.dispose();
@@ -99,7 +113,20 @@ export class StageWorkspace extends Component<Record<string, never>, State> {
         window.removeEventListener('keyup', this.#releaseSpace);
         window.removeEventListener('resize', this.#resize);
     }
-    override componentDidUpdate(): void { this.#schedule(); }
+    override componentDidUpdate(previous: Props): void {
+        if (previous.document.id !== this.#document.id) {
+            this.#navigation.cancel();
+            this.#space = false;
+            this.#activateDocument();
+        }
+        this.#schedule();
+    }
+    #activateDocument(): void {
+        const view = this.props.view;
+        const camera = view ? resizeCamera(createCamera({ ...view.camera, dpr: window.devicePixelRatio || 1 }), view.size, this.#size) : fitCamera(createCamera({ dpr: window.devicePixelRatio || 1 }), this.#bounds(), this.#size, this.#padding());
+        this.#fitted = true;
+        this.#setCamera(camera);
+    }
     #fail(error: unknown): void { reportError(error); this.setState({ error: 'O palco não pôde ser renderizado. Abra o diagnóstico para consultar o ambiente.' }); }
     #resize = (): void => {
         const host = this.#host.current;
@@ -107,7 +134,12 @@ export class StageWorkspace extends Component<Record<string, never>, State> {
             return;
         const size = { width: host.clientWidth, height: host.clientHeight };
         const camera = createCamera({ ...this.#navigation.camera, dpr: window.devicePixelRatio || 1 });
-        const next = this.#fitted ? resizeCamera(camera, this.#size, size) : fitCamera(camera, this.#bounds(), size, Math.min(40, Math.min(size.width, size.height) / 8));
+        if (!this.#fitted) {
+            this.#size = size;
+            this.#activateDocument();
+            return;
+        }
+        const next = resizeCamera(camera, this.#size, size);
         this.#size = size;
         this.#fitted = true;
         this.#setCamera(next);
@@ -151,7 +183,7 @@ export class StageWorkspace extends Component<Record<string, never>, State> {
     #move = (event: PointerEvent): void => {
         const camera = this.#navigation.move(event.pointerId, this.#position(event));
         if (camera)
-            this.setState({ camera });
+            this.#setCamera(camera);
     };
     #up = (event: PointerEvent): void => {
         this.#navigation.end(event.pointerId);

@@ -1,0 +1,50 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { DocumentTabs } from '../../apps/desktop/dist/modules/packages/workspace/src/document-tabs.js';
+import { createCamera } from '../../apps/desktop/dist/modules/packages/renderer-core/src/camera.js';
+
+test('documents keep independent camera state outside their canonical DTOs', () => {
+  const tabs = new DocumentTabs();
+  const first = tabs.create('document-first');
+  const camera = createCamera({ translation: [10, 20], zoom: 2, rotationRadians: .4, mirrorX: true });
+  const size = { width: 800, height: 600 };
+  tabs.rememberView(first.document.id, camera, size);
+  size.width = 1;
+  const second = tabs.create('document-second');
+  assert.equal(second.view, null);
+  assert.equal(tabs.active.document.id, second.document.id);
+  tabs.rememberView(second.document.id, createCamera({ zoom: .5 }), { width: 900, height: 700 });
+  tabs.select(first.document.id);
+  assert.deepEqual(tabs.active.view.camera, camera);
+  assert.equal(tabs.active.view.size.width, 800);
+  assert.equal(tabs.active.document, first.document);
+  assert.equal('camera' in first.document, false);
+  assert.ok(Object.isFrozen(tabs.active.view));
+  assert.equal(first.document.title, 'Sem título 1');
+  assert.equal(second.document.title, 'Sem título 2');
+});
+test('closing selects the adjacent tab, preserves inactive selection, and permits an empty workspace', () => {
+  const tabs = new DocumentTabs();
+  tabs.create('document-first'); tabs.create('document-second'); tabs.create('document-third');
+  tabs.select('document-second'); tabs.close('document-first');
+  assert.equal(tabs.active.document.id, 'document-second');
+  tabs.close('document-second'); assert.equal(tabs.active.document.id, 'document-third');
+  tabs.close('document-third'); assert.equal(tabs.active, null);
+  assert.equal(tabs.tabs.length, 0);
+  assert.equal(tabs.create('document-fourth').document.title, 'Sem título 4');
+});
+test('invalid IDs, duplicates, missing tabs and capacity limits do not corrupt selection', () => {
+  const tabs = new DocumentTabs(2);
+  assert.throws(() => tabs.create('bad'));
+  tabs.create('document-first');
+  assert.throws(() => tabs.create('document-first'));
+  assert.equal(tabs.create('document-second').document.title, 'Sem título 2');
+  assert.equal(tabs.canCreate, false);
+  assert.throws(() => tabs.create('document-third'));
+  assert.throws(() => tabs.select('missing-document'));
+  assert.throws(() => tabs.close('missing-document'));
+  assert.throws(() => tabs.rememberView('document-first', createCamera(), { width: 0, height: 100 }));
+  assert.equal(tabs.active.document.id, 'document-second');
+  tabs.close('document-first'); assert.equal(tabs.canCreate, true);
+  assert.throws(() => new DocumentTabs(0));
+});

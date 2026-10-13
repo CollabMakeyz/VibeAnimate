@@ -6,7 +6,7 @@ import ts from 'typescript';
 
 test('native E2E expressions parse in the same async wrapper used by CDP', async () => {
   let count = 0;
-  for (const file of ['scripts/e2e-desktop.mjs', 'scripts/e2e-stage.mjs', 'scripts/e2e-workspace.mjs']) {
+  for (const file of ['scripts/e2e-desktop.mjs', 'scripts/e2e-stage.mjs', 'scripts/e2e-workspace.mjs', 'scripts/e2e-tabs.mjs']) {
     const source = ts.createSourceFile(file, await readFile(new URL(`../../${file}`, import.meta.url), 'utf8'), ts.ScriptTarget.Latest, true, ts.ScriptKind.JS);
     function visit(node) {
       if (ts.isCallExpression(node) && ts.isIdentifier(node.expression) && node.expression.text === 'evaluate') {

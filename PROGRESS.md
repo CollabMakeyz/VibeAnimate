@@ -129,3 +129,14 @@ unit test as proof of complete workflow parity. Record exact commands, counts,
 platforms, deviations, dependency changes and next steps for each checkpoint.
 Physical tablet and reference-machine graphics results must be measured, not
 inferred. The overall goal remains active until the full acceptance criteria pass.
+
+M2 tabs checkpoint (2026-10-13): canonical blank documents now open in independent
+session tabs, retain their own camera, close to an adjacent tab or welcome screen,
+and remount Stage without duplicate command registrations. Global shortcuts also
+work with body focus. `npm run check` passes 118 tests. Stage/workspace/tabs pass
+in an isolated Chromium preview; Windows native revalidation remains pending.
+Run 38316048794 passed the full native Stage checks, then exposed unitless CSS
+lengths in floating/docked panel placement. Explicit px fixes reproduce and resolve
+the defect locally. See docs/checkpoints/m2-document-tabs.md. Next: native CI,
+menus/palette, preferences, editable properties, rulers/guides/snapping and remaining
+M2 acceptance. No M2 milestone completion is claimed.

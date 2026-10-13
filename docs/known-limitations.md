@@ -37,3 +37,4 @@ terms remain host obligations. Dependency and feature changes require review.
 The browser AA experiment covers thirty convex/decomposed cases, not arbitrary
 topology. Historical shortcut unknowns and menu-placement conflicts remain explicit.
 No milestone is accepted from a screenshot or synthetic hardware events alone.
+

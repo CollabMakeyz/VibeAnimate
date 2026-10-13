@@ -89,3 +89,9 @@ Decisions dated 2026-10-10. None of these entries is evidence of implemented par
     desktop dist/modules. Core modules are tested from the same emitted JavaScript
     shipped to the app. The separate contracts compiler still excludes DOM types,
     preserving the framework-independent package boundary without a new bundler.
+25. **M2 document tabs (2026-10-13):** blank documents have independent immutable
+    DTOs and camera/viewport state. At most 32 are open in the UI (bounded model
+    supports configured limits up to 128). Active close selects next, then previous;
+    last close shows welcome. Tabs are session state, not project persistence.
+    Dirty-close protection must precede authoring mutations; no edits are discarded
+    in this blank-document checkpoint.
